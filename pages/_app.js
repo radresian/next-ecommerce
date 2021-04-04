@@ -1,4 +1,5 @@
 import '../public/reset.css';
+import '../components/landing/index.css';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '../apollo/client';
 
