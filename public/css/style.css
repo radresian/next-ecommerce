@@ -133,13 +133,19 @@ hr {
 
 .second-container {
   margin-top: 30px;
+  padding-bottom: 30px;
 }
+
 .section-title h2 {
 	position: relative;
-	margin-top: 10px;
+	margin-top: 100px;
 	margin-bottom: 15px;
 	padding-bottom: 15px;
 }
+.section-title-h2 {
+  margin-top: 10px !important;
+}
+
 .section-title h2::after {
 	position: absolute;
 	content: "";
@@ -235,11 +241,10 @@ header .intro-text {
 	text-align: center;
 }
 /* Features Section */
-#features {
-	padding: 50px 0;
+#howitworks {
 	background: #f6f6f6;
 }
-#features i.fa {
+#howitworks i.fa {
 	font-size: 38px;
 	margin-bottom: 20px;
 	transition: all 0.5s;
@@ -387,11 +392,11 @@ header .intro-text {
 	opacity: 1;
 }
 /* Testimonials Section */
-#testimonials {
-	padding: 100px 0;
+#team {
 	background: #f6f6f6;
+  padding-bottom: 100px;
 }
-#testimonials i {
+#team i {
 	color: #e6e6e6;
 	font-size: 32px;
 	margin-bottom: 20px;
@@ -425,24 +430,7 @@ header .intro-text {
 	font-weight: 600;
 	color: #666;
 }
-/* Team Section */
-#team {
-	padding: 100px 0;
-}
-#team h4 {
-	margin: 5px 0;
-}
-#team .team-img {
-	width: 240px;
-}
-#team .thumbnail {
-	background: transparent;
-	border: 0;
-}
-#team .thumbnail .caption {
-	padding: 10px 0 0 0;
-	color: #888;
-}
+
 /* Contact Section */
 #contact {
 	padding: 100px 0 60px 0;

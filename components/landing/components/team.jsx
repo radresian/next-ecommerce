@@ -1,6 +1,6 @@
-export const Testimonials = (props) => {
+export const Team = (props) => {
   return (
-    <div id='testimonials'>
+    <div id='team'>
       <div className='container'>
         <div className='section-title text-center'>
           <h2>Meet the Team</h2>

@@ -1,8 +1,8 @@
 import Step from './step';
 
-export const Features = (props) => {
+export const Howitworks = (props) => {
   return (
-    <div id='features' className='text-center'>
+    <div id='howitworks' className='text-center'>
       <div className='container'>
         <div className='col-md-10 col-md-offset-1 section-title'>
           <h2>How It Works for Creators</h2>
@@ -39,8 +39,8 @@ export const Features = (props) => {
         </div>
       </div>
       <div className='container second-container'>
-        <div className='col-md-10 col-md-offset-1 section-title'>
-          <h2>How It Works For DAO members</h2>
+        <div className='col-md-10 col-md-offset-1 section-title '>
+          <h2 className='section-title-h2'>How It Works For DAO members</h2>
         </div>
         <div className='row'>
           <div className='col-xs-6 col-md-3'>

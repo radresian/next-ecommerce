@@ -47,7 +47,7 @@ const Page = props => {
           href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900"
           rel="stylesheet"
         />
-        <title>A React Landing Page Template</title>
+        <title>BestDrop</title>
         <meta name="description" content=""/>
         <meta name="author" content="@Issaafalkattan"/>
       </Head>
