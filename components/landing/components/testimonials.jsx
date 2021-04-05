@@ -3,12 +3,12 @@ export const Testimonials = (props) => {
     <div id='testimonials'>
       <div className='container'>
         <div className='section-title text-center'>
-          <h2>What our clients say</h2>
+          <h2>Meet the Team</h2>
         </div>
         <div className='row'>
           {props.data
             ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className='col-md-4'>
+                <div key={`${d.name}-${i}`} className='col-md-6'>
                   <div className='testimonial'>
                     <div className='testimonial-image'>
                       {' '}
@@ -16,7 +16,10 @@ export const Testimonials = (props) => {
                     </div>
                     <div className='testimonial-content'>
                       <p>"{d.text}"</p>
-                      <div className='testimonial-meta'> - {d.name} </div>
+                      <p>-</p>
+                      <a className='linkedin' href={d.linkedin}> Linkedin </a>
+                      <div className='testimonial-meta'> {d.name} </div>
+                      <div className='testimonial-meta'> {d.title} </div>
                     </div>
                   </div>
                 </div>

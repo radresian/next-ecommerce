@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <>
       <Link href="/">
-        <a className="logo">BestDrop</a>
+        <a className="logo">BestDrops</a>
       </Link>
       <style jsx>{`
         .logo {
@@ -13,7 +13,6 @@ export default function Logo() {
           font-size: 22px;
           line-height: 60px;
           letter-spacing: 1.65px;
-          text-transform: uppercase;
           color: #4d4d4d;
           text-decoration: none;
         }
