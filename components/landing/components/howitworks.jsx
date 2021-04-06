@@ -53,7 +53,7 @@ export const Howitworks = (props) => {
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'02'}
-              text={'Block your Uniswap LP tokens with our smart contract and take our DAO tokens'}
+              text={'Lock your Uniswap LP tokens with our smart contract and take our DAO tokens'}
               img_url={'/img/howitworks/block.svg'}
             />
           </div>

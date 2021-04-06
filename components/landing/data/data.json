@@ -7,7 +7,7 @@
 
     },
     "About": {
-        "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. There are countless artwork around different marketplaces. Therefore demanding collectors have to search around those marketplaces and follow drop schedules everywhere to find the most valuable and special editions of their favorite artist. BestDrops targets to be the center of best quality NFT creation of the market as a self governed NFT community which incentivizes the best artists to drop their best works to BestDrop Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrop is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops rewards only the successful sale of the newly created NFTs and takes a service fee for the first buy in order to prevent the major problem of the market called wash trades.",
+        "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places. Therefore there is a gap for NFT creators in the market and BestDrops targets to be the center of best quality NFT creation of the market as a self governed NFT community which incentivizes the best artists to drop their best works to BestDrop Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrop is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops rewards only the successful sale of the newly created NFTs and takes a service fee for the first buy in order to prevent the major problem of the market called wash trades.",
         "Why": [
 
         ],
@@ -15,6 +15,15 @@
 
         ]
     },
+  "Tokenomics": {
+    "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. There are countless artwork around different marketplaces. Therefore demanding collectors have to search around those marketplaces and follow drop schedules everywhere to find the most valuable and special editions of their favorite artist. BestDrops targets to be the center of best quality NFT creation of the market as a self governed NFT community which incentivizes the best artists to drop their best works to BestDrop Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrop is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops rewards only the successful sale of the newly created NFTs and takes a service fee for the first buy in order to prevent the major problem of the market called wash trades.",
+    "Why": [
+
+    ],
+    "Why2": [
+
+    ]
+  },
     "Features": [{
             "icon": "fa fa-wordpress",
             "name": "Lorem ipsum dolor",

@@ -58,9 +58,14 @@ export const Navigation = (props) => {
               </a>
             </li>
             <li>
-              <a href='market' className='page-scroll'>
+              <div>
+              <a
+                href='market'
+                className='btn btn-custom btn-lg page-scroll'
+              >
                 Market
               </a>
+              </div>
             </li>
           </ul>
         </div>
