@@ -19,33 +19,23 @@ const styles = {
 
 const data = [
   {
-    id: 'Seed Sale',
-    label: 'Seed Sale',
-    value: 20
+    id: 'Legal Fees',
+    label: 'Legal Fees',
+    value: 5
   },
   {
-    id: 'Public Sale',
-    label: 'Public Sale',
-    value: 3
+    id: 'Marketing, Partnerships',
+    label: 'Marketing, Partnerships',
+    value: 15
   },
   {
-    id: 'Team',
-    label: 'Team',
-    value: 9
+    id: 'Liquidity',
+    label: 'Liquidity',
+    value: 30
   },
   {
-    id: 'Faundation',
-    label: 'Faundation',
-    value: 8
-  },
-  {
-    id: 'Buyers Airdrop',
-    label: 'Buyers Airdrop',
-    value: 10
-  },
-  {
-    id: 'NFT Crators Mining',
-    label: 'NFT Creator Mining',
+    id: 'Development',
+    label: 'Development',
     value: 50
   }
 ];
@@ -77,31 +67,13 @@ const legends=[
 ];
 
 
-export const Tokenomics = (props) => {
+export const Funds = (props) => {
 
 
   return (
     <div id='tokenomics'>
       <div className='container'>
         <div className='row'>
-          <div className='col-xs-12 col-md-6'>
-            <div className='about-text'>
-              <h2>Tokenomics</h2>
-              <li><span style={styles.liSpan}>Seed Sale: </span>Price: $0.1 - 20% will be unlocked after listing. Remaining locked for 30 days then weekly vested over 6 months.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Public Sale: </span>Price: $0.12 - No vesting.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Listing: </span>Price: $0.125 on Uniswap.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>NFT Creators Mining: </span>Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Buyers Airdrop: </span>Every week a certain amount is distributed to NFT buyers this amount is 10K for each week and will be reduced by time.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Faundation: </span>75% unlucked as initial liquidity and stake programme. Remaining locked for 30 days then weekly vested over one year</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Team: </span>Locked for one year, then weekly vesting over one year.</li>
-            </div>
-          </div>
           <div className='col-xs-12 col-md-6'>
             <div style={styles.root}>
               <ResponsivePie
@@ -121,6 +93,18 @@ export const Tokenomics = (props) => {
                 sliceLabel={(item) => `${item.value}%`}
                 legends={[]}
               />
+            </div>
+          </div>
+          <div className='col-xs-12 col-md-6'>
+            <div className='about-text'>
+              <h2>How We Allocate $708,000 Fund Rised</h2>
+              <li><span style={styles.liSpan}>50% Development: </span>$354,000 will be used for development and maintenance costs of the BestDrops dApp.</li>
+              <p></p>
+              <li><span style={styles.liSpan}>30% Liquidity: </span>$212,400 will be liquidity to Uniswap.</li>
+              <p></p>
+              <li><span style={styles.liSpan}>15% Marketing, Partnerships: </span>$106,200 will be used for marketing and partnerships.</li>
+              <p></p>
+              <li><span style={styles.liSpan}>5% Legal Fees: </span>35,400 is reserved for legal fees.</li>
             </div>
           </div>
         </div>

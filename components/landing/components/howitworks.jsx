@@ -5,7 +5,7 @@ export const Howitworks = (props) => {
     <div id='howitworks' className='text-center'>
       <div className='container'>
         <div className='col-md-10 col-md-offset-1 section-title'>
-          <h2>How It Works for Creators</h2>
+          <h2>How It Works for NFT Creators</h2>
         </div>
         <div className='row'>
           <div className='col-xs-6 col-md-3'>
@@ -32,7 +32,7 @@ export const Howitworks = (props) => {
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'04'}
-              text={'Every week 100.000 $BSTD is distributed to BestDrop Creators'}
+              text={'Every week 100K $BESD is distributed to BestDrop NFT Creators. Distributed amount will be reduced by a time factor.'}
               img_url={'/img/howitworks/profit.svg'}
             />
           </div>
@@ -46,7 +46,7 @@ export const Howitworks = (props) => {
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'01'}
-              text={'Buy some BSTD/ETH Liquidity Provider tokens from Uniswap'}
+              text={'Buy some BESD/ETH Liquidity Provider tokens from Uniswap'}
               img_url={'/img/howitworks/swap.svg'}
             />
           </div>
@@ -67,7 +67,7 @@ export const Howitworks = (props) => {
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'04'}
-              text={'Every week 20.000 $BSTD is distributed to DAO token owners proportional to the amount and block time'}
+              text={'Every week 20.000 $BESD is distributed to DAO token owners proportional to the amount and lock period'}
               img_url={'/img/howitworks/profit.svg'}
             />
           </div>

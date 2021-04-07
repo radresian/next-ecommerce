@@ -3,11 +3,11 @@
         "title1": "Best Drops",
         "title2": "of ",
         "title3": "NFT",
-        "paragraph": "BestDrop claims to be the best quality NFT factory of the market."
+        "paragraph": "BestDrops claims to be the best quality NFT factory of the market."
 
     },
     "About": {
-        "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places. Therefore there is a gap for NFT creators in the market and BestDrops targets to be the center of best quality NFT creation of the market as a self governed NFT community which incentivizes the best artists to drop their best works to BestDrop Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrop is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops rewards only the successful sale of the newly created NFTs and takes a service fee for the first buy in order to prevent the major problem of the market called wash trades.",
+        "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places. Therefore there is a gap for NFT creators in the market and BestDrops targets to be the center of NFT creation of the market as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrops is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops mostly rewards sale of the newly created NFTs but also rewards randomly the unsold items and buyers however takes a service fee for buyers in order to prevent the major problem of the market called wash trades.",
         "Why": [
 
         ],
@@ -15,38 +15,7 @@
 
         ]
     },
-  "Tokenomics": {
-    "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. There are countless artwork around different marketplaces. Therefore demanding collectors have to search around those marketplaces and follow drop schedules everywhere to find the most valuable and special editions of their favorite artist. BestDrops targets to be the center of best quality NFT creation of the market as a self governed NFT community which incentivizes the best artists to drop their best works to BestDrop Decentralized Application, by continuously rewarding the artist’s drops by its native governance token. BestDrop is designed to be a DAO which is governed by its community members carrying governance tokens. BestDrops rewards only the successful sale of the newly created NFTs and takes a service fee for the first buy in order to prevent the major problem of the market called wash trades.",
-    "Why": [
-
-    ],
-    "Why2": [
-
-    ]
-  },
-    "Features": [{
-            "icon": "fa fa-wordpress",
-            "name": "Lorem ipsum dolor",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-        },
-        {
-            "icon": "fa fa-cart-arrow-down",
-            "name": "Consectetur adipiscing",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-        },
-        {
-            "icon": "fa fa-cloud-download",
-            "name": "Lorem ipsum dolor",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-        },
-        {
-            "icon": "fa fa-language",
-            "name": "Consectetur adipiscing",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
-        }
-
-    ],
-    "Testimonials": [
+    "Team": [
         {
             "img": "img/team/hasanserdar.jpeg",
             "text": "16 years of Software Development and Management experience in Fintech. Expertize in stock exchange and virtual trading platforms.",
@@ -77,26 +46,6 @@
         }
 
     ],
-    "Team": [{
-            "img": "img/team/01.jpg",
-            "name": "John Doe",
-            "job": "Director"
-        },
-        {
-            "img": "img/team/02.jpg",
-            "name": "Mike Doe",
-            "job": "Senior Designer"
-        }, {
-            "img": "img/team/03.jpg",
-            "name": "Jane Doe",
-            "job": "Senior Designer"
-        },
-        {
-            "img": "img/team/04.jpg",
-            "name": "Karen Doe",
-            "job": "Project Manager"
-        }
-    ],
     "Contact": {
         "address": "4321 California St, San Francisco, CA 12345 ",
         "phone": "+1 123 456 1234",
@@ -105,36 +54,59 @@
         "twitter": "twitter.com",
         "youtube": "youtube.com"
     },
-    "Services": [
-        {
-            "icon": "fa fa-btc",
-            "title": "BDC Token",
-            "text": "BestDrop is introducing BestDrop Coin (BDC), a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
-        },
-        {
-            "icon": "fa fa-comments-o",
-            "title": "DAO",
-            "text": "BestDrop is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying BDC coins have a voice on the platform's future"
-        },
-        {
-            "icon": "fa fa-link",
-            "title": "NFT Contracts",
-            "text": "BestDrop uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
-        },
-        {
-            "icon": "fa fa-magic",
-            "title": "NFT Create UI",
-            "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
-        },
-        {
-          "icon": "fa fa-group",
-          "title": "NFT Auctions",
-          "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
-        },
-        {
-          "icon": "fa fa-plus-square-o",
-          "title": "Earn BDC",
-          "text": "Users can stake their BDC token and earn more BDC or special artifacts by farming BDC"
-        }
+  "Token": {
+   "title": "$BESD Token",
+   "data": [
+    {
+      "icon": "fa fa-btc",
+      "title": "30M",
+      "text": "Total Supply"
+    },
+    {
+      "icon": "fa fa-comments-o",
+      "title": "2.1M",
+      "text": "Initial Circulating Supply"
+    },
+    {
+      "icon": "fa fa-link",
+      "title": "$708,000",
+      "text": "Hard Cap"
+    }
+
+  ]},
+  "Services": {
+    "title": "Our Services",
+    "data": [
+      {
+        "icon": "fa fa-btc",
+        "title": "$BESD Token",
+        "text": "BestDrops is introducing its Coin $BESD, a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
+      },
+      {
+        "icon": "fa fa-comments-o",
+        "title": "DAO",
+        "text": "BestDrops is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying $BESD coins have a voice on the platform's future"
+      },
+      {
+        "icon": "fa fa-link",
+        "title": "NFT Contracts",
+        "text": "BestDrops uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
+      },
+      {
+        "icon": "fa fa-magic",
+        "title": "NFT Create UI",
+        "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
+      },
+      {
+        "icon": "fa fa-group",
+        "title": "NFT Auctions",
+        "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
+      },
+      {
+        "icon": "fa fa-plus-square-o",
+        "title": "Earn $BESD",
+        "text": "Users can stake their BDC token and earn more BDC or special artifacts by farming $BESD"
+      }
     ]
+  }
 }

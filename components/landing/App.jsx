@@ -4,7 +4,7 @@ import { Header } from './components/header'
 import { Howitworks } from './components/howitworks'
 import { About } from './components/about'
 import { Services } from './components/services'
-import { Gallery } from './components/gallery'
+import { Funds } from './components/funds'
 import { Team } from './components/team'
 import { Tokenomics } from './components/Tokenomics'
 import { Contact } from './components/contact'
@@ -34,8 +34,10 @@ const App = () => {
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
       <Howitworks data={landingPageData.Features} />
-      <Tokenomics data={landingPageData.Tokenomics} />
-      <Team data={landingPageData.Testimonials} />
+      <Tokenomics />
+      <Services data={landingPageData.Token} />
+      <Funds />
+      <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>
   )
