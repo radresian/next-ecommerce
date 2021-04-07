@@ -12,7 +12,7 @@ import JsonData from './data/data.json'
 
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({})
+  const [landingPageData, setLandingPageData] = useState(JsonData)
   useEffect(() => {
     setLandingPageData(JsonData)
   }, []);

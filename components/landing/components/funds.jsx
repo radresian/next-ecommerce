@@ -14,6 +14,14 @@ const styles = {
     borderRight: 0,
     boxShadow: '0 0 50 rgba(0,0,0,0.06)'
   },
+  total:{
+    position: 'relative',
+    left: 240,
+    top:-235,
+    maxWidth:100,
+    fontWeight: 'bold',
+    fontSize:25
+  },
   liSpan:{fontWeight:'bold'}
 };
 
@@ -26,17 +34,17 @@ const data = [
   {
     id: 'Marketing, Partnerships',
     label: 'Marketing, Partnerships',
-    value: 15
+    value: 20
   },
   {
     id: 'Liquidity',
     label: 'Liquidity',
-    value: 30
+    value: 15
   },
   {
     id: 'Development',
     label: 'Development',
-    value: 50
+    value: 60
   }
 ];
 
@@ -94,15 +102,16 @@ export const Funds = (props) => {
                 legends={[]}
               />
             </div>
+            <span style={styles.total}>$708,000</span>
           </div>
           <div className='col-xs-12 col-md-6'>
             <div className='about-text'>
               <h2>How We Allocate $708,000 Fund Rised</h2>
-              <li><span style={styles.liSpan}>50% Development: </span>$354,000 will be used for development and maintenance costs of the BestDrops dApp.</li>
+              <li><span style={styles.liSpan}>60% Development: </span>$424,800 will be used for development and maintenance costs of the BestDrops dApp.</li>
               <p></p>
-              <li><span style={styles.liSpan}>30% Liquidity: </span>$212,400 will be liquidity to Uniswap.</li>
+              <li><span style={styles.liSpan}>15% Liquidity: </span>$106,200 will be liquidity to Uniswap.</li>
               <p></p>
-              <li><span style={styles.liSpan}>15% Marketing, Partnerships: </span>$106,200 will be used for marketing and partnerships.</li>
+              <li><span style={styles.liSpan}>20% Marketing, Partnerships: </span>$141,600 will be used for marketing and partnerships.</li>
               <p></p>
               <li><span style={styles.liSpan}>5% Legal Fees: </span>35,400 is reserved for legal fees.</li>
             </div>

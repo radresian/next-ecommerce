@@ -14,6 +14,13 @@ const styles = {
     borderRight: 0,
     boxShadow: '0 0 50 rgba(0,0,0,0.06)'
   },
+  total:{
+    position: 'relative',
+    left: 268,
+    top:-235,
+    fontWeight: 'bold',
+    fontSize:30
+  },
   liSpan:{fontWeight:'bold'}
 };
 
@@ -44,8 +51,8 @@ const data = [
     value: 10
   },
   {
-    id: 'NFT Crators Mining',
-    label: 'NFT Creator Mining',
+    id: 'NFT Mining',
+    label: 'NFT Mining',
     value: 50
   }
 ];
@@ -95,9 +102,9 @@ export const Tokenomics = (props) => {
               <p></p>
               <li><span style={styles.liSpan}>NFT Creators Mining: </span>Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week.</li>
               <p></p>
-              <li><span style={styles.liSpan}>Buyers Airdrop: </span>Every week a certain amount is distributed to NFT buyers this amount is 10K for each week and will be reduced by time.</li>
+              <li><span style={styles.liSpan}>Buyers Airdrop: </span>Every week a certain amount is distributed to NFT buyers this amount is 20K for each week and will be reduced by time.</li>
               <p></p>
-              <li><span style={styles.liSpan}>Faundation: </span>75% unlucked as initial liquidity and stake programme. Remaining locked for 30 days then weekly vested over one year</li>
+              <li><span style={styles.liSpan}>Faundation: </span>850K will be used for Initial liquidity and 1.5M for stake programme.</li>
               <p></p>
               <li><span style={styles.liSpan}>Team: </span>Locked for one year, then weekly vesting over one year.</li>
             </div>
@@ -122,6 +129,7 @@ export const Tokenomics = (props) => {
                 legends={[]}
               />
             </div>
+            <span style={styles.total}>30M</span>
           </div>
         </div>
       </div>
