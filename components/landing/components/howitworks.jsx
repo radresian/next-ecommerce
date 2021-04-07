@@ -73,6 +73,41 @@ export const Howitworks = (props) => {
           </div>
         </div>
       </div>
+      <div className='container second-container'>
+        <div className='col-md-10 col-md-offset-1 section-title '>
+          <h2 className='section-title-h2'>How It Works For NFT buyers</h2>
+        </div>
+        <div className='row'>
+          <div className='col-xs-6 col-md-3'>
+            <Step
+              index={'01'}
+              text={'Make an offers for listed and auctioned NFTs by $ETH.'}
+              img_url={'/img/howitworks/swap.svg'}
+            />
+          </div>
+          <div className='col-xs-6 col-md-3'>
+            <Step
+              index={'02'}
+              text={'If you win the auction, you have the NFT.'}
+              img_url={'/img/howitworks/block.svg'}
+            />
+          </div>
+          <div className='col-xs-6 col-md-3'>
+            <Step
+              index={'03'}
+              text={'Your NFT is visible in your wallet, you can sell it here or any other NFT market place.'}
+              img_url={'/img/howitworks/vote.svg'}
+            />
+          </div>
+          <div className='col-xs-6 col-md-3'>
+            <Step
+              index={'04'}
+              text={'Win the auction or not you have the ticket for the weekly $BESD lottery now.'}
+              img_url={'/img/howitworks/profit.svg'}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
