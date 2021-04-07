@@ -46,8 +46,8 @@ const data = [
     value: 8
   },
   {
-    id: 'Buyers Airdrop',
-    label: 'Buyers Airdrop',
+    id: 'Buyers Lottery',
+    label: 'Buyers Lottery',
     value: 10
   },
   {
@@ -102,7 +102,7 @@ export const Tokenomics = (props) => {
               <p></p>
               <li><span style={styles.liSpan}>NFT Creators Mining: </span>Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week.</li>
               <p></p>
-              <li><span style={styles.liSpan}>Buyers Airdrop: </span>Every week a certain amount is distributed to NFT buyers this amount is 20K for each week and will be reduced by time.</li>
+              <li><span style={styles.liSpan}>Buyers Lottery: </span>Every week a lottery is distributed to NFT buyers. First month 20K for each week and will be reduced by time.</li>
               <p></p>
               <li><span style={styles.liSpan}>Faundation: </span>850K will be used for Initial liquidity and 1.5M for stake programme.</li>
               <p></p>

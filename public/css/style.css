@@ -298,6 +298,7 @@ header .intro-text {
 	background: #fff;
 	border-right: 0;
 	box-shadow: 0 0 50px rgba(0,0,0,0.06);
+  border-radius: 200px;
 }
 #about, #tokenomics p {
 	line-height: 24px;

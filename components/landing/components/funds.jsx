@@ -22,6 +22,10 @@ const styles = {
     fontWeight: 'bold',
     fontSize:25
   },
+  texts:{
+    marginTop:55,
+    paddingLeft:55
+  },
   liSpan:{fontWeight:'bold'}
 };
 
@@ -105,7 +109,7 @@ export const Funds = (props) => {
             <span style={styles.total}>$708,000</span>
           </div>
           <div className='col-xs-12 col-md-6'>
-            <div className='about-text'>
+            <div className='about-text' style={styles.texts}>
               <h2>How We Allocate $708,000 Fund Rised</h2>
               <li><span style={styles.liSpan}>60% Development: </span>$424,800 will be used for development and maintenance costs of the BestDrops dApp.</li>
               <p></p>

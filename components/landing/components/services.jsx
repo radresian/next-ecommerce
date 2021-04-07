@@ -2,9 +2,11 @@ export const Services = (props) => {
   return (
     <div id='services' className='text-center'>
       <div className='container'>
+        {props.data.title &&
         <div className='section-title'>
           <h2>{props.data.title}</h2>
         </div>
+        }
         <div className='row'>
           {props.data.data
             ? props.data.data.map((d, i) => (

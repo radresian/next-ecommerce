@@ -46,28 +46,28 @@ export const Howitworks = (props) => {
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'01'}
-              text={'Buy some BESD/ETH Liquidity Provider tokens from Uniswap'}
+              text={'Buy some $BESD from Uniswap'}
               img_url={'/img/howitworks/swap.svg'}
             />
           </div>
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'02'}
-              text={'Lock your Uniswap LP tokens with our smart contract and take our DAO tokens'}
+              text={'Lock your $BESD tokens with our smart contract and take our DAO tokens'}
               img_url={'/img/howitworks/block.svg'}
             />
           </div>
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'03'}
-              text={'Vote and make purposals on DAO community with your DAO tokens. Always you can get your LP tokens back.'}
+              text={'Vote and make purposals on DAO community with your DAO tokens. Have rights to buy limited edition special NTFs.'}
               img_url={'/img/howitworks/vote.svg'}
             />
           </div>
           <div className='col-xs-6 col-md-3'>
             <Step
               index={'04'}
-              text={'Every week 20.000 $BESD is distributed to DAO token owners proportional to the amount and lock period'}
+              text={'Earn $BESD proportional to lock time and have your share from service fees as Ether'}
               img_url={'/img/howitworks/profit.svg'}
             />
           </div>
