@@ -8,8 +8,8 @@ export const Services = (props) => {
         </div>
         }
         <div className='row'>
-          {props.data.data
-            ? props.data.data.map((d, i) => (
+          {props.data.items
+            ? props.data.items.map((d, i) => (
                 <div key={`${d.name}-${i}`} className='col-md-4'>
                   {' '}
                   <i className={d.icon}></i>

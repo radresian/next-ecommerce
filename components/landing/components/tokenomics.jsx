@@ -75,20 +75,14 @@ export const Tokenomics = (props) => {
         <div className='row'>
           <div className='col-xs-12 col-md-6'>
             <div className='about-text'>
-              <h2>Tokenomics</h2>
-              <li><span style={styles.liSpan}>Seed Sale: </span>Price: $0.1 - 20% will be unlocked after listing. Remaining locked for 30 days then weekly vested over 6 months.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Public Sale: </span>Price: $0.12 - No vesting.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Listing: </span>Price: $0.125 on Uniswap.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>NFT Creators Mining: </span>Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Buyers Lottery: </span>Every week a lottery is distributed to NFT buyers. First month 20K for each week and will be reduced by time.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Faundation: </span>850K will be used for Initial liquidity and 1.5M for stake programme.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>Team: </span>Locked for one year, then weekly vesting over one year.</li>
+                <h2>{props.data.title}</h2>
+                {props.data.items.map(item => (
+                  <>
+                    <li><span style={styles.liSpan}>{item.label}</span>{item.description}</li>
+                    <p></p>
+                  </>
+                ))
+                }
             </div>
           </div>
           <div className='col-xs-12 col-md-6'>

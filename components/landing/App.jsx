@@ -11,11 +11,13 @@ import { Contact } from './components/contact'
 import JsonData from './data/data.json'
 
 
-const App = () => {
-  const [landingPageData, setLandingPageData] = useState(JsonData)
+const App = (props) => {
+  const [language, setLanguage] = useState(props.language);
+  const [landingPageData, setLandingPageData] = useState(JsonData[language]);
+
   useEffect(() => {
-    setLandingPageData(JsonData)
-  }, []);
+    setLandingPageData(JsonData[language])
+  }, [language]);
 
   useEffect(() => {
     if(window){
@@ -29,14 +31,14 @@ const App = () => {
 
   return (
     <div>
-      <Navigation />
+      <Navigation data={landingPageData.Navigation} setLanguage={setLanguage} language={language} />
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
-      <Howitworks data={landingPageData.Features} />
-      <Tokenomics />
+      <Howitworks data={landingPageData.Howitworks} />
+      <Tokenomics data={landingPageData.Tokenomics}  />
       <Services data={landingPageData.Token} />
-      <Funds />
+      <Funds data={landingPageData.Funds} />
       <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>

@@ -4,9 +4,21 @@ export const Navigation = (props) => {
 
   const [menuClass, setMenuClass] = useState('collapse navbar-collapse');
 
+  let languageNextState;
+  if(props.language === 'EN'){
+    languageNextState = 'TR';
+  }else {
+    languageNextState = 'EN';
+  }
 
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
+      <button style={{display:'none'}} type='button' onClick={()=>{
+        props.setLanguage(languageNextState)
+      }}>
+        {languageNextState}
+      </button>
+
       <div className='container'>
         <div className='navbar-header'>
           <button
@@ -35,6 +47,7 @@ export const Navigation = (props) => {
           </a>{' '}
         </div>
 
+
         <div
           className={menuClass}
           id='bs-example-navbar-collapse-1'
@@ -42,33 +55,33 @@ export const Navigation = (props) => {
           <ul className='nav navbar-nav navbar-right'>
             <li>
               <a href='#about' className='page-scroll'>
-                About
+                {props.data.about}
               </a>
             </li>
             <li>
               <a href='#services' className='page-scroll'>
-                Services
+                {props.data.services}
               </a>
             </li>
 
             <li>
               <a href='#howitworks' className='page-scroll'>
-                How It Works
+                {props.data.howitworks}
               </a>
             </li>
             <li>
               <a href='#tokenomics' className='page-scroll'>
-                Tokenomics
+                {props.data.tekonomics}
               </a>
             </li>
             <li>
               <a href='#team' className='page-scroll'>
-                Team
+                {props.data.team}
               </a>
             </li>
             <li>
               <a href='#contact' className='page-scroll'>
-                Contact
+                {props.data.contract}
               </a>
             </li>
             <li>
@@ -84,6 +97,7 @@ export const Navigation = (props) => {
           </ul>
         </div>
       </div>
+
     </nav>
   )
 }

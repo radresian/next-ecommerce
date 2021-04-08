@@ -51,7 +51,7 @@ const Page = props => {
         <meta name="description" content=""/>
         <meta name="author" content="@Issaafalkattan"/>
       </Head>
-    <App></App>
+    <App language={props.language}></App>
     </>
   )
 };

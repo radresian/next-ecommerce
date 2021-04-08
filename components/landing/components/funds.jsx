@@ -87,14 +87,14 @@ export const Funds = (props) => {
           </div>
           <div className='col-xs-12 col-md-6'>
             <div className='about-text' id='fund-texts'>
-              <h2>How We Allocate $708,000 Fund Rised</h2>
-              <li><span style={styles.liSpan}>60% Development: </span>$424,800 will be used for development and maintenance costs of the BestDrops dApp.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>15% Liquidity: </span>$106,200 will be liquidity to Uniswap.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>20% Marketing, Partnerships: </span>$141,600 will be used for marketing and partnerships.</li>
-              <p></p>
-              <li><span style={styles.liSpan}>5% Legal Fees: </span>35,400 is reserved for legal fees.</li>
+              <h2>{props.data.title}</h2>
+              {props.data.items.map(item => (
+                <>
+                  <li><span style={styles.liSpan}>{item.label}</span>{item.description}</li>
+                  <p></p>
+                </>
+              ))
+              }
             </div>
           </div>
         </div>

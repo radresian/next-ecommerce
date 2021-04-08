@@ -1,127 +1,504 @@
 {
+  "TR": {
+    "Navigation": {
+      "about" : "Nedir",
+      "services": "Servislerimiz",
+      "howitworks": "NAsıl Çalışır",
+      "tekonomics": "Token Ekonomisi",
+      "team": "Takım",
+      "contact": "İletişim"
+    },
     "Header": {
-        "title1": "Best Drops",
-        "title2": "of ",
-        "title3": "NFT",
-        "paragraph": "\"to be the best Decentralized Autonomous NFT market organization.\""
-
+      "title1": "Best Drops",
+      "title2": "of ",
+      "title3": "NFT",
+      "paragraph": "\"to be the best Decentralized Autonomous NFT market organization.\""
     },
     "About": {
-        "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places.So still there is a room for new NFT markets. BestDrops targets to be the best Decentralized Autonomous NFT market organization as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application. Drops of artists is continuously rewarded with $BESD coin. There is also a $BEST coin lottery for buyers every week. BestDrops is designed to be a DAO which is governed by its community members who carry governance token $BESD. BestDrops takes a service fee for buyers. Service fees are distributed to DAO members proportional to $BEST coin owning and buyer fee also prevents the wash trades.",
-        "Why": [
-
-        ],
-        "Why2": [
-
-        ]
+      "paragraph": "Non-Fungible Token(NFT) block-chain ağında sahiplenilebilen eşsiz bir dijital öğeyi temsil eder. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places.So still there is a room for new NFT markets. BestDrops targets to be the best Decentralized Autonomous NFT market organization as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application. Drops of artists is continuously rewarded with $BESD coin. There is also a $BEST coin lottery for buyers every week. BestDrops is designed to be a DAO which is governed by its community members who carry governance token $BESD. BestDrops takes a service fee for buyers. Service fees are distributed to DAO members proportional to $BEST coin owning and buyer fee also prevents the wash trades.",
+      "Why": [
+      ],
+      "Why2": [
+      ]
     },
     "Team": [
-        {
-            "img": "img/team/hasanserdar.jpeg",
-            "text": "16 years of Software Development and Management experience in Fintech. Expertize in stock exchange and virtual trading platforms.",
-            "linkedin": "https://www.linkedin.com/in/serdar-hamzao%C4%9Fullar%C4%B1-a2560237/",
-            "title": "CEO & CTO",
-            "name": "Hasan Serdar Hamzaoğulları"
-        },
-        {
-            "img": "img/team/alper.jpeg",
-            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-            "linkedin": "https://www.linkedin.com/in/alper-%C3%B6zkan-73433627/",
-            "title": "Account Manager",
-            "name": "Alper Özkan"
-        },
-        {
-            "img": "img/team/kamer.jpeg",
-            "text": "Master Degree in Money and Capital Market",
-            "title": "Social Media Director",
-          "linkedin": "https://www.linkedin.com/in/kamer-hamzao%C4%9Fullari-802015198/",
-          "name": "Kamer Hamzaoğulları"
-        },
-        {
-          "img": "img/team/sidar.jpeg",
-          "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
-          "linkedin": "https://www.linkedin.com/in/veysel-sidar-coban-41362816/",
-          "title": "Project Director",
-          "name": "Veysel Sidar Çoban"
-        }
-
+      {
+        "img": "img/team/hasanserdar.jpeg",
+        "text": "16 years of Software Development and Management experience in Fintech. Expertize in stock exchange and virtual trading platforms.",
+        "linkedin": "https://www.linkedin.com/in/serdar-hamzao%C4%9Fullar%C4%B1-a2560237/",
+        "title": "CEO & CTO",
+        "name": "Hasan Serdar Hamzaoğulları"
+      },
+      {
+        "img": "img/team/alper.jpeg",
+        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+        "linkedin": "https://www.linkedin.com/in/alper-%C3%B6zkan-73433627/",
+        "title": "Account Manager",
+        "name": "Alper Özkan"
+      },
+      {
+        "img": "img/team/kamer.jpeg",
+        "text": "Master Degree in Money and Capital Market",
+        "title": "Social Media Director",
+        "linkedin": "https://www.linkedin.com/in/kamer-hamzao%C4%9Fullari-802015198/",
+        "name": "Kamer Hamzaoğulları"
+      },
+      {
+        "img": "img/team/sidar.jpeg",
+        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+        "linkedin": "https://www.linkedin.com/in/veysel-sidar-coban-41362816/",
+        "title": "Project Director",
+        "name": "Veysel Sidar Çoban"
+      }
     ],
     "Contact": {
-        "address": "4321 California St, San Francisco, CA 12345 ",
-        "phone": "+1 123 456 1234",
-        "email": "info@company.com",
-        "facebook": "fb.com",
-        "twitter": "twitter.com",
-        "youtube": "youtube.com"
+      "address": "4321 California St, San Francisco, CA 12345 ",
+      "phone": "+1 123 456 1234",
+      "email": "info@company.com",
+      "facebook": "fb.com",
+      "twitter": "twitter.com",
+      "youtube": "youtube.com"
     },
-  "Token": {
-   "data": [
-    {
-      "icon": "fa fa-btc",
-      "title": "30M",
-      "text": "Total Supply"
+    "Token": {
+      "items": [
+        {
+          "icon": "fa fa-btc",
+          "title": "30M",
+          "text": "Total Supply"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "2.1M",
+          "text": "Initial Circulating Supply"
+        },
+        {
+          "icon": "fa fa-btc",
+          "title": "$0.125",
+          "text": "Uniswap Listing"
+        },
+        {
+          "icon": "fa fa-link",
+          "title": "$708,000",
+          "text": "Hard Cap"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "$262K",
+          "text": "Initial Market Cap"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "$200K",
+          "text": "Uniswap Liquidity"
+        }
+      ]
     },
-    {
-      "icon": "fa fa-comments-o",
-      "title": "2.1M",
-      "text": "Initial Circulating Supply"
+    "Services": {
+      "title": "Our Services",
+      "items": [
+        {
+          "icon": "fa fa-btc",
+          "title": "$BESD Token",
+          "text": "BestDrops is introducing its Coin $BESD, a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "DAO",
+          "text": "BestDrops is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying $BESD coins have a voice on the platform's future"
+        },
+        {
+          "icon": "fa fa-link",
+          "title": "NFT Contracts",
+          "text": "BestDrops uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
+        },
+        {
+          "icon": "fa fa-magic",
+          "title": "NFT Create UI",
+          "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
+        },
+        {
+          "icon": "fa fa-group",
+          "title": "NFT Auctions",
+          "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
+        },
+        {
+          "icon": "fa fa-plus-square-o",
+          "title": "Earn $BESD and $ETH",
+          "text": "BestDrop has staking programmes for $BESD and shares $ETH from service fees"
+        }
+      ]
     },
-
-     {
-       "icon": "fa fa-btc",
-       "title": "$0.125",
-       "text": "Uniswap Listing"
-     },
-     {
-       "icon": "fa fa-link",
-       "title": "$708,000",
-       "text": "Hard Cap"
-     },
-     {
-       "icon": "fa fa-comments-o",
-       "title": "$262K",
-       "text": "Initial Market Cap"
-     },{
-       "icon": "fa fa-comments-o",
-       "title": "$200K",
-       "text": "Uniswap Liquidity"
-     }
-
-
-   ]},
-  "Services": {
-    "title": "Our Services",
-    "data": [
+    "Funds": {
+      "title": "How We Allocate $708,000 Fund Rised",
+      "items": [
+        {
+          "label": "60% Development: ",
+          "description": "$424,800 will be used for development and maintenance costs of the BestDrops dApp."
+        },
+        {
+          "label": "15% Liquidity: ",
+          "description": "$106,200 will be liquidity to Uniswap."
+        },
+        {
+          "label": "20% Marketing, Partnerships: ",
+          "description": "$141,600 will be used for marketing and partnerships."
+        },
+        {
+          "label": "5% Legal Fees: ",
+          "description": "35,400 is reserved for legal fees."
+        }
+      ]
+    },
+    "Tokenomics": {
+      "title": "Token Economics",
+      "items": [
+        {
+          "label": "Seed Sale: ",
+          "description": "Price: $0.1 - 20% will be unlocked after listing. Remaining locked for 30 days then weekly vested over 6 months."
+        },
+        {
+          "label": "Public Sale: ",
+          "description": "Price: $0.12 - No vesting."
+        },
+        {
+          "label": "Listing: ",
+          "description": "$0.125 on Uniswap."
+        },
+        {
+          "label": "NFT Creators Mining: ",
+          "description": "Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week."
+        },
+        {
+          "label": "Buyers Lottery: ",
+          "description": "Every week a lottery is distributed to NFT buyers. First month 20K for each week and will be reduced by time."
+        },
+        {
+          "label": "Faundation: ",
+          "description": "850K will be used for Initial liquidity and 1.5M for stake programme."
+        },
+        {
+          "label": "Team: ",
+          "description": "Locked for one year, then weekly vesting over one year."
+        }
+      ]
+    },
+    "Howitworks": {
+      "groups": [
+        {
+          "title": "How It Works for NFT Creators",
+          "items": [
+            {
+              "text": "Authenticated Artists Drop digital artworks or valuable assets by BestDrop creator UI",
+              "img_url": "/img/howitworks/drop2.svg"
+            },
+            {
+              "text": "Approved artworks or digital assets are become available through auction or through price offers",
+              "img_url": "/img/howitworks/unpack2.svg"
+            },
+            {
+              "text": "Artwork or digital asset is minted as NFT for the winner of the auction",
+              "img_url": "/img/howitworks/signed.svg"
+            },
+            {
+              "text": "Every week 100K $BESD is distributed to BestDrop NFT Creators. Distributed amount will be reduced by a time factor.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        },
+        {
+          "title": "How It Works For DAO members",
+          "items": [
+            {
+              "text": "Buy some $BESD from Uniswap",
+              "img_url": "/img/howitworks/swap.svg"
+            },
+            {
+              "text": "Lock your $BESD tokens with our smart contract and take our DAO tokens.",
+              "img_url": "/img/howitworks/block.svg"
+            },
+            {
+              "text": "Vote and make purposals on DAO community with your DAO tokens. Have rights to buy limited edition special NTFs.",
+              "img_url": "/img/howitworks/vote.svg"
+            },
+            {
+              "text": "Earn $BESD proportional to lock time and have your share from service fees as Ether.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        },
+        {
+          "title": "How It Works For NFT buyers",
+          "items": [
+            {
+              "text": "Make an offers for listed and auctioned NFTs by $ETH.",
+              "img_url": "/img/howitworks/swap.svg"
+            },
+            {
+              "text": "If you win the auction, you have the NFT.",
+              "img_url": "/img/howitworks/block.svg"
+            },
+            {
+              "text": "Your NFT is visible in your wallet, you can sell it here or any other NFT market place.",
+              "img_url": "/img/howitworks/vote.svg"
+            },
+            {
+              "text": "Win the auction or not you have the ticket for the weekly $BESD lottery now.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "EN": {
+    "Navigation": {
+      "about" : "About",
+      "services": "Services",
+      "howitworks": "How It Works",
+      "tekonomics": "Tokenomics",
+      "team": "Team",
+      "contact": "Contact"
+    },
+    "Header": {
+      "title1": "Best Drops",
+      "title2": "of ",
+      "title3": "NFT",
+      "paragraph": "\"to be the best Decentralized Autonomous NFT market organization.\""
+    },
+    "About": {
+      "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places.So still there is a room for new NFT markets. BestDrops targets to be the best Decentralized Autonomous NFT market organization as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application. Drops of artists is continuously rewarded with $BESD coin. There is also a $BEST coin lottery for buyers every week. BestDrops is designed to be a DAO which is governed by its community members who carry governance token $BESD. BestDrops takes a service fee for buyers. Service fees are distributed to DAO members proportional to $BEST coin owning and buyer fee also prevents the wash trades.",
+      "Why": [
+      ],
+      "Why2": [
+      ]
+    },
+    "Team": [
       {
-        "icon": "fa fa-btc",
-        "title": "$BESD Token",
-        "text": "BestDrops is introducing its Coin $BESD, a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
+        "img": "img/team/hasanserdar.jpeg",
+        "text": "16 years of Software Development and Management experience in Fintech. Expertize in stock exchange and virtual trading platforms.",
+        "linkedin": "https://www.linkedin.com/in/serdar-hamzao%C4%9Fullar%C4%B1-a2560237/",
+        "title": "CEO & CTO",
+        "name": "Hasan Serdar Hamzaoğulları"
       },
       {
-        "icon": "fa fa-comments-o",
-        "title": "DAO",
-        "text": "BestDrops is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying $BESD coins have a voice on the platform's future"
+        "img": "img/team/alper.jpeg",
+        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+        "linkedin": "https://www.linkedin.com/in/alper-%C3%B6zkan-73433627/",
+        "title": "Account Manager",
+        "name": "Alper Özkan"
       },
       {
-        "icon": "fa fa-link",
-        "title": "NFT Contracts",
-        "text": "BestDrops uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
+        "img": "img/team/kamer.jpeg",
+        "text": "Master Degree in Money and Capital Market",
+        "title": "Social Media Director",
+        "linkedin": "https://www.linkedin.com/in/kamer-hamzao%C4%9Fullari-802015198/",
+        "name": "Kamer Hamzaoğulları"
       },
       {
-        "icon": "fa fa-magic",
-        "title": "NFT Create UI",
-        "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
-      },
-      {
-        "icon": "fa fa-group",
-        "title": "NFT Auctions",
-        "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
-      },
-      {
-        "icon": "fa fa-plus-square-o",
-        "title": "Earn $BESD and $ETH",
-        "text": "BestDrop has staking programmes for $BESD and shares $ETH from service fees"
+        "img": "img/team/sidar.jpeg",
+        "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+        "linkedin": "https://www.linkedin.com/in/veysel-sidar-coban-41362816/",
+        "title": "Project Director",
+        "name": "Veysel Sidar Çoban"
       }
-    ]
+    ],
+    "Contact": {
+      "address": "4321 California St, San Francisco, CA 12345 ",
+      "phone": "+1 123 456 1234",
+      "email": "info@company.com",
+      "facebook": "fb.com",
+      "twitter": "twitter.com",
+      "youtube": "youtube.com"
+    },
+    "Token": {
+      "items": [
+        {
+          "icon": "fa fa-btc",
+          "title": "30M",
+          "text": "Total Supply"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "2.1M",
+          "text": "Initial Circulating Supply"
+        },
+        {
+          "icon": "fa fa-btc",
+          "title": "$0.125",
+          "text": "Uniswap Listing"
+        },
+        {
+          "icon": "fa fa-link",
+          "title": "$708,000",
+          "text": "Hard Cap"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "$262K",
+          "text": "Initial Market Cap"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "$200K",
+          "text": "Uniswap Liquidity"
+        }
+      ]
+    },
+    "Services": {
+      "title": "Our Services",
+      "items": [
+        {
+          "icon": "fa fa-btc",
+          "title": "$BESD Token",
+          "text": "BestDrops is introducing its Coin $BESD, a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
+        },
+        {
+          "icon": "fa fa-comments-o",
+          "title": "DAO",
+          "text": "BestDrops is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying $BESD coins have a voice on the platform's future"
+        },
+        {
+          "icon": "fa fa-link",
+          "title": "NFT Contracts",
+          "text": "BestDrops uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
+        },
+        {
+          "icon": "fa fa-magic",
+          "title": "NFT Create UI",
+          "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
+        },
+        {
+          "icon": "fa fa-group",
+          "title": "NFT Auctions",
+          "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
+        },
+        {
+          "icon": "fa fa-plus-square-o",
+          "title": "Earn $BESD and $ETH",
+          "text": "BestDrop has staking programmes for $BESD and shares $ETH from service fees"
+        }
+      ]
+    },
+    "Funds": {
+      "title": "How We Allocate $708,000 Fund Rised",
+      "items": [
+        {
+          "label": "60% Development: ",
+          "description": "$424,800 will be used for development and maintenance costs of the BestDrops dApp."
+        },
+        {
+          "label": "15% Liquidity: ",
+          "description": "$106,200 will be liquidity to Uniswap."
+        },
+        {
+          "label": "20% Marketing, Partnerships: ",
+          "description": "$141,600 will be used for marketing and partnerships."
+        },
+        {
+          "label": "5% Legal Fees: ",
+          "description": "35,400 is reserved for legal fees."
+        }
+      ]
+    },
+    "Tokenomics": {
+      "title": "Token Economics",
+      "items": [
+        {
+          "label": "Seed Sale: ",
+          "description": "Price: $0.1 - 20% will be unlocked after listing. Remaining locked for 30 days then weekly vested over 6 months."
+        },
+        {
+          "label": "Public Sale: ",
+          "description": "Price: $0.12 - No vesting."
+        },
+        {
+          "label": "Listing: ",
+          "description": "$0.125 on Uniswap."
+        },
+        {
+          "label": "NFT Creators Mining: ",
+          "description": "Every week a certain amount is distributed to NFT creators. Distribution amount will be reduced by time. First month begins with 100K for every week."
+        },
+        {
+          "label": "Buyers Lottery: ",
+          "description": "Every week a lottery is distributed to NFT buyers. First month 20K for each week and will be reduced by time."
+        },
+        {
+          "label": "Faundation: ",
+          "description": "850K will be used for Initial liquidity and 1.5M for stake programme."
+        },
+        {
+          "label": "Team: ",
+          "description": "Locked for one year, then weekly vesting over one year."
+        }
+      ]
+    },
+    "Howitworks": {
+      "groups": [
+        {
+          "title": "How It Works for NFT Creators",
+          "items": [
+            {
+              "text": "Authenticated Artists Drop digital artworks or valuable assets by BestDrop creator UI",
+              "img_url": "/img/howitworks/drop2.svg"
+            },
+            {
+              "text": "Approved artworks or digital assets are become available through auction or through price offers",
+              "img_url": "/img/howitworks/unpack2.svg"
+            },
+            {
+              "text": "Artwork or digital asset is minted as NFT for the winner of the auction",
+              "img_url": "/img/howitworks/signed.svg"
+            },
+            {
+              "text": "Every week 100K $BESD is distributed to BestDrop NFT Creators. Distributed amount will be reduced by a time factor.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        },
+        {
+          "title": "How It Works For DAO members",
+          "items": [
+            {
+              "text": "Buy some $BESD from Uniswap",
+              "img_url": "/img/howitworks/swap.svg"
+            },
+            {
+              "text": "Lock your $BESD tokens with our smart contract and take our DAO tokens.",
+              "img_url": "/img/howitworks/block.svg"
+            },
+            {
+              "text": "Vote and make purposals on DAO community with your DAO tokens. Have rights to buy limited edition special NTFs.",
+              "img_url": "/img/howitworks/vote.svg"
+            },
+            {
+              "text": "Earn $BESD proportional to lock time and have your share from service fees as Ether.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        },
+        {
+          "title": "How It Works For NFT buyers",
+          "items": [
+            {
+              "text": "Make an offers for listed and auctioned NFTs by $ETH.",
+              "img_url": "/img/howitworks/swap.svg"
+            },
+            {
+              "text": "If you win the auction, you have the NFT.",
+              "img_url": "/img/howitworks/block.svg"
+            },
+            {
+              "text": "Your NFT is visible in your wallet, you can sell it here or any other NFT market place.",
+              "img_url": "/img/howitworks/vote.svg"
+            },
+            {
+              "text": "Win the auction or not you have the ticket for the weekly $BESD lottery now.",
+              "img_url": "/img/howitworks/profit.svg"
+            }
+          ]
+        }
+      ]
+    }
   }
 }
