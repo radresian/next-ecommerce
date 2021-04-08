@@ -3,24 +3,6 @@ import { ResponsivePie } from '@nivo/pie';
 const margin = { top: 30, right: 200, bottom: 30, left: 30 };
 
 const styles = {
-  root: {
-    fontFamily: 'consolas, sans-serif',
-    textAlign: 'center',
-    position: 'relative',
-    height: 400,
-    width: 600,
-    marginTop: 10,
-    background: '#fff',
-    borderRight: 0,
-    boxShadow: '0 0 50 rgba(0,0,0,0.06)'
-  },
-  total:{
-    position: 'relative',
-    left: 268,
-    top:-235,
-    fontWeight: 'bold',
-    fontSize:30
-  },
   liSpan:{fontWeight:'bold'}
 };
 
@@ -110,7 +92,7 @@ export const Tokenomics = (props) => {
             </div>
           </div>
           <div className='col-xs-12 col-md-6'>
-            <div style={styles.root}>
+            <div id='tokenomics-chart' >
               <ResponsivePie
                 data={data}
                 margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -129,7 +111,7 @@ export const Tokenomics = (props) => {
                 legends={[]}
               />
             </div>
-            <span style={styles.total}>30M</span>
+            <span id='tokenomics-span' >30M</span>
           </div>
         </div>
       </div>

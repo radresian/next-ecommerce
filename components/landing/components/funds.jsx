@@ -3,29 +3,6 @@ import { ResponsivePie } from '@nivo/pie';
 const margin = { top: 30, right: 200, bottom: 30, left: 30 };
 
 const styles = {
-  root: {
-    fontFamily: 'consolas, sans-serif',
-    textAlign: 'center',
-    position: 'relative',
-    height: 400,
-    width: 600,
-    marginTop: 10,
-    background: '#fff',
-    borderRight: 0,
-    boxShadow: '0 0 50 rgba(0,0,0,0.06)'
-  },
-  total:{
-    position: 'relative',
-    left: 240,
-    top:-235,
-    maxWidth:100,
-    fontWeight: 'bold',
-    fontSize:25
-  },
-  texts:{
-    marginTop:55,
-    paddingLeft:55
-  },
   liSpan:{fontWeight:'bold'}
 };
 
@@ -87,7 +64,7 @@ export const Funds = (props) => {
       <div className='container'>
         <div className='row'>
           <div className='col-xs-12 col-md-6'>
-            <div style={styles.root}>
+            <div id="fund-chart">
               <ResponsivePie
                 data={data}
                 margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -106,10 +83,10 @@ export const Funds = (props) => {
                 legends={[]}
               />
             </div>
-            <span style={styles.total}>$708,000</span>
+            <span id="fund-span">$708,000</span>
           </div>
           <div className='col-xs-12 col-md-6'>
-            <div className='about-text' style={styles.texts}>
+            <div className='about-text' id='fund-texts'>
               <h2>How We Allocate $708,000 Fund Rised</h2>
               <li><span style={styles.liSpan}>60% Development: </span>$424,800 will be used for development and maintenance costs of the BestDrops dApp.</li>
               <p></p>

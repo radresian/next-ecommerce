@@ -256,6 +256,75 @@ header .intro-text {
 	background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
+#tokenomics-chart, #fund-chart {
+  font-family: 'consolas, sans-serif';
+  text-align: center;
+  position: relative;
+  height: 400px;
+  width: 600px;
+  margin-top: 10px;
+  background: #fff;
+  border-right: 0;
+}
+
+#tokenomics-span {
+  position: relative;
+  left: 268px;
+  top:-235px;
+  font-weight: bold;
+  font-size:30px;
+}
+
+#fund-span {
+  position: relative;
+  left: 240px;
+  top:-235px;
+  font-weight: bold;
+  font-size:25px;
+}
+
+#fund-texts {
+  margin-top: 55px;
+  padding-left: 100px;
+}
+
+@media (max-width: 991px) {
+  #fund-texts {
+    margin-top: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  #tokenomics-chart, #fund-chart {
+    width: 500px;
+  }
+  #tokenomics-span {
+    left: 220px;
+  }
+  #fund-span {
+    left: 190px;
+    font-size:25px;
+  }
+}
+@media (max-width: 500px) {
+  #tokenomics-chart, #fund-chart {
+    width: 320px;
+  }
+  #tokenomics-span {
+    left: 133px;
+    font-size:25px;
+  }
+  #fund-span {
+    left: 123px;
+    font-size:15px;
+    top:-230px;
+  }
+}
+
+.howitworks-card {
+  padding-bottom: 20px;
+}
 /* About Section */
 #about, #tokenomics {
 	padding: 100px 0;

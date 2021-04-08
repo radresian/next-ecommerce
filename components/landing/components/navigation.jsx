@@ -1,4 +1,10 @@
+import { useState } from 'react'
+
 export const Navigation = (props) => {
+
+  const [menuClass, setMenuClass] = useState('collapse navbar-collapse');
+
+
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
@@ -8,6 +14,15 @@ export const Navigation = (props) => {
             className='navbar-toggle collapsed'
             data-toggle='collapse'
             data-target='#bs-example-navbar-collapse-1'
+            onClick={()=>{
+              setMenuClass(prev =>{
+               if(prev.indexOf('collapse ')<0){
+                 return 'collapse navbar-collapse';
+               } else {
+                 return 'navbar-collapse';
+               }
+              })
+            }}
           >
             {' '}
             <span className='sr-only'>Toggle navigation</span>{' '}
@@ -21,11 +36,10 @@ export const Navigation = (props) => {
         </div>
 
         <div
-          className='collapse navbar-collapse'
+          className={menuClass}
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right'>
-
             <li>
               <a href='#about' className='page-scroll'>
                 About
