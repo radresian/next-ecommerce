@@ -1,0 +1,15 @@
+.idea
+build
+*/build
+*/exports
+build-scripts
+dist
+node_modules
+*/node_modules
+*/*/node_modules
+*/.tmp
+*/.cache
+scripts
+test
+docs
+cypress

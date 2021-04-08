@@ -6,7 +6,7 @@ import { About } from './components/about'
 import { Services } from './components/services'
 import { Funds } from './components/funds'
 import { Team } from './components/team'
-import { Tokenomics } from './components/Tokenomics'
+import { Tokenomics } from './components/tokenomics'
 import { Contact } from './components/contact'
 import JsonData from './data/data.json'
 
