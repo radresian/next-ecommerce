@@ -9,7 +9,8 @@ import { Team } from './components/team'
 import { Tokenomics } from './components/tokenomics'
 import { Contact } from './components/contact'
 import JsonData from './data/data.json'
-
+import HorizantalTimeline from './hr-timeline'
+import VerticalTimeline from './css-timeline'
 
 const App = (props) => {
   const [language, setLanguage] = useState(props.language);
@@ -39,6 +40,8 @@ const App = (props) => {
       <Tokenomics data={landingPageData.Tokenomics}  />
       <Services data={landingPageData.Token} />
       <Funds data={landingPageData.Funds} />
+      <HorizantalTimeline/>
+      <VerticalTimeline/>
       <Team data={landingPageData.Team} />
       <Contact data={landingPageData.Contact} />
     </div>
