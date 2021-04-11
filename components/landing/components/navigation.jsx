@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from "next/dist/client/image";
 
 export const Navigation = (props) => {
 
@@ -42,9 +43,10 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#header'>
-            BestDrops
-          </a>{' '}
+          <a className='navbar-brand page-scroll' href='#header' style={{color:'white',marginTop:-25}}>
+            <Image src="/img/BestDropsQ2.png" width="250" height="70" />
+
+          </a>
         </div>
 
 
