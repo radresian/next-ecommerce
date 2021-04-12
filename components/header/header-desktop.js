@@ -20,24 +20,14 @@ export default function HeaderDesktop({ viewer }) {
       <div className="header header-top">
         <Logo />
 
-        <SearchBox />
 
         <div className="nav-buttons">
-          <Link href="/cart">
-            <a className="nav-buttons-items">
-              <FaShoppingCart color="#808080" />
-              <p>
-                <sup className="items-total">{cart.data.cart.cartCount}</sup>{' '}
-                Items
-              </p>
-            </a>
-          </Link>
-          <Link href="/wishlist">
-            <a className="nav-buttons-wishlist">
-              <FaRegHeart color="#808080" />
-              <p>Wishlist</p>
-            </a>
-          </Link>
+          <a
+            href='market'
+            className='btn-custom'
+          >
+            Connect Wallet
+          </a>
           {!viewer && (
             <Link href="/user/login">
               <a className="nav-buttons-signin">
@@ -63,51 +53,53 @@ export default function HeaderDesktop({ viewer }) {
           )}
         </div>
       </div>
-      <div className="header header-bottom">
-        <div className="all-categories-box">
-          <FaBars color="#d8d8d8" />
-          <select name="categories" id="categories">
-            <option value="All Categories" selected>
-              All Categories
-            </option>
-            <option value="#">Desktop</option>
-            <option value="#">Smartphone</option>
-            <option value="#">Watches</option>
-            <option value="#">Games</option>
-            <option value="#">Laptop</option>
-            <option value="#">Keyboards</option>
-            <option value="#">TV & Video</option>
-            <option value="#">Accessories</option>
-          </select>
-        </div>
+      {false &&
+        <div className="header header-bottom">
+          <div className="all-categories-box">
+            <FaBars color="#d8d8d8"/>
+            <select name="categories" id="categories">
+              <option value="All Categories" selected>
+                All Categories
+              </option>
+              <option value="#">Desktop</option>
+              <option value="#">Smartphone</option>
+              <option value="#">Watches</option>
+              <option value="#">Games</option>
+              <option value="#">Laptop</option>
+              <option value="#">Keyboards</option>
+              <option value="#">TV & Video</option>
+              <option value="#">Accessories</option>
+            </select>
+          </div>
 
-        <nav className="main-nav">
-          <Link href="#">
-            <a>Super Deals</a>
-          </Link>
-          <Link href="#">
-            <a>Featured Brands</a>
-          </Link>
-          <Link href="#">
-            <a>Collections</a>
-          </Link>
-          <Link href="#">
-            <a>Bestselling</a>
-          </Link>
-        </nav>
+          <nav className="main-nav">
+            <Link href="#">
+              <a>Super Deals</a>
+            </Link>
+            <Link href="#">
+              <a>Featured Brands</a>
+            </Link>
+            <Link href="#">
+              <a>Collections</a>
+            </Link>
+            <Link href="#">
+              <a>Bestselling</a>
+            </Link>
+          </nav>
 
-        <div className="settings">
-          <div className="menu-dropdown">
-            <p>Help</p>
-          </div>
-          <div className="menu-dropdown">
-            <p>USD</p>
-          </div>
-          <div className="menu-dropdown">
-            <p>Language</p>
+          <div className="settings">
+            <div className="menu-dropdown">
+              <p>Help</p>
+            </div>
+            <div className="menu-dropdown">
+              <p>USD</p>
+            </div>
+            <div className="menu-dropdown">
+              <p>Language</p>
+            </div>
           </div>
         </div>
-      </div>
+      }
       <style jsx>{`
         /* Header Top */
         .header {
@@ -115,12 +107,27 @@ export default function HeaderDesktop({ viewer }) {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 28px 10vw;
+          padding: 0 11vw;
         }
         .nav-buttons {
           display: flex;
           flex-direction: row;
           align-items: center;
+        }
+        .btn-custom {
+          font-family: 'Raleway', sans-serif;
+          text-transform: uppercase;
+          color: #fff !important;
+          background-color: #694bed;
+          background-image: linear-gradient(to right, #694bed 0%, #3e9ffb 100%);
+          padding: 14px 34px;
+          letter-spacing: 1px;
+          margin: 0;
+          font-size: 15px;
+          font-weight: 500;
+          border-radius: 25px;
+          transition: all 0.5s linear;
+          border: 0;
         }
         .nav-buttons a {
           display: flex;

@@ -1,5 +1,5 @@
-import HorizantalTimeline from '../hr-timeline';
-import VerticalTimeline from '../css-timeline';
+import HorizantalTimeline from './horizantal-timeline';
+import VerticalTimeline from './vertical-timeline';
 
 
 export default function Roadmap(props) {

@@ -1,36 +1,36 @@
 const offlineCategories = [
   {
     id: 1,
-    name: 'computers',
-    label: 'Computers',
+    name: 'art',
+    label: 'ArtWorks',
     md_icon: 'MdDesktopWindows',
     created_at: '1603806592003',
   },
   {
     id: 2,
-    name: 'mac',
-    label: 'Apple Computers',
+    name: 'Celeb',
+    label: 'Celebrities',
     md_icon: 'MdDesktopMac',
     created_at: '1603806592003',
   },
   {
     id: 3,
-    name: 'laptop',
-    label: 'Laptop',
+    name: 'chars',
+    label: 'Movie Characters',
     md_icon: 'MdLaptop',
     created_at: '1603806592003',
   },
   {
     id: 4,
-    name: 'keyboard',
-    label: 'Keyboards',
+    name: 'sport',
+    label: 'Sport',
     md_icon: 'MdKeyboard',
     created_at: '1603806592003',
   },
   {
     id: 5,
-    name: 'components',
-    label: 'Computer Components',
+    name: 'game',
+    label: 'Game Tools',
     md_icon: 'MdMemory',
     created_at: '1603806592003',
   },
@@ -40,35 +40,7 @@ const offlineCategories = [
     label: 'Accessories',
     md_icon: 'MdSpeaker',
     created_at: '1603806592003',
-  },
-  {
-    id: 7,
-    name: 'smartphone',
-    label: 'Cell Phone',
-    md_icon: 'MdSmartphone',
-    created_at: '1603806592003',
-  },
-  {
-    id: 8,
-    name: 'tv',
-    label: 'TV & Video',
-    md_icon: 'MdTv',
-    created_at: '1603806592003',
-  },
-  {
-    id: 9,
-    name: 'videogame',
-    label: 'Game Console',
-    md_icon: 'MdVideogameAsset',
-    created_at: '1603806592003',
-  },
-  {
-    id: 10,
-    name: 'watch',
-    label: 'Watch',
-    md_icon: 'MdWatch',
-    created_at: '1603806592003',
-  },
+  }
 ];
 
 export default offlineCategories;

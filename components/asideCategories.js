@@ -4,8 +4,9 @@ import { CATEGORIES } from '../apollo/client/queries';
 import offlineCategories from '../db/offlineData/categories';
 
 export default function AsideCategories() {
-  const { data, loading, error } = useQuery(CATEGORIES);
+  let { data, loading, error } = useQuery(CATEGORIES);
 
+  data = {};
   if (loading) return <></>;
 
   // Offline data
