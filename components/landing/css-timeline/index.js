@@ -1,37 +1,20 @@
-export default function VerticalTimeline(){
+export default function VerticalTimeline(props){
   
   return (
     <ul className="timeline" id="VerticalTimeline">
 
-      <li>
-        <div className="direction-r">
-          <div className="flag-wrapper">
-            <span className="flag">Freelancer</span>
-            <span className="time-wrapper"><span className="time">2013 - present</span></span>
-          </div>
-          <div className="desc">My current employment. Way better than the position before!</div>
-        </div>
-      </li>
+      {props.data.items.map((item,i)=>(
+          <li key={i}>
+            <div className="direction-r">
+              <div className="flag-wrapper">
+                <span className="flag">{item.title}</span>
+                <span className="time-wrapper"><span className="time">{item.date}</span></span>
+              </div>
+            </div>
+          </li>
+        )
+      )}
 
-      <li>
-        <div className="direction-r">
-          <div className="flag-wrapper">
-            <span className="flag">Apple Inc.</span>
-            <span className="time-wrapper"><span className="time">2011 - 2013</span></span>
-          </div>
-          <div className="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
-        </div>
-      </li>
-
-      <li>
-        <div className="direction-r">
-          <div className="flag-wrapper">
-            <span className="flag">Harvard University</span>
-            <span className="time-wrapper"><span className="time">2008 - 2011</span></span>
-          </div>
-          <div className="desc">A description of all the lectures and courses I have taken and my final degree?</div>
-        </div>
-      </li>
 
       <style jsx>{`
         .timeline {
@@ -51,14 +34,7 @@ export default function VerticalTimeline(){
           width: 6px;
           height: 100%;
           margin-left: -3px;
-          background: rgb(80,80,80);
-          background: -moz-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
-          background: -webkit-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-          background: -o-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-          background: -ms-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-          background: linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
-          
+          background: linear-gradient(to right, #674bef 0%, #001e65 130%);
           z-index: 5;
         }
         
@@ -84,21 +60,21 @@ export default function VerticalTimeline(){
         
         .direction-r {
           position: relative;
-          width: 260px;
+          width: 280px;
           left: 64px;
         }
         
         .flag-wrapper {
           position: relative;
-          display: inline-block;
-          
-          text-align: center;
+          display: grid;
+          float: left;
+          text-align: left;
         }
         
         .flag {
           position: relative;
           display: inline;
-          background: rgb(248,248,248);
+          background: linear-gradient(to right, #674bef 0%, #001e65 130%);
           padding: 6px 10px;
           border-radius: 5px;
           
@@ -128,9 +104,9 @@ export default function VerticalTimeline(){
           width: 12px;
           height: 12px;
           margin-top: -10px;
-          background: #fff;
+          background: #021e66;
           border-radius: 10px;
-          border: 4px solid rgb(255,80,80);
+          border: 1px solid rgb(62 161 255);
           z-index: 10;
         }
         
@@ -139,7 +115,6 @@ export default function VerticalTimeline(){
         }
         
         .direction-l .flag:after {
-          content: "";
           position: absolute;
           left: 100%;
           top: 50%;
@@ -152,26 +127,12 @@ export default function VerticalTimeline(){
           pointer-events: none;
         }
         
-        .direction-r .flag:after {
-          content: "";
-          position: absolute;
-          right: 100%;
-          top: 50%;
-          height: 0;
-          width: 0;
-          margin-top: -8px;
-          border: solid transparent;
-          border-right-color: rgb(248,248,248);
-          border-width: 8px;
-          pointer-events: none;
-        }
         
         .time-wrapper {
           display: inline;
-          
           line-height: 1em;
           font-size: 0.66666em;
-          color: rgb(250,80,80);
+          color: rgb(61 160 252);
           vertical-align: middle;
         }
         
@@ -186,7 +147,6 @@ export default function VerticalTimeline(){
         .time {
           display: inline-block;
           padding: 4px 6px;
-          background: rgb(248,248,248);
         }
         
         .desc {

@@ -5,6 +5,7 @@
       "services": "Servislerimiz",
       "howitworks": "NAsıl Çalışır",
       "tekonomics": "Token Ekonomisi",
+      "roadmap": "Yol Haritası",
       "team": "Takım",
       "contact": "İletişim"
     },
@@ -182,6 +183,7 @@
         }
       ]
     },
+    "Roadmap": {},
     "Howitworks": {
       "groups": [
         {
@@ -256,6 +258,7 @@
       "services": "Services",
       "howitworks": "How It Works",
       "tekonomics": "Tokenomics",
+      "roadmap": "Roadmap",
       "team": "Team",
       "contact": "Contact"
     },
@@ -430,6 +433,50 @@
         {
           "label": "Team: ",
           "description": "Locked for one year, then weekly vesting over one year."
+        }
+      ]
+    },
+    "Roadmap": {
+      "items": [
+        {
+          "title": "BestDrops Team Established",
+          "date": "January 2021"
+        },
+        {
+          "title": "Idea and Research",
+          "date": "Fabruary 2021"
+        },
+        {
+          "title": "Platform Development Begins",
+          "date": "March 2021"
+        },
+        {
+          "title": "White Paper, Web Site Release",
+          "date": "May 2021"
+        },
+        {
+          "title": "PR and Marketing Phase",
+          "date": "June 2021"
+        },
+        {
+          "title": "Private Sale",
+          "date": "July 2021"
+        },
+        {
+          "title": "Public Sale",
+          "date": "August 2021"
+        },
+        {
+          "title": "Uniswap Listing",
+          "date": "August 2021"
+        },
+        {
+          "title": "Stake Programme Release",
+          "date": "August 2021"
+        },
+        {
+          "title": "Platform Launch",
+          "date": "October 2021"
         }
       ]
     },

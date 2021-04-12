@@ -4,7 +4,7 @@ export const Services = (props) => {
       <div className='container'>
         {props.data.title &&
         <div className='section-title'>
-          <h2>{props.data.title}</h2>
+          <h2 id='section-title-white'>{props.data.title}</h2>
         </div>
         }
         <div className='row'>
