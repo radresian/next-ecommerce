@@ -25,14 +25,14 @@ const iconSlugs = {
   MdWatch,
 };
 
-export default function CategoriesItem({ category }) {
+export default function CategoriesItem({ category, selected }) {
   const Icon = iconSlugs[category.md_icon];
 
   return (
-    <li key={category.id}>
+    <li key={category.id} >
       <Link href={`/category/${category.name}`}>
         <a>
-          <div className="content">
+          <div className={selected ? 'content selected' : 'content'}>
             <div className="icon">
               <Icon color="#D8D8D8" size="22" />
             </div>
@@ -57,6 +57,9 @@ export default function CategoriesItem({ category }) {
           color: #808080;
           border-bottom: 2px solid #f5f5f5;
           transition: 0.4s;
+        }
+        .selected {
+          color: #3ea1ff;
         }
         li a:hover {
           background: #f2f2f2;

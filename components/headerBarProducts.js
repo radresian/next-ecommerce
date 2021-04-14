@@ -3,16 +3,16 @@ import { useQuery } from '@apollo/client';
 import { SORT_PRODUCT_SECTION } from '../apollo/client/queries';
 
 export default function HeaderBarProducts() {
-  const { data } = useQuery(SORT_PRODUCT_SECTION);
+  let { data } = useQuery(SORT_PRODUCT_SECTION);
 
-  function handlePopularProductsClick() {
-    sortProductSectionVar(['rating', 'DESC']);
+  function handleAuctionsClick() {
+    sortProductSectionVar('Auctions');
   }
-  function handleLowPriceProductsClick() {
-    sortProductSectionVar(['price', 'ASC']);
+  function handleListedClick() {
+    sortProductSectionVar('Listed');
   }
-  function handleHighPriceProductsClick() {
-    sortProductSectionVar(['price', 'DESC']);
+  function handleSoldClick() {
+    sortProductSectionVar('Sold');
   }
 
   return (
@@ -21,38 +21,35 @@ export default function HeaderBarProducts() {
         <a
           id="popular-products"
           className={
-            data.sortProductSection[0] === 'rating' &&
-            data.sortProductSection[1] === 'DESC'
+            data.sortProductSection === 'Auctions'
               ? 'active'
               : ''
           }
-          onClick={handlePopularProductsClick}
-        >
-          New Drops
-        </a>
-        <a
-          id="low-price"
-          className={
-            data.sortProductSection[0] === 'price' &&
-            data.sortProductSection[1] === 'ASC'
-              ? 'active'
-              : ''
-          }
-          onClick={handleLowPriceProductsClick}
+          onClick={handleAuctionsClick}
         >
           Auctions
         </a>
         <a
-          id="high-price"
+          id="low-price"
           className={
-            data.sortProductSection[0] === 'price' &&
-            data.sortProductSection[1] === 'DESC'
+            data.sortProductSection === 'Listed'
               ? 'active'
               : ''
           }
-          onClick={handleHighPriceProductsClick}
+          onClick={handleListedClick}
         >
           Listed
+        </a>
+        <a
+          id="high-price"
+          className={
+            data.sortProductSection === 'Sold'
+              ? 'active'
+              : ''
+          }
+          onClick={handleSoldClick}
+        >
+          Sold
         </a>
       </div>
       <style jsx>{`

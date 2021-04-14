@@ -17,20 +17,9 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
 
   return (
     <article>
-      <div className="top-buttons">
-        <button className="add-wishlist" onClick={() => toggleWishlist(id)}>
-          {wishlist.data.wishlist.products.includes(id) && (
-            <FaHeart size={20} color="#D8D8D8" />
-          )}
-          {!wishlist.data.wishlist.products.includes(id) && (
-            <FaRegHeart size={20} color="#D8D8D8" />
-          )}
-        </button>
-      </div>
-
       <div className="product-img">
         <Link href={`/product/${id}`}>
-          <Image src={img_url} width="225" height="160" />
+          <Image src={img_url} layout='fill' objectFit='cover'  />
         </Link>
       </div>
 
@@ -38,16 +27,7 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
         <a className="product-name">{name}</a>
       </Link>
 
-      <div className="rating">
-        <StarRatings
-          rating={parseFloat(rating)}
-          starRatedColor="#F9AD3D"
-          numberOfStars={5}
-          name="rating"
-          starDimension="20px"
-          starSpacing="1px"
-        />
-      </div>
+
 
       <div className="price">
         <p className="price-value">${price}</p>
@@ -68,7 +48,7 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
           flex-direction: column;
           box-sizing: border-box;
           height: 100%;
-          padding: 24px;
+          padding: 0;
           background: white;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
           border-radius: 6px;
@@ -85,7 +65,9 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
           outline: none;
         }
         .product-img {
-          margin-bottom: 28px;
+          position: relative;
+          width: 100%;
+          padding-bottom: 100%;
         }
         .product-name {
           width: 80%;

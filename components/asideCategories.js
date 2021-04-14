@@ -3,10 +3,9 @@ import { useQuery } from '@apollo/client';
 import { CATEGORIES } from '../apollo/client/queries';
 import offlineCategories from '../db/offlineData/categories';
 
-export default function AsideCategories() {
+export default function AsideCategories(props) {
   let { data, loading, error } = useQuery(CATEGORIES);
 
-  data = {};
   if (loading) return <></>;
 
   // Offline data
@@ -38,7 +37,7 @@ export default function AsideCategories() {
   return (
     <ul className="categories">
       {data.categories.map((category) => {
-        return <CategoriesItem key={category.id} category={category} />;
+        return <CategoriesItem key={category.id} category={category} selected={category.name===props.category} />;
       })}
 
       <style jsx>{`

@@ -7,7 +7,7 @@ export default function ProductSection({ category }) {
   return (
     <section id="product">
       <aside>
-        <AsideCategories />
+        <AsideCategories category={category} />
         <PromoCard />
       </aside>
       <div className="main">

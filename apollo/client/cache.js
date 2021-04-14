@@ -37,7 +37,7 @@ export const cache = new InMemoryCache({
 
 export const isDrawerOpenVar = cache.makeVar(false);
 
-export const sortProductSectionVar = cache.makeVar(['rating', 'DESC']);
+export const sortProductSectionVar = cache.makeVar('Auctions');
 
 export const cartProductsVar = cache.makeVar([]);
 
