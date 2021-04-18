@@ -18,8 +18,8 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
   return (
     <article>
       <div className="product-img">
-        <Link href={`/product/${id}`}>
-          <Image src={img_url} layout='fill' objectFit='cover'  />
+        <Link href={`/product/${id}`} >
+          <Image src={img_url} layout='fill' objectFit='cover' className="img-class"  />
         </Link>
       </div>
 
@@ -29,16 +29,15 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
 
 
 
-      <div className="price">
-        <p className="price-value">${price}</p>
-        <button className="add-cart" onClick={() => toggleCart(id)}>
-          {cart.data.cart.products.includes(id) && (
-            <FaCartArrowDown size={18} color="#D8D8D8" />
-          )}
-          {!cart.data.cart.products.includes(id) && (
-            <FaCartPlus size={18} color="#D8D8D8" />
-          )}
-        </button>
+      <div className="price-container">
+        <div className="price">
+          <p className="price-header">Current Bid</p>
+          <p className="price-value">${price}</p>
+        </div>
+        <div className="status">
+          <p className="price-header">Ending In</p>
+          <p className="price-value">Auction Ended</p>
+        </div>
       </div>
 
       <style jsx>{`
@@ -51,7 +50,8 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
           padding: 0;
           background: white;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
-          border-radius: 6px;
+          border-radius: 20px;
+          justify-content: space-between;
         }
         .top-buttons {
           margin-bottom: 24px;
@@ -86,12 +86,30 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
         .rating {
           margin-bottom: 24px;
         }
-        .price {
+        .price-container {
           display: flex;
           align-items: center;
           font-weight: 900;
           font-size: 16px;
-          color: #666666;
+          color: white;
+          width:100%;
+          background: #021e66;
+          flex-direction: row;
+          justify-content: space-around;
+          border-bottom-left-radius: 20px;
+          border-bottom-right-radius: 20px;
+          height:80px;
+        }
+        .price, .status {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          height: 40px;
+          justify-content: space-around;
+        }
+        .price-header {
+          font-size: 15px;
+          font-weight: 400;
         }
         .price .add-cart {
           background: none;

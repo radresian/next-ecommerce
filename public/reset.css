@@ -23,6 +23,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
   line-height: 1;
   overflow-x : hidden;
@@ -47,4 +48,9 @@ table {
 
 * {
 	font-family: 'Roboto', sans-serif;
+}
+
+.img-class {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
