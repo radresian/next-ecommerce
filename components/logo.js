@@ -4,7 +4,7 @@ import Image from 'next/dist/client/image';
 export default function Logo() {
   return (
     <>
-      <Link href="/">
+      <Link href="/market">
         <a className="logo">
           <Image src="/img/tst18.png" width="250" height="70" />
         </a>

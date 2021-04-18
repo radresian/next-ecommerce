@@ -27,20 +27,20 @@ export default function Home() {
 
   if ((error || !data?.productsById.length) && !loading) {
     return (
-      <Page title="Quantum E-commerce - Products">
+      <Page title="BestDrops - Products">
         <ErrorAlert message="This product is not found!"></ErrorAlert>
       </Page>
     );
   } else if (loading) {
     return (
-      <Page title="Quantum E-commerce - Products">
+      <Page title="BestDrops - Products">
         <p>Loading...</p>
       </Page>
     );
   }
 
   return (
-    <Page title="Quantum E-commerce - Products">
+    <Page title="BestDrops - Products">
       <article>
         <div className="top-buttons">
           <button

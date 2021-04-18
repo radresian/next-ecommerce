@@ -57,7 +57,7 @@ export default function Fotter() {
       </div>
       <div className="footer footer-bottom">
         <div className="texts">
-          <p>© 2016. Quantum UI kit</p>
+          <p>© 2021. BestDrops</p>
           <p>Privacy Policy</p>
           <p>Terms of Use</p>
         </div>

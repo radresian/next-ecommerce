@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import PageContainer from '../../components/page-container';
+import Page from '../../components/page';
 import Link from 'next/link';
 import { getErrorMessage } from '../../lib/form';
 
@@ -21,7 +21,7 @@ export default function Login() {
   }
 
   return (
-    <PageContainer title="Quantum E-commerce - Reset Password">
+    <Page title="BestDrops - Reset Password">
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">Reset Password</h3>
@@ -66,6 +66,6 @@ export default function Login() {
           font-weight: 500;
         }
       `}</style>
-    </PageContainer>
+    </Page>
   );
 }

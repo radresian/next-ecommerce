@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import PageContainer from '../../components/page-container';
+import Page from '../../components/page';
 import { SIGN_UP } from '../../apollo/client/mutations';
 import { useMutation } from '@apollo/client';
 import { getErrorMessage } from '../../lib/form';
@@ -48,7 +48,7 @@ export default function SignUp() {
   }
 
   return (
-    <PageContainer title="Quantum E-commerce - Sign Up">
+    <Page title="BestDrops - Sign Up">
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">sign up</h3>
@@ -113,6 +113,6 @@ export default function SignUp() {
           font-weight: 500;
         }
       `}</style>
-    </PageContainer>
+    </Page>
   );
 }

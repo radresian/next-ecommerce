@@ -23,11 +23,16 @@ export default function HeaderDesktop({ viewer }) {
 
         <div className="nav-buttons">
           <a
-            href='market'
+            href='/'
+          >
+            About
+          </a>
+          <button id='header-button'
             className='btn-custom'
           >
             Connect Wallet
-          </a>
+          </button>
+
           {!viewer && (
             <Link href="/user/login">
               <a className="nav-buttons-signin">
@@ -38,6 +43,13 @@ export default function HeaderDesktop({ viewer }) {
           )}
           {viewer && (
             <>
+            <Link href="/create">
+              <button id='header-button-create'
+                 className='btn-custom'
+              >
+                Create
+              </button>
+            </Link>
               <Link href="/profile">
                 <a className="nav-buttons-profile">
                   <FaUser color="#808080" />
@@ -108,6 +120,15 @@ export default function HeaderDesktop({ viewer }) {
           justify-content: space-between;
           align-items: center;
           padding: 0 11vw;
+        }
+        #header-button {
+          padding:10px;
+          margin-left: 20px;
+        }
+         #header-button-create {
+          padding:10px;
+          margin-left: 20px;
+          background: #021e66;
         }
         .nav-buttons {
           display: flex;

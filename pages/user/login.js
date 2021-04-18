@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import PageContainer from '../../components/page-container';
+import Page from '../../components/page';
 import Link from 'next/link';
 import { SIGN_IN } from '../../apollo/client/mutations';
 import { useMutation, useApolloClient } from '@apollo/client';
@@ -33,7 +33,7 @@ export default function Login() {
         },
       });
       if (data.signIn.user) {
-        await router.push('/');
+        await router.push('/market');
       }
     } catch (error) {
       setMsgError(getErrorMessage(error));
@@ -41,7 +41,7 @@ export default function Login() {
   }
 
   return (
-    <PageContainer title="Quantum E-commerce - Login">
+    <Page>
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">login</h3>
@@ -96,6 +96,6 @@ export default function Login() {
           font-weight: 500;
         }
       `}</style>
-    </PageContainer>
+    </Page>
   );
 }
