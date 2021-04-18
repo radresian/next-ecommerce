@@ -32,11 +32,11 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
       <div className="price-container">
         <div className="price">
           <p className="price-header">Current Bid</p>
-          <p className="price-value">${price}</p>
+          <p className="price-value1">{price} ETH</p>
         </div>
         <div className="status">
           <p className="price-header">Ending In</p>
-          <p className="price-value">Auction Ended</p>
+          <p className="price-value1">Auction Ended</p>
         </div>
       </div>
 

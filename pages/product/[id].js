@@ -57,7 +57,7 @@ export default function Home() {
         </div>
 
         <div className="product-img">
-          <Image src={data.productsById[0].img_url} width="320" height="230" />
+          <Image src={data.productsById[0].img_url} layout='fill' objectFit='scale-down' />
         </div>
 
         <h1 className="product-name">{data.productsById[0].name}</h1>
@@ -66,19 +66,9 @@ export default function Home() {
           {data.productsById[0].description}
         </h3>
 
-        <div className="rating">
-          <StarRatings
-            rating={parseFloat(data.productsById[0].rating)}
-            starRatedColor="#F9AD3D"
-            numberOfStars={5}
-            name="rating"
-            starDimension="20px"
-            starSpacing="1px"
-          />
-        </div>
 
         <div className="price">
-          <p className="price-value">${data.productsById[0].price}</p>
+          <p className="price-value">{data.productsById[0].price} ETH</p>
           <button
             className="add-cart"
             onClick={() => toggleCart(data.productsById[0].id)}
@@ -117,7 +107,12 @@ export default function Home() {
             outline: none;
           }
           .product-img {
+            position: relative;
+            width: 100%;
+            height: 500px;
             margin-bottom: 28px;
+            justify-content: center;
+            display: flex;  
           }
           .product-name {
             width: 80%;

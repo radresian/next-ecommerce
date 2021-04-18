@@ -1,4 +1,5 @@
 exports.up = function (knex) {
+  knex.schema.dropTable('user');
   return knex.schema.createTable('user', function (table) {
     table.string('id').primary();
     table.string('name').notNullable();
@@ -8,7 +9,6 @@ exports.up = function (knex) {
     table.string('twitter').unique().notNullable();
     table.string('instagram').nullable();
     table.boolean('creator').notNullable();
-    table.string('category').nullable();
     table.string('detail').nullable();
     table.string('createdAt').notNullable();
   });

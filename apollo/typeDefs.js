@@ -13,7 +13,6 @@ export const typeDefs = gql`
     description: String!
     img_url: String!
     price: String!
-    rating: String!
     createdAt: Int
     updatedAt: Int
     user_id: ID!

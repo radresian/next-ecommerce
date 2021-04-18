@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "knex:rollback": "knex migrate:rollback",
     "knex:migrate": "knex migrate:latest",
     "knex:seed": "knex seed:run",
     "ipfs": "node ipfs-test.js"

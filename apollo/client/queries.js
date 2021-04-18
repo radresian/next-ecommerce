@@ -64,7 +64,6 @@ export const PRODUCTS = gql`
       description
       img_url
       price
-      rating
     }
   }
 `;
@@ -77,7 +76,6 @@ export const PRODUCTS_BY_IDS = gql`
       description
       img_url
       price
-      rating
     }
   }
 `;
