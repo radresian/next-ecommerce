@@ -5,7 +5,6 @@ export default function FormContainer({ children }) {
 
       <style jsx>{`
         .formContainer {
-          height: 100vh;
           width: 60vw;
           margin-top: 10%;
           display: flex;

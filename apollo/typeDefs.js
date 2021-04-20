@@ -38,7 +38,7 @@ export const typeDefs = gql`
     description: String!
     img_url: String!
     price: String!
-    rating: String!
+    sellType: String!
     category_id: Int!
   }
   input UpdateProductInput {

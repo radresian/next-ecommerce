@@ -96,6 +96,21 @@ export const resolvers = {
       return true;
     },
     async createProduct(_parent, args, _context, _info) {
+      const session = await getLoginSession(_context.req);
+
+      if (!session) {
+        throw new Error('user required to create product');
+      }
+
+      const user = await findUser({ email: session.email });
+
+      console.log({user})
+
+      if (!user || !user.creator) {
+        throw new Error('this user is not allowed to create product');
+      }
+
+      args.input.userId=user.id;
       try {
         const product = await CreateProduct(args.input);
 

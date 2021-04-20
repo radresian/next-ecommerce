@@ -8,7 +8,6 @@ exports.seed = function (knex) {
         {
           id: 1,
           name: 'BestDrops First NFT',
-          tokenId: 100001,
           description: 'This is the precious first BestDrops NFT',
           img_url: '/img/chain2.jpeg',
           sellType: 'offer',
@@ -21,7 +20,6 @@ exports.seed = function (knex) {
         {
           id: 2,
           name: 'BestDrops About NFT',
-          tokenId: 100002,
           description: 'This is the precious second BestDrops NFT',
           img_url: '/img/about3.jpeg',
           sellType: 'offer',
@@ -34,7 +32,6 @@ exports.seed = function (knex) {
         {
           id: 3,
           name: 'BestDrops Global NFT',
-          tokenId: 100003,
           description: 'This is the precious global figure BestDrops NFT',
           img_url: '/img/about-chain.jpeg',
           sellType: 'offer',
@@ -47,7 +44,6 @@ exports.seed = function (knex) {
         {
           id: 4,
           name: 'BestDrops Logo NFT',
-          tokenId: 100004,
           description: 'This is the precious BestDrops Logo NFT',
           img_url: '/img/logo.png',
           sellType: 'offer',

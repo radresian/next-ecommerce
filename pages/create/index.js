@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import Link from 'next/link';
-import { SIGN_IN } from '../../apollo/client/mutations';
-import { useMutation, useApolloClient } from '@apollo/client';
+import { CREATE_PRODUCT } from '../../apollo/client/mutations';
+import {useMutation, useApolloClient, useQuery} from '@apollo/client';
 import { getErrorMessage } from '../../lib/form';
 
 import AlertError from '../../components/alerts/error';
@@ -13,12 +13,23 @@ import InputContainer from '../../components/form/InputContainer';
 import FormContainer from '../../components/form/formContainer';
 import Image from 'next/dist/client/image';
 
+import {
+  MdCloudUpload
+} from 'react-icons/md';
+import {VIEWER} from '../../apollo/client/queries';
+
 export default function Create() {
   const client = useApolloClient();
-  const [signIn] = useMutation(SIGN_IN);
-  const [email, setEmail] = useState('');
+  const [createProduct] = useMutation(CREATE_PRODUCT);
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+  const [price, setPrice] = useState('');
+  const [priceType, setPriceType] = useState('offer');
   const [file, setFile] = useState(null);
   const [msgError, setMsgError] = useState('');
+
+  const { data, loading, error } = useQuery(VIEWER);
+  const viewer = data?.viewer;
 
   const router = useRouter();
 
@@ -26,16 +37,17 @@ export default function Create() {
     e.preventDefault();
 
     try {
-      await client.resetStore();
-      const { data } = await signIn({
+      const result = await createProduct({
         variables: {
-          email: email.trim(),
-          password: password.trim(),
-        },
+          name: name.trim(),
+          description: desc.trim(),
+          priceType: priceType.trim(),
+          price,
+          file,
+          category_id: 1
+        }
       });
-      if (data.signIn.user) {
-        await router.push('/market');
-      }
+      console.log({result});
     } catch (error) {
       setMsgError(getErrorMessage(error));
     }
@@ -55,8 +67,9 @@ export default function Create() {
       })
     });
   }
-  return (
+  return !loading && (
     <Page>
+      {viewer ?
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">Create NFT</h3>
@@ -64,52 +77,76 @@ export default function Create() {
           {msgError && <AlertError message={msgError} />}
 
           <InputContainer>
+            {file &&
+            <div className="product-img">
+              <Image src={file} layout='fill' objectFit='scale-down' />
+            </div>
+            }
+            <label className="custom-file-upload">
+              <input type="file" name="file" onChange={handleFileChange} />
+              <div className="icon">
+                <MdCloudUpload color="#000" size="22" />
+                <p className="icon-p"> Upload File</p>
+              </div>
+            </label>
             <Input
               type="input"
               name="name"
               placeholder="Name"
-              onChange={(value) => setEmail(value)}
-              value={email}
+              onChange={(value) => setName(value)}
+              value={name}
             />
             <Input
               type="input"
               name="description"
               placeholder="Description"
-              onChange={(value) => setEmail(value)}
-              value={email}
+              onChange={(value) => setDesc(value)}
+              value={desc}
             />
             <div style={{width:'104%'}}>
-              <select id="sell-type" name="sell-type">
-                <option value="" selected>
-                  Price Offer
-                </option>
-                <option value="#">Auction</option>
-                <option value="#">List Price</option>
+              <select id="sell-type" name="sell-type" value={priceType} onChange={(e)=>{setPriceType(e.target.value)}}>
+                <option value="offer">Price Offer</option>
+                <option value="auction">Auction</option>
+                <option value="list">List Price</option>
               </select>
             </div>
             <Input
               type="input"
               name="price"
               placeholder="Reserve Price/List Price"
-              onChange={(value) => setEmail(value)}
-              value={email}
+              onChange={(value) => setPrice(value)}
+              value={price}
             />
-            {file &&
-              <div className="product-img">
-                <Image src={file} layout='fill' objectFit='scale-down' />
-              </div>
-            }
-            <input type="file" name="file" onChange={handleFileChange} />
+
             <Button type="submit" title="Create" />
           </InputContainer>
         </form>
 
-      </FormContainer>
+      </FormContainer> : <p>Please Login</p>
 
+      }
       <style jsx>{`
         form {
           width: 100%;
           align-items: center;
+        }
+        input[type="file"] {
+          display: none;
+        }
+        .icon {
+          display:flex;
+        }
+        .icon-p {
+          margin-top: 3px;
+          margin-left: 10px;
+        }
+        .custom-file-upload {
+          border: 1px solid #ccc;
+          display: inline-block;
+          padding: 6px 12px;
+          cursor: pointer;
+          margin-bottom:20px;
+          margin-top:20px;
         }
         #sell-type {
           width: 100%;  
@@ -126,12 +163,11 @@ export default function Create() {
           padding-left: 32px;
         }
         .product-img {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            margin-bottom: 28px;
-            justify-content: center;
-            display: flex;  
+          position: relative;
+          width: 100%;
+          height: 500px;
+          justify-content: center;
+          display: flex;  
         }
         form .formTitle {
           text-align: center;
