@@ -18,7 +18,7 @@ export default function Input({ type, name, placeholder, onChange, value }) {
 
       <style jsx>{`
         input {
-          width: 100%;
+          width: 60vw;
           font-size: 15px;
           margin-bottom: 34px;
           color: #4d4d4d;
@@ -30,6 +30,7 @@ export default function Input({ type, name, placeholder, onChange, value }) {
           padding-bottom: 1.25em;
           padding-top: 1.25em;
           padding-left: 32px;
+          box-sizing: border-box;
         }
         input ::placeholder {
           color: #b2b2b2;

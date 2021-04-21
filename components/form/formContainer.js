@@ -5,7 +5,6 @@ export default function FormContainer({ children }) {
 
       <style jsx>{`
         .formContainer {
-          width: 60vw;
           margin-top: 10%;
           display: flex;
           flex-direction: column;
@@ -19,12 +18,6 @@ export default function FormContainer({ children }) {
           letter-spacing: 1.65px;
           -webkit-letter-spacing: 1.65px;
           margin-bottom: 32px;
-        }
-        @media (min-width: 1400px) {
-          .formContainer {
-            width: 840px;
-            margin-top: 5%;
-          }
         }
       `}</style>
     </>

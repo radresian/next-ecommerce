@@ -7,26 +7,50 @@ import {useMutation, useApolloClient, useQuery} from '@apollo/client';
 import { getErrorMessage } from '../../lib/form';
 
 import AlertError from '../../components/alerts/error';
+import AlertSuccess from '../../components/alerts/success';
 import Button from '../../components/form/button';
 import Input from '../../components/form/input';
 import InputContainer from '../../components/form/InputContainer';
 import FormContainer from '../../components/form/formContainer';
 import Image from 'next/dist/client/image';
+import Select from 'react-select'
 
 import {
   MdCloudUpload
 } from 'react-icons/md';
-import {VIEWER} from '../../apollo/client/queries';
+import {CATEGORIES, VIEWER} from '../../apollo/client/queries';
+
+const customStyles = {
+  container: (provided, state) => ({
+    ...provided,
+    marginBottom: 34,
+    borderRadius: 6,
+    boxShadow: '1px 1px 4px rgb(0 0 0 / 20%)'
+  }),
+  control: (provided, state) => ({
+    ...provided,
+    height: 55,
+    paddingLeft: 20
+  })
+};
+
+const saleOptions = [
+  { value: 'offer', label: 'Price Offer' },
+  { value: 'auction', label: 'Auction' },
+  { value: 'list', label: 'List Price' }
+]
 
 export default function Create() {
-  const client = useApolloClient();
   const [createProduct] = useMutation(CREATE_PRODUCT);
+  let { data: cData, loading: cLoading, error: cError } = useQuery(CATEGORIES);
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [price, setPrice] = useState('');
-  const [priceType, setPriceType] = useState('offer');
+  const [priceType, setPriceType] = useState('');
+  const [category, setCategory] = useState(1);
   const [file, setFile] = useState(null);
   const [msgError, setMsgError] = useState('');
+  const [msgSuccess, setMsgSuccess] = useState('');
 
   const { data, loading, error } = useQuery(VIEWER);
   const viewer = data?.viewer;
@@ -36,17 +60,19 @@ export default function Create() {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    console.log({priceType})
     try {
       const result = await createProduct({
         variables: {
           name: name.trim(),
           description: desc.trim(),
-          priceType: priceType.trim(),
+          priceType: priceType.value.trim(),
           price,
           file,
-          category_id: 1
+          category_id: Number(category.value)
         }
       });
+      setMsgSuccess('NFT sale created successfully');
       console.log({result});
     } catch (error) {
       setMsgError(getErrorMessage(error));
@@ -67,7 +93,7 @@ export default function Create() {
       })
     });
   }
-  return !loading && (
+  return !loading && !cLoading && (
     <Page>
       {viewer ?
       <FormContainer>
@@ -75,6 +101,7 @@ export default function Create() {
           <h3 className="formTitle">Create NFT</h3>
 
           {msgError && <AlertError message={msgError} />}
+          {msgSuccess && <AlertSuccess message={msgSuccess} />}
 
           <InputContainer>
             {file &&
@@ -89,35 +116,41 @@ export default function Create() {
                 <p className="icon-p"> Upload File</p>
               </div>
             </label>
-            <Input
-              type="input"
-              name="name"
-              placeholder="Name"
-              onChange={(value) => setName(value)}
-              value={name}
-            />
-            <Input
-              type="input"
-              name="description"
-              placeholder="Description"
-              onChange={(value) => setDesc(value)}
-              value={desc}
-            />
-            <div style={{width:'104%'}}>
-              <select id="sell-type" name="sell-type" value={priceType} onChange={(e)=>{setPriceType(e.target.value)}}>
-                <option value="offer">Price Offer</option>
-                <option value="auction">Auction</option>
-                <option value="list">List Price</option>
-              </select>
+            <div className='inputContainer'>
+              <Input
+                type="input"
+                name="name"
+                placeholder="Name"
+                onChange={(value) => setName(value)}
+                value={name}
+              />
             </div>
-            <Input
-              type="input"
-              name="price"
-              placeholder="Reserve Price/List Price"
-              onChange={(value) => setPrice(value)}
-              value={price}
-            />
-
+            <div className='inputContainer'>
+              <Input
+                type="input"
+                name="description"
+                placeholder="Description"
+                onChange={(value) => setDesc(value)}
+                value={desc}
+              />
+            </div>
+            <div className='inputContainer'>
+              <Select styles={customStyles} options={saleOptions} isSearchable={false} placeholder='Select Sale Type...' value={priceType} onChange={(val)=>{setPriceType(val)}}>
+              </Select>
+            </div>
+            <div className='inputContainer'>
+              <Select styles={customStyles} placeholder='Select Category...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(val)=>{setCategory(val)}}>
+              </Select>
+            </div>
+            <div className='inputContainer'>
+              <Input
+                type="input"
+                name="price"
+                placeholder="Reserve Price/List Price"
+                onChange={(value) => setPrice(value)}
+                value={price}
+              />
+            </div>
             <Button type="submit" title="Create" />
           </InputContainer>
         </form>
@@ -133,6 +166,9 @@ export default function Create() {
         input[type="file"] {
           display: none;
         }
+        .inputContainer {
+          width:100%;
+        }
         .icon {
           display:flex;
         }
@@ -147,20 +183,6 @@ export default function Create() {
           cursor: pointer;
           margin-bottom:20px;
           margin-top:20px;
-        }
-        #sell-type {
-          width: 100%;  
-          font-size: 15px;
-          margin-bottom: 34px;
-          color: #4d4d4d;
-          font-weight: 500;
-          border: none;
-          border-radius: 6px;
-          background-color: #ffffff;
-          box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);
-          padding-bottom: 1.25em;
-          padding-top: 1.25em;
-          padding-left: 32px;
         }
         .product-img {
           position: relative;
