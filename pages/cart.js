@@ -37,11 +37,7 @@ export default function Profile() {
             {data?.productsById.map((product) => (
               <ProductItem
                 key={product.id}
-                id={product.id}
-                name={product.name}
-                rating={product.rating}
-                img_url={product.img_url}
-                price={product.price}
+                product={product}
               />
             ))}
           </ProductsGrid>

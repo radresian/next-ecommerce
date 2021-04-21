@@ -62,8 +62,11 @@ export const PRODUCTS = gql`
       id
       name
       description
-      img_url
-      price
+      img_url,
+      sellType,
+      price,
+      creator,
+      user_id
     }
   }
 `;

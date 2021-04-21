@@ -15,6 +15,7 @@ exports.seed = function (knex) {
           reservePrice: 3,
           created_at: Date.now(),
           updated_at: Date.now(),
+          creator:'root',
           user_id: 1,
         },
         {
@@ -27,6 +28,7 @@ exports.seed = function (knex) {
           reservePrice: 2.5,
           created_at: Date.now(),
           updated_at: Date.now(),
+          creator:'root',
           user_id: 1,
         },
         {
@@ -39,6 +41,7 @@ exports.seed = function (knex) {
           reservePrice: 2,
           created_at: Date.now(),
           updated_at: Date.now(),
+          creator:'root',
           user_id: 1,
         },
         {
@@ -51,6 +54,7 @@ exports.seed = function (knex) {
           reservePrice: 1.5,
           created_at: Date.now(),
           updated_at: Date.now(),
+          creator:'root',
           user_id: 1,
         }
       ]);

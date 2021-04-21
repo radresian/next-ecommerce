@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import Link from 'next/link';
@@ -14,6 +14,8 @@ import InputContainer from '../../components/form/InputContainer';
 import FormContainer from '../../components/form/formContainer';
 import Image from 'next/dist/client/image';
 import Select from 'react-select'
+import 'react-datetime/css/react-datetime.css';
+import Datetime from 'react-datetime';
 
 import {
   MdCloudUpload
@@ -36,8 +38,7 @@ const customStyles = {
 
 const saleOptions = [
   { value: 'offer', label: 'Price Offer' },
-  { value: 'auction', label: 'Auction' },
-  { value: 'list', label: 'List Price' }
+  { value: 'auction', label: 'Auction' }
 ]
 
 export default function Create() {
@@ -51,6 +52,9 @@ export default function Create() {
   const [file, setFile] = useState(null);
   const [msgError, setMsgError] = useState('');
   const [msgSuccess, setMsgSuccess] = useState('');
+  const [auctionStart, onStartChange] = useState(new Date());
+  const [auctionEnd, onEndChange] = useState(new Date());
+
 
   const { data, loading, error } = useQuery(VIEWER);
   const viewer = data?.viewer;
@@ -135,18 +139,34 @@ export default function Create() {
               />
             </div>
             <div className='inputContainer'>
-              <Select styles={customStyles} options={saleOptions} isSearchable={false} placeholder='Select Sale Type...' value={priceType} onChange={(val)=>{setPriceType(val)}}>
-              </Select>
-            </div>
-            <div className='inputContainer'>
               <Select styles={customStyles} placeholder='Select Category...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(val)=>{setCategory(val)}}>
               </Select>
             </div>
             <div className='inputContainer'>
+              <Select styles={customStyles} options={saleOptions} isSearchable={false} placeholder='Select Sale Type...' value={priceType} onChange={(val)=>{setPriceType(val)}}>
+              </Select>
+            </div>
+            {priceType.value === 'auction' &&
+              <div className='dateConntainer'>
+
+                <div>
+                  <Datetime
+                    inputProps={{ placeholder: 'Auction Start', className:'date-time-input'}}
+                  />
+                </div>
+                <div>
+                  <Datetime
+                    inputProps={{ placeholder: 'Auction End', className:'date-time-input date-time-input2'}}
+                  />
+                </div>
+              </div>
+              }
+
+            <div className='inputContainer'>
               <Input
                 type="input"
                 name="price"
-                placeholder="Reserve Price/List Price"
+                placeholder="Reserve Price"
                 onChange={(value) => setPrice(value)}
                 value={price}
               />
@@ -167,6 +187,9 @@ export default function Create() {
           display: none;
         }
         .inputContainer {
+          width:100%;
+        }
+        .dateConntainer {
           width:100%;
         }
         .icon {
@@ -204,6 +227,12 @@ export default function Create() {
           color: #b2b2b2;
           margin-top: 12px;
           font-weight: 500;
+        }
+        
+        @media (min-width: 500px) {
+          .dateConntainer {
+            display:flex;
+          }
         }
       `}</style>
     </Page>

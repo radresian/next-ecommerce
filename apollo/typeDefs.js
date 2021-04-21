@@ -12,9 +12,11 @@ export const typeDefs = gql`
     name: String!
     description: String!
     img_url: String!
+    sellType: String!
     price: String!
     createdAt: Int
     updatedAt: Int
+    creator: String!
     user_id: ID!
   }
   type Category {

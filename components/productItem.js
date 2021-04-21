@@ -11,10 +11,15 @@ import StarRatings from 'react-star-ratings';
 import { toggleCart, toggleWishlist } from '../utils/toggleProductStates';
 import { CART, WISHLIST } from '../apollo/client/queries';
 
-export default function ProductSection({ id, name, rating, img_url, price }) {
+export default function ProductSection(props) {
+  const { id, name, img_url, price, creator, user_id, sellType } = props.product;
   const cart = useQuery(CART);
   const wishlist = useQuery(WISHLIST);
 
+  let priceContainerColor = '#3176ba';
+  if(sellType === 'auction'){
+    priceContainerColor = '#021e66';
+  }
   return (
     <article>
       <div className="product-img">
@@ -23,21 +28,27 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
         </Link>
       </div>
 
-      <Link href={`/product/${id}`}>
-        <a className="product-name">{name}</a>
-      </Link>
+      <div className='info-container'>
+        <Link href={`/product/${id}`}>
+          <a className="product-name">{name}</a>
+        </Link>
 
-
+        <Link href={`/creator/${user_id}`}>
+          <a className="creator">@{creator}</a>
+        </Link>
+      </div>
 
       <div className="price-container">
         <div className="price">
-          <p className="price-header">Current Bid</p>
+          {sellType === 'auction' ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
           <p className="price-value1">{price} ETH</p>
         </div>
-        <div className="status">
-          <p className="price-header">Ending In</p>
-          <p className="price-value1">Auction Ended</p>
-        </div>
+        {sellType === 'auction' &&
+          <div className="status">
+            <p className="price-header">Ending In</p>
+            <p className="price-value1">Auction Ended</p>
+          </div>
+        }
       </div>
 
       <style jsx>{`
@@ -69,15 +80,21 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
           width: 100%;
           padding-bottom: 100%;
         }
-        .product-name {
-          width: 80%;
+        .info-container {
+          display:flex;
+          width:100%;
+          flex-direction: column;
+          align-items: flex-start
+        }
+        .product-name, .creator {
           line-height: 20px;
           text-decoration: none;
           font-weight: 500;
           font-size: 14px;
           text-align: center;
           color: #666666;
-          margin-bottom: 18px;
+          margin-left: 20px;
+          margin-bottom: 10px;
         }
         .product-name:hover {
           text-decoration: underline;
@@ -93,7 +110,7 @@ export default function ProductSection({ id, name, rating, img_url, price }) {
           font-size: 16px;
           color: white;
           width:100%;
-          background: #021e66;
+          background: ${priceContainerColor};
           flex-direction: row;
           justify-content: space-around;
           border-bottom-left-radius: 20px;

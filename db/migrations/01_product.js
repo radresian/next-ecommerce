@@ -9,6 +9,7 @@ exports.up = function (knex) {
     table.decimal('reservePrice').nullable();
     table.timestamp('created_at').defaultTo('now()').notNullable();
     table.timestamp('updated_at').defaultTo('now()').notNullable();
+    table.string('creator').notNullable();
 
     table
       .string('user_id')
