@@ -9,6 +9,7 @@ const offlineProducts = [
     reservePrice: 3,
     created_at: Date.now(),
     updated_at: Date.now(),
+    creator: 'root',
     user_id: 1,
   },
   {
@@ -21,6 +22,7 @@ const offlineProducts = [
     reservePrice: 2.5,
     created_at: Date.now(),
     updated_at: Date.now(),
+    creator: 'root',
     user_id: 1,
   },
   {
@@ -31,8 +33,11 @@ const offlineProducts = [
     sellType: 'offer',
     price: 2,
     reservePrice: 2,
+    auction_start: Date.now(),
+    auction_end: Date.now()+1000*3600*24*3,
     created_at: Date.now(),
     updated_at: Date.now(),
+    creator: 'root',
     user_id: 1,
   },
   {
@@ -45,6 +50,7 @@ const offlineProducts = [
     reservePrice: 1.5,
     created_at: Date.now(),
     updated_at: Date.now(),
+    creator: 'root',
     user_id: 1,
   }
 ];

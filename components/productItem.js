@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import {
@@ -10,16 +11,44 @@ import Image from 'next/image';
 import StarRatings from 'react-star-ratings';
 import { toggleCart, toggleWishlist } from '../utils/toggleProductStates';
 import { CART, WISHLIST } from '../apollo/client/queries';
+import moment from 'moment';
 
 export default function ProductSection(props) {
-  const { id, name, img_url, price, creator, user_id, sellType } = props.product;
+  const { id, name, img_url, price, creator, user_id, sellType, auction_start, auction_end } = props.product;
   const cart = useQuery(CART);
   const wishlist = useQuery(WISHLIST);
+
+  const [remaining, setRemaining] = useState();
+
+  useEffect(()=>{
+    if(sellType==='auction' && auction_start < Date.now() && auction_end > Date.now()){
+      setInterval(function(){
+        let delta = Math.floor((auction_end - Date.now()) / 1000);
+
+        // calculate (and subtract) whole hours
+        let hours = Math.floor(delta / 3600);
+        delta -= hours * 3600;
+        const hoursPrefix = hours<10 ? '0' : '';
+
+        // calculate (and subtract) whole minutes
+        let minutes = Math.floor(delta / 60);
+        delta -= minutes * 60;
+        const minutesPrefix = minutes<10 ? '0' : '';
+
+        // what's left is seconds
+        let seconds = delta;  // in theory the modulus is not required
+        const secondsPrefix = seconds<10 ? '0' : '';
+
+        setRemaining(hoursPrefix+hours+'h '+minutesPrefix+minutes+'m '+secondsPrefix+seconds+'s' );
+      }, 1000);
+    }
+  },[]);
 
   let priceContainerColor = '#3176ba';
   if(sellType === 'auction'){
     priceContainerColor = '#021e66';
   }
+
   return (
     <article>
       <div className="product-img">
@@ -45,8 +74,17 @@ export default function ProductSection(props) {
         </div>
         {sellType === 'auction' &&
           <div className="status">
-            <p className="price-header">Ending In</p>
-            <p className="price-value1">Auction Ended</p>
+            { auction_start > Date.now() ? <p className="price-value1">Coming Soon</p> : <p className="price-header">Ending In</p> }
+            { (() => {
+              if(auction_start > Date.now()){
+                return <p className="price-value1">{moment(new Date(auction_start)).format('MMMM ddd').toString()}</p>;
+              }else if (auction_end < Date.now()){
+                return <p className="price-value1">Auction Ended</p>;
+              }else if (auction_end > Date.now()){
+                return <p className="price-value1">{remaining}</p>;
+              }
+            })()
+            }
           </div>
         }
       </div>

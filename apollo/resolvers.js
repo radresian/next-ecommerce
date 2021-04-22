@@ -111,7 +111,7 @@ export const resolvers = {
       }
 
       args.input.userId=user.id;
-      args.input.creattor=user.name;
+      args.input.creator=user.name;
       try {
         const product = await CreateProduct(args.input);
 

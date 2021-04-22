@@ -66,6 +66,8 @@ export const PRODUCTS = gql`
       sellType,
       price,
       creator,
+      auction_start,
+      auction_end,
       user_id
     }
   }

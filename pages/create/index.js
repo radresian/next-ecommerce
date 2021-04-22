@@ -52,8 +52,8 @@ export default function Create() {
   const [file, setFile] = useState(null);
   const [msgError, setMsgError] = useState('');
   const [msgSuccess, setMsgSuccess] = useState('');
-  const [auctionStart, onStartChange] = useState(new Date());
-  const [auctionEnd, onEndChange] = useState(new Date());
+  const [auctionStart, setStartChange] = useState(null);
+  const [auctionEnd, setEndChange] = useState(null);
 
 
   const { data, loading, error } = useQuery(VIEWER);
@@ -73,6 +73,8 @@ export default function Create() {
           priceType: priceType.value.trim(),
           price,
           file,
+          auction_start: auctionStart.toDate().getTime(),
+          auction_end: auctionEnd.toDate().getTime(),
           category_id: Number(category.value)
         }
       });
@@ -150,12 +152,12 @@ export default function Create() {
               <div className='dateConntainer'>
 
                 <div>
-                  <Datetime
+                  <Datetime onChange={setStartChange}
                     inputProps={{ placeholder: 'Auction Start', className:'date-time-input'}}
                   />
                 </div>
                 <div>
-                  <Datetime
+                  <Datetime onChange={setEndChange}
                     inputProps={{ placeholder: 'Auction End', className:'date-time-input date-time-input2'}}
                   />
                 </div>
