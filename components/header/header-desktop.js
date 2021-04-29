@@ -1,19 +1,17 @@
-import { useQuery } from '@apollo/client';
+import { useCallback, useState, useEffect } from 'react';
+
 import Link from 'next/link';
 import {
-  FaShoppingCart,
-  FaRegHeart,
   FaUser,
   FaSignOutAlt,
   FaBars,
 } from 'react-icons/fa';
-import { CART_COUNT } from '../../apollo/client/queries';
 
 import Logo from '../logo';
-import SearchBox from '../search-box';
 
-export default function HeaderDesktop({ viewer }) {
-  const cart = useQuery(CART_COUNT);
+
+export default function HeaderDesktop({ viewer, connectWallet }) {
+
 
   return (
     <>
@@ -29,8 +27,9 @@ export default function HeaderDesktop({ viewer }) {
           </a>
           <button id='header-button'
             className='btn-custom'
+            onClick={connectWallet}
           >
-            Connect Wallet
+            {viewer?.wallet ? viewer.wallet.substring(0,6) + '...' + viewer.wallet.substring(viewer.wallet.length-3) : 'Connect Wallet'}
           </button>
 
           {!viewer && (

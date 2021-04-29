@@ -5,6 +5,7 @@ export const typeDefs = gql`
     id: ID!
     name: String!
     email: String!
+    wallet: String!
     createdAt: Int!
   }
   type Product {

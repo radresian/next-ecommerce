@@ -50,8 +50,7 @@ export const VIEWER = gql`
   query ViewerQuery {
     viewer {
       id
-      name
-      email
+      wallet
     }
   }
 `;

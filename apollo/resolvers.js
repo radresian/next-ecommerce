@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-micro';
-import { createUser, findUser, validatePassword } from '../lib/user';
+import { createUser, findUser, findUserByWallet, validatePassword } from '../lib/user';
 import { listCategories } from '../lib/category';
 import {
   listProducts,
@@ -19,7 +19,7 @@ export const resolvers = {
         const session = await getLoginSession(context.req);
 
         if (session) {
-          return findUser({ email: session.email });
+          return findUserByWallet({ wallet: session.wallet });
         }
       } catch (error) {
         throw new AuthenticationError(

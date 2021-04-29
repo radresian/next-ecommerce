@@ -3,10 +3,34 @@ import { VIEWER } from '../../apollo/client/queries';
 
 import HeaderMobile from './header-mobile';
 import HeaderDesktop from './header-desktop';
+import {useCallback} from 'react';
+import Web3 from 'web3';
 
 export default function Header() {
-  const { data, loading, error } = useQuery(VIEWER);
+  const { data, loading, error, refetch } = useQuery(VIEWER);
   const viewer = data?.viewer;
+
+  const connectWallet = useCallback(()=>{
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum);
+      window.ethereum.enable().then(()=>{
+        web3.eth.getAccounts().then(accounts=>{
+          console.log({accounts});
+          web3.eth.personal.sign(' ', accounts[0],function (err, signature) {
+            fetch('/api/ethereum?signature='+signature+'&address='+accounts[0]).then(data=>{
+              data.text().then((text)=>{
+                if(text==='ok'){
+                  refetch();
+                }
+              })
+            });
+            console.log(signature);  // But maybe do some error checking. :-)
+          });
+        })});
+    }else {
+      alert('Please Install Metamask');
+    }
+  },[]);
 
   return (
     <header>
@@ -15,7 +39,7 @@ export default function Header() {
       </nav>
 
       <nav id="desktop">
-        <HeaderDesktop viewer={viewer} />
+        <HeaderDesktop viewer={viewer} connectWallet={connectWallet} />
       </nav>
 
       <style jsx>{`

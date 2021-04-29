@@ -32,3 +32,4 @@ yarn-error.log*
 # /db/db.sqlite
 
 .vercel
+secret.json

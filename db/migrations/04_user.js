@@ -2,13 +2,13 @@ exports.up = function (knex) {
   knex.schema.dropTable('user');
   return knex.schema.createTable('user', function (table) {
     table.string('id').primary();
-    table.string('name').notNullable();
-    table.string('password').notNullable();
-    table.string('email').unique().notNullable();
+    table.string('name').nullable();
+    table.string('password').nullable();
+    table.string('email').unique().nullable();
     table.string('wallet').unique().notNullable();
-    table.string('twitter').unique().notNullable();
+    table.string('twitter').unique().nullable();
     table.string('instagram').nullable();
-    table.boolean('creator').notNullable();
+    table.boolean('creator').defaultTo(true).notNullable();
     table.string('detail').nullable();
     table.string('createdAt').notNullable();
   });
