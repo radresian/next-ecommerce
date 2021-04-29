@@ -16,7 +16,7 @@ export default function Header() {
       window.ethereum.enable().then(()=>{
         web3.eth.getAccounts().then(accounts=>{
           console.log({accounts});
-          web3.eth.personal.sign(' ', accounts[0],function (err, signature) {
+          web3.eth.personal.sign('Please sign this message to connect BestDrops', accounts[0],function (err, signature) {
             fetch('/api/ethereum?signature='+signature+'&address='+accounts[0]).then(data=>{
               data.text().then((text)=>{
                 if(text==='ok'){

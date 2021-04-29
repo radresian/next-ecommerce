@@ -11,7 +11,7 @@ const web3 = new Web3(new HDWalletProvider(
 
 export default async (req, res) => {
 
-  const wallet = await web3.eth.personal.ecRecover(' ',req.query.signature);
+  const wallet = await web3.eth.personal.ecRecover('Please sign this message to connect BestDrops',req.query.signature);
 
   if(req.query.address.toLowerCase()==wallet.toLowerCase()){
     console.log(wallet+ ' ok');

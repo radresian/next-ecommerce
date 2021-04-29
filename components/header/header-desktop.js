@@ -32,7 +32,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
             {viewer?.wallet ? viewer.wallet.substring(0,6) + '...' + viewer.wallet.substring(viewer.wallet.length-3) : 'Connect Wallet'}
           </button>
 
-          {!viewer && (
+          {false && (
             <Link href="/user/login">
               <a className="nav-buttons-signin">
                 <FaUser color="#808080" />
@@ -49,7 +49,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
                 Create
               </button>
             </Link>
-              <Link href="/profile">
+              <Link href="/user/profile">
                 <a className="nav-buttons-profile">
                   <FaUser color="#808080" />
                   <p>{viewer.name}</p>

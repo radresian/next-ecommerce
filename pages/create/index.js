@@ -185,9 +185,6 @@ export default function Create() {
           width: 100%;
           align-items: center;
         }
-        input[type="file"] {
-          display: none;
-        }
         .inputContainer {
           width:100%;
         }
@@ -200,6 +197,9 @@ export default function Create() {
         .icon-p {
           margin-top: 3px;
           margin-left: 10px;
+        }
+        input[type="file"] {
+          display: none;
         }
         .custom-file-upload {
           border: 1px solid #ccc;
