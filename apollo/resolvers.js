@@ -102,7 +102,7 @@ export const resolvers = {
         throw new Error('user required to create product');
       }
 
-      const user = await findUser({ email: session.email });
+      const user = await findUserByWallet({ wallet: session.wallet });
 
       console.log({user})
 
@@ -111,7 +111,7 @@ export const resolvers = {
       }
 
       args.input.userId=user.id;
-      args.input.creator=user.name;
+      args.input.creator=user.wallet;
       try {
         const product = await CreateProduct(args.input);
 

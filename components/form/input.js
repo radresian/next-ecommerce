@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Input({ type, name, placeholder, onChange, value }) {
+export default function Input({ type, name, placeholder, onChange, value, onInput, max, min, step, width='60vw' }) {
   function handleChange(event) {
     const { value } = event.target;
     onChange(value);
@@ -11,14 +11,18 @@ export default function Input({ type, name, placeholder, onChange, value }) {
       <input
         type={type}
         name={name}
+        max={max}
+        min={min}
+        step={step}
         placeholder={placeholder}
         onChange={handleChange}
+        onInput={onInput}
         value={value}
       />
 
       <style jsx>{`
         input {
-          width: 60vw;
+          width: ${width};
           font-size: 15px;
           margin-bottom: 34px;
           color: #4d4d4d;

@@ -6,9 +6,6 @@ exports.up = function (knex) {
     table.string('img_url').notNullable();
     table.string('sellType').notNullable();
     table.decimal('price').nullable();
-    table.decimal('reservePrice').nullable();
-    table.timestamp('auction_start').nullable();
-    table.timestamp('auction_end').nullable();
     table.timestamp('created_at').defaultTo('now()').notNullable();
     table.timestamp('updated_at').defaultTo('now()').notNullable();
     table.string('creator').notNullable();

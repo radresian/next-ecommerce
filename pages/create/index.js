@@ -70,11 +70,8 @@ export default function Create() {
         variables: {
           name: name.trim(),
           description: desc.trim(),
-          priceType: priceType.value.trim(),
           price,
           file,
-          auction_start: auctionStart.toDate().getTime(),
-          auction_end: auctionEnd.toDate().getTime(),
           category_id: Number(category.value)
         }
       });
@@ -99,6 +96,17 @@ export default function Create() {
       })
     });
   }
+
+  function maxLengthCheck(object){
+    console.log(object.target.max);
+    if (object.target.value > Number(object.target.max) ) {
+      object.target.value = Number(object.target.max);
+    }
+    if (object.target.value < Number(object.target.min) ) {
+      object.target.value = Number(object.target.min);
+    }
+  }
+
   return !loading && !cLoading && (
     <Page>
       {viewer ?
@@ -145,33 +153,20 @@ export default function Create() {
               </Select>
             </div>
             <div className='inputContainer'>
-              <Select styles={customStyles} options={saleOptions} isSearchable={false} placeholder='Select Sale Type...' value={priceType} onChange={(val)=>{setPriceType(val)}}>
-              </Select>
-            </div>
-            {priceType.value === 'auction' &&
-              <div className='dateConntainer'>
-
-                <div>
-                  <Datetime onChange={setStartChange}
-                    inputProps={{ placeholder: 'Auction Start', className:'date-time-input'}}
-                  />
-                </div>
-                <div>
-                  <Datetime onChange={setEndChange}
-                    inputProps={{ placeholder: 'Auction End', className:'date-time-input date-time-input2'}}
-                  />
-                </div>
-              </div>
-              }
-
-            <div className='inputContainer'>
               <Input
-                type="input"
+                type="number"
+                min="0.01"
+                max="999"
+                step="0.01"
                 name="price"
-                placeholder="Reserve Price"
+                placeholder="Reserve Price in ETH"
+                onInput={maxLengthCheck}
                 onChange={(value) => setPrice(value)}
                 value={price}
               />
+            </div>
+            <div className='reserve-price-text'>
+              <span>24 hours auction will begin when any offer comes above this reserve price, if not specified first offer starts the auction.</span>
             </div>
             <Button type="submit" title="Create" />
           </InputContainer>
@@ -186,6 +181,11 @@ export default function Create() {
           align-items: center;
         }
         .inputContainer {
+          width:100%;
+        }
+        .reserve-price-text {
+          margin-top: -25px;
+          margin-left: 10px;
           width:100%;
         }
         .dateConntainer {

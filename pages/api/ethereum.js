@@ -1,13 +1,6 @@
-import Web3 from 'web3';
 import { createUserWithWallet, findUserByWallet, validatePassword } from '../../lib/user'
 import {setLoginSession} from '../../lib/auth';
-
-const { alchemyApiKey, mnemonic } = require('../../secret.json');
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-
-const web3 = new Web3(new HDWalletProvider(
-  mnemonic, `https://eth-rinkeby.alchemyapi.io/v2/${alchemyApiKey}`
-));
+import web3 from './web3-provider'
 
 export default async (req, res) => {
 

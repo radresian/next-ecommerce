@@ -13,10 +13,7 @@ export const typeDefs = gql`
     name: String!
     description: String!
     img_url: String!
-    sellType: String!
     price: String!
-    auction_start: Float
-    auction_end: Float
     createdAt: Int
     updatedAt: Int
     creator: String!
@@ -43,9 +40,6 @@ export const typeDefs = gql`
     description: String!
     img_url: String!
     price: String!
-    sellType: String!
-    auction_start: Float
-    auction_end: Float
     category_id: Int!
   }
   input UpdateProductInput {

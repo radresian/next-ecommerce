@@ -1,0 +1,15 @@
+- NFT create page
+  - reserve price only
+  - reserve match starts auction
+- profile update page
+  - image uploads
+  - twitter verify
+  - instagram verify
+- NFT Buy page
+  - price input and validations
+  - NFT info
+  - Creator info
+- profile trade page
+  - buyer claim NFT
+  - buyer withdraw bid
+  - seller claim Money

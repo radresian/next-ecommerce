@@ -62,11 +62,8 @@ export const PRODUCTS = gql`
       name
       description
       img_url,
-      sellType,
       price,
       creator,
-      auction_start,
-      auction_end,
       user_id
     }
   }
