@@ -1,6 +1,6 @@
 import { createUserWithWallet, findUserByWallet, validatePassword } from '../../lib/user'
 import {setLoginSession} from '../../lib/auth';
-import web3 from './web3-provider'
+import web3 from '../../lib/web3-provider'
 
 export default async (req, res) => {
 

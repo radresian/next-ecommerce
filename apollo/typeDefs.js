@@ -18,6 +18,10 @@ export const typeDefs = gql`
     updatedAt: Int
     creator: String!
     user_id: ID!
+    tokenId:  String!
+    tokenHighestBid: String! 
+    auctionEndTime: String!
+    tokenHighestBidder: String!
   }
   type Category {
     id: ID!

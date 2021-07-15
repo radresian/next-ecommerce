@@ -111,7 +111,7 @@ export const resolvers = {
       }
 
       args.input.userId=user.id;
-      args.input.creator=user.wallet;
+      args.input.creator=user.name || user.wallet;
       try {
         const product = await CreateProduct(args.input);
 

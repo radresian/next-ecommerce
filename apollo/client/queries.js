@@ -64,7 +64,8 @@ export const PRODUCTS = gql`
       img_url,
       price,
       creator,
-      user_id
+      user_id,
+      tokenId, tokenHighestBid, auctionEndTime, tokenHighestBidder
     }
   }
 `;
