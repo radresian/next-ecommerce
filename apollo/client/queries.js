@@ -61,11 +61,14 @@ export const PRODUCTS = gql`
       id
       name
       description
-      img_url,
-      price,
-      creator,
-      user_id,
-      tokenId, tokenHighestBid, auctionEndTime, tokenHighestBidder
+      img_url
+      price
+      creator
+      user_id
+      tokenId 
+      tokenHighestBid
+      auctionEndTime
+      tokenHighestBidder
     }
   }
 `;
@@ -78,6 +81,12 @@ export const PRODUCTS_BY_IDS = gql`
       description
       img_url
       price
+      creator
+      user_id
+      tokenId
+      tokenHighestBid
+      auctionEndTime
+      tokenHighestBidder
     }
   }
 `;

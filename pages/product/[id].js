@@ -41,59 +41,138 @@ export default function Home() {
 
   return (
     <Page title="BestDrops - Products">
-      <article>
-        <div className="top-buttons">
-          <button
-            className="add-wishlist"
-            onClick={() => toggleWishlist(data.productsById[0].id)}
-          >
-            {wishlist.data.wishlist.products.includes(
-              data.productsById[0].id
-            ) && <FaHeart size={20} color="#D8D8D8" />}
-            {!wishlist.data.wishlist.products.includes(
-              data.productsById[0].id
-            ) && <FaRegHeart size={20} color="#D8D8D8" />}
-          </button>
-        </div>
+      <div className="product-detail-container">
+        <article>
 
-        <div className="product-img">
-          <Image src={data.productsById[0].img_url} layout='fill' objectFit='scale-down' />
-        </div>
+          <div className="product-img">
+            <Image src={data.productsById[0].img_url} layout='fill' objectFit='scale-down' />
+          </div>
 
-        <h1 className="product-name">{data.productsById[0].name}</h1>
+        </article>
+        <article>
+          <div className="nft-info-container">
+            <button className="creator">
+              <div className="creator-div">
+                <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius:50}} />
+                <span style={{margin:15}}>@{data.productsById[0].creator}</span>
+              </div>
+            </button>
+            <h1 className="product-name">{data.productsById[0].name}</h1>
 
-        <h3 className="product-description">
-          {data.productsById[0].description}
-        </h3>
+            <h3 className="product-description">
+              {data.productsById[0].description}
+            </h3>
+          </div>
+          <div className="price-contianer">
+            <div className="price-section">
+              <p className="">Reserve Price</p>
+              <p className="price-value">{data.productsById[0].price} ETH</p>
+            </div>
+            <div className="auction-section">
+              <p>Once a bid has been placed and the reserve price has been met, a 24 hour auction for this artwork will begin.</p>
+            </div>
+          </div>
+          <button className="place-bid">Place A Bid</button>
+          <div className="bid-container">
+            <div className="bid-info">
+              <div className="bidder-avatar">
+                <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius:50}} />
+              </div>
+              <div className="bidder-and-date">
+                <div className="bidder"><span>@radresian</span></div>
+                <div className="bid-date"><span>Jul 21, 2021 at 11:54am</span></div>
+              </div>
+              <div className="bid-price">
+                <span>2 ETH</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
 
-
-        <div className="price">
-          <p className="price-value">{data.productsById[0].price} ETH</p>
-          <button
-            className="add-cart"
-            onClick={() => toggleCart(data.productsById[0].id)}
-          >
-            {cart.data.cart.products.includes(data.productsById[0].id) && (
-              <FaCartArrowDown size={24} color="#D8D8D8" />
-            )}
-            {!cart.data.cart.products.includes(data.productsById[0].id) && (
-              <FaCartPlus size={24} color="#D8D8D8" />
-            )}
-          </button>
-        </div>
-
-        <style jsx>{`
+      <style jsx>{`
           article {
             display: flex;
             align-items: center;
             flex-direction: column;
             box-sizing: border-box;
-            height: 100%;
+            height: auto;
             width: 100%;
             padding: 24px;
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
+          }
+          .bidder-and-date {
+            margin-top: 8px;
+          }
+          .bid-price {
+            margin-top: 15px
+          }
+          .creator-div {
+            display:flex;
+            flex-direction:row;
+            
+          }
+          .bidder-avatar {
+            height: 50px;
+            width: 50px;
+          }
+          .bid-container {
+            display:flex;
+            width:100%;
+            border-top: 1px solid;
+            padding-top: 20px;
+          }
+          .bid-info {
+            display:flex;
+            width:100%;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .nft-info-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            border-bottom: 1px solid;
+            padding-bottom: 12px;
+          }
+          .price-value{
+            margin-top: 5px;
+            font-size: 25px;
+            font-weight: bold;
+          }
+          .price-section {
+            width: 250px;
+          }
+          .price-contianer {
+            display:flex;
+            flex-direction:row;
+            margin-top: 24px;
+          }
+          .creator {
+            border-radius: 9999px;
+            height: 60px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: white;
+            font-weight: bold;
+          }
+          .place-bid {
+            border-radius: 9999px;
+            width: 100%;
+            height: 45px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            background-color: #021e66;
+            color: white;
+          }
+          .product-detail-container {
+            display:flex;
+            flex-direction: row;
+            width: 100%;
           }
           .top-buttons {
             margin-bottom: 24px;
@@ -132,7 +211,6 @@ export default function Home() {
             font-size: 14px;
             text-align: center;
             color: #666666;
-            margin-bottom: 24px;
           }
           .rating {
             margin-bottom: 18px;
@@ -181,7 +259,6 @@ export default function Home() {
             }
           }
         `}</style>
-      </article>
     </Page>
   );
 }

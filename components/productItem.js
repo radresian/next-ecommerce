@@ -13,7 +13,7 @@ import { toggleCart, toggleWishlist } from '../utils/toggleProductStates';
 import { CART, WISHLIST } from '../apollo/client/queries';
 import moment from 'moment';
 
-export default function ProductSection(props) {
+export default function ProductItem(props) {
   const { id, name, img_url, price, creator, user_id, sellType, auction_start, auction_end } = props.product;
   const cart = useQuery(CART);
   const wishlist = useQuery(WISHLIST);
