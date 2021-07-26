@@ -1,29 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import {
-  FaCartArrowDown,
-  FaCartPlus,
-  FaRegHeart,
-  FaHeart,
-} from 'react-icons/fa';
 import Image from 'next/image';
-import StarRatings from 'react-star-ratings';
-import { toggleCart, toggleWishlist } from '../utils/toggleProductStates';
-import { CART, WISHLIST } from '../apollo/client/queries';
-import moment from 'moment';
 
 export default function ProductItem(props) {
-  const { id, name, img_url, price, creator, user_id, sellType, auction_start, auction_end } = props.product;
-  const cart = useQuery(CART);
-  const wishlist = useQuery(WISHLIST);
-
+  const { id, name, img_url, price, creator, user_id, auctionEndTime, tokenHighestBid } = props.product;
+  const auctionStarted = Number(auctionEndTime) > 0;
+  const auctionEnded = Number(auctionEndTime) * 1000 < Date.now();
+  const auctionEndDate = new Date(Number(auctionEndTime)* 1000);
   const [remaining, setRemaining] = useState();
 
   useEffect(()=>{
-    if(sellType==='auction' && auction_start < Date.now() && auction_end > Date.now()){
+    if(auctionStarted  && !auctionEnded){
       setInterval(function(){
-        let delta = Math.floor((auction_end - Date.now()) / 1000);
+        let delta = Math.floor((auctionEndDate - Date.now()) / 1000);
 
         // calculate (and subtract) whole hours
         let hours = Math.floor(delta / 3600);
@@ -45,7 +34,7 @@ export default function ProductItem(props) {
   },[]);
 
   let priceContainerColor = '#3176ba';
-  if(sellType === 'auction'){
+  if(auctionStarted){
     priceContainerColor = '#021e66';
   }
 
@@ -69,18 +58,16 @@ export default function ProductItem(props) {
 
       <div className="price-container">
         <div className="price">
-          {sellType === 'auction' ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
-          <p className="price-value1">{price} ETH</p>
+          {auctionStarted ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
+          <p className="price-value1">{auctionStarted ? (props.web3 ? props.web3.utils.fromWei(tokenHighestBid) : 0) : price} ETH</p>
         </div>
-        {sellType === 'auction' &&
+        {auctionStarted &&
           <div className="status">
-            { auction_start > Date.now() ? <p className="price-value1">Coming Soon</p> : <p className="price-header">Ending In</p> }
+            { <p className="price-header">Ending In</p> }
             { (() => {
-              if(auction_start > Date.now()){
-                return <p className="price-value1">{moment(new Date(auction_start)).format('MMMM ddd').toString()}</p>;
-              }else if (auction_end < Date.now()){
+              if (auctionEnded){
                 return <p className="price-value1">Auction Ended</p>;
-              }else if (auction_end > Date.now()){
+              }else if (auctionEndDate > Date.now()){
                 return <p className="price-value1">{remaining}</p>;
               }
             })()

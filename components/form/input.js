@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Input({ type, name, placeholder, onChange, value, onInput, max, min, step, width='60vw' }) {
+export default function Input({ type, name, placeholder, onChange, value, onInput, max, min, step, width='60vw', marginBottom = '34px' }) {
   function handleChange(event) {
     const { value } = event.target;
     onChange(value);
@@ -24,7 +24,7 @@ export default function Input({ type, name, placeholder, onChange, value, onInpu
         input {
           width: ${width};
           font-size: 15px;
-          margin-bottom: 34px;
+          margin-bottom: ${marginBottom};
           color: #4d4d4d;
           font-weight: 500;
           border: none;

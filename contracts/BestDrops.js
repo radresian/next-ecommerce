@@ -789,5 +789,4 @@ const BestDrops = [
     }
   ];
 
-
 export default BestDrops;

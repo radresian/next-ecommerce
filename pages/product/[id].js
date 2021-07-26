@@ -1,29 +1,46 @@
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import {
-  FaCartArrowDown,
-  FaCartPlus,
-  FaRegHeart,
-  FaHeart,
-} from 'react-icons/fa';
 import Image from 'next/image';
-import StarRatings from 'react-star-ratings';
 import { PRODUCTS_BY_IDS, CART, WISHLIST } from '../../apollo/client/queries';
 import Page from '../../components/page';
 import ErrorAlert from '../../components/alerts/error';
-import { toggleCart, toggleWishlist } from '../../utils/toggleProductStates';
+import Input from '../../components/form/input';
+import BestDropsSale, { bestDropsSaleAddress } from '../../contracts/BestDropsSale';
+import useWeb3 from '../../lib/web3-browser-provider';
 
 export default function Home() {
   const router = useRouter();
   const { id } = router.query;
-  const cart = useQuery(CART);
-  const wishlist = useQuery(WISHLIST);
+  const [price, setPrice] = useState();
+  const web3 = useWeb3();
 
   const { data, loading, error } = useQuery(PRODUCTS_BY_IDS, {
     variables: {
       id,
     },
   });
+
+  function maxLengthCheck(object){
+    console.log(object.target.max);
+    if (object.target.value > Number(object.target.max) ) {
+      object.target.value = Number(object.target.max);
+    }
+    if (object.target.value < Number(object.target.min) ) {
+      object.target.value = Number(object.target.min);
+    }
+  }
+
+  function placeABid(){
+    window.ethereum.enable().then(()=>{
+      web3.eth.getAccounts().then(accounts=>{
+        console.log({accounts});
+        const bestDropsSaleContract =  new web3.eth.Contract(BestDropsSale, bestDropsSaleAddress);
+        bestDropsSaleContract.methods.bid(data.productsById[0].tokenId).send({from: accounts[0], value: web3.utils.toWei(price)}).then((tx)=>{
+          console.log({tx});
+        });
+      })});
+  }
 
   if ((error || !data?.productsById.length) && !loading) {
     return (
@@ -72,7 +89,24 @@ export default function Home() {
               <p>Once a bid has been placed and the reserve price has been met, a 24 hour auction for this artwork will begin.</p>
             </div>
           </div>
-          <button className="place-bid">Place A Bid</button>
+
+          <div className="place-bid-container">
+            <Input
+              width={'100%'}
+              marginBottom={'0px'}
+              type="number"
+              min={data.productsById[0].price}
+              max="999"
+              step="0.01"
+              name="price"
+              placeholder="Enter bid in ETH"
+              onInput={maxLengthCheck}
+              onChange={(value) => setPrice(value)}
+              value={price}
+            />
+            <button className="place-bid" onClick={placeABid}>Place A Bid</button>
+          </div>
+
           <div className="bid-container">
             <div className="bid-info">
               <div className="bidder-avatar">
@@ -102,6 +136,10 @@ export default function Home() {
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
+          }
+          .place-bid-container {
+            width: 100%;
+            margin-top: 20px;
           }
           .bidder-and-date {
             margin-top: 8px;
