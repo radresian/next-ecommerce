@@ -8,6 +8,7 @@ import ErrorAlert from '../../components/alerts/error';
 import Input from '../../components/form/input';
 import BestDropsSale, { bestDropsSaleAddress } from '../../contracts/BestDropsSale';
 import useWeb3 from '../../lib/web3-browser-provider';
+import { useAuction } from '../../components/productItem';
 
 export default function Home() {
   const router = useRouter();
@@ -15,11 +16,13 @@ export default function Home() {
   const [price, setPrice] = useState();
   const web3 = useWeb3();
 
-  const { data, loading, error } = useQuery(PRODUCTS_BY_IDS, {
+  const { data, loading, error, refetch } = useQuery(PRODUCTS_BY_IDS, {
     variables: {
       id,
     },
   });
+
+  const [remaining, auctionStarted, auctionEnded, auctionEndDate] = useAuction(data ? data.productsById[0].auctionEndTime : 0);
 
   function maxLengthCheck(object){
     console.log(object.target.max);
@@ -38,7 +41,8 @@ export default function Home() {
         const bestDropsSaleContract =  new web3.eth.Contract(BestDropsSale, bestDropsSaleAddress);
         bestDropsSaleContract.methods.bid(data.productsById[0].tokenId).send({from: accounts[0], value: web3.utils.toWei(price)}).then((tx)=>{
           console.log({tx});
-        });
+          refetch();
+        }).catch(console.log);
       })});
   }
 
@@ -81,13 +85,29 @@ export default function Home() {
             </h3>
           </div>
           <div className="price-contianer">
+
             <div className="price-section">
-              <p className="">Reserve Price</p>
-              <p className="price-value">{data.productsById[0].price} ETH</p>
+              {!auctionStarted ? <p className="">Reserve Price</p> : <p className="">Current Bid</p> }
+              <p className="price-value">{ auctionStarted ? (web3 ? web3.utils.fromWei(data.productsById[0].tokenHighestBid) : 0) : data.productsById[0].price} ETH</p>
             </div>
-            <div className="auction-section">
-              <p>Once a bid has been placed and the reserve price has been met, a 24 hour auction for this artwork will begin.</p>
-            </div>
+            {!auctionStarted ?
+              <div className="auction-section">
+                <p>Once a bid has been placed and the reserve price has been met, a 24 hour auction for this artwork
+                  will begin.</p>
+              </div>
+              :
+              <div className="status">
+                {<p className="price-header">Ending In</p>}
+                {(() => {
+                  if (auctionEnded) {
+                    return <p className="price-value1">Auction Ended</p>;
+                  } else if (auctionEndDate > Date.now()) {
+                    return <p className="price-value1">{remaining}</p>;
+                  }
+                })()
+                }
+              </div>
+            }
           </div>
 
           <div className="place-bid-container">

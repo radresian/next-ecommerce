@@ -790,3 +790,5 @@ const BestDrops = [
   ];
 
 export default BestDrops;
+
+export const bestDropsAddress = '0x4613e36FD0E0Cce2C62E7Ab02dAE2Ea87Fc4E5f0';

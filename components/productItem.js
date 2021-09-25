@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function ProductItem(props) {
-  const { id, name, img_url, price, creator, user_id, auctionEndTime, tokenHighestBid } = props.product;
+export function useAuction(auctionEndTime) {
+
   const auctionStarted = Number(auctionEndTime) > 0;
   const auctionEnded = Number(auctionEndTime) * 1000 < Date.now();
   const auctionEndDate = new Date(Number(auctionEndTime)* 1000);
@@ -31,7 +31,15 @@ export default function ProductItem(props) {
         setRemaining(hoursPrefix+hours+'h '+minutesPrefix+minutes+'m '+secondsPrefix+seconds+'s' );
       }, 1000);
     }
-  },[]);
+  },[auctionEndTime]);
+
+  return [remaining, auctionStarted, auctionEnded, auctionEndDate]
+}
+
+export default function ProductItem(props) {
+  const { id, name, img_url, price, creator, user_id, auctionEndTime, tokenHighestBid } = props.product;
+
+  const [remaining, auctionStarted, auctionEnded, auctionEndDate] = useAuction(auctionEndTime);
 
   let priceContainerColor = '#3176ba';
   if(auctionStarted){
