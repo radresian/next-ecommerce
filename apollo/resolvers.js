@@ -17,9 +17,8 @@ export const resolvers = {
     async viewer(_parent, _args, context, _info) {
       try {
         const session = await getLoginSession(context.req);
-
         if (session) {
-          return findUserByWallet({ wallet: session.wallet });
+          return findUser(session);
         }
       } catch (error) {
         throw new AuthenticationError(

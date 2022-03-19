@@ -51,6 +51,8 @@ export const VIEWER = gql`
     viewer {
       id
       wallet
+      name
+      email
     }
   }
 `;

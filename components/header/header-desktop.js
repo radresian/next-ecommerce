@@ -1,5 +1,3 @@
-import { useCallback, useState, useEffect } from 'react';
-
 import Link from 'next/link';
 import {
   FaUser,
@@ -25,22 +23,16 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           >
             About
           </a>
-          <button id='header-button'
+          {false && (<button id='header-button'
             className='btn-custom'
             onClick={connectWallet}
           >
             {viewer?.wallet ? viewer.wallet.substring(0,6) + '...' + viewer.wallet.substring(viewer.wallet.length-3) : 'Connect Wallet'}
           </button>
-
-          {false && (
-            <Link href="/user/login">
-              <a className="nav-buttons-signin">
-                <FaUser color="#808080" />
-                <p>Sign In</p>
-              </a>
-            </Link>
           )}
-          {viewer && (
+
+
+          {viewer ? (
             <>
             <Link href="/create">
               <button id='header-button-create'
@@ -61,7 +53,16 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
                 </a>
               </Link>
             </>
-          )}
+          ):
+            (
+              <Link href="/user/login">
+                <a className="nav-buttons-signin">
+                  <FaUser color="#808080" />
+                  <p>Sign In</p>
+                </a>
+              </Link>
+            )
+          }
         </div>
       </div>
       {false &&
@@ -118,7 +119,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 0 40px;
+          padding: 0 50px;
         }
         #header-button {
           padding:10px;

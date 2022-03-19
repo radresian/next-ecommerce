@@ -9,7 +9,6 @@ import Web3 from 'web3';
 export default function Header() {
   const { data, loading, error, refetch } = useQuery(VIEWER);
   const viewer = data?.viewer;
-
   const connectWallet = useCallback(()=>{
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -32,7 +31,7 @@ export default function Header() {
     }
   },[]);
 
-  return (
+  return  (
     <header>
       <nav id="mobile">
         <HeaderMobile viewer={viewer} />
@@ -48,7 +47,7 @@ export default function Header() {
           display: flex;
           flex-direction: column;
           margin-bottom: 30px;
-          background-color: #ffffff;
+          background-color: #111f57;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
         }
         #mobile {

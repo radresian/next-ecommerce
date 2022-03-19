@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import Link from 'next/link';
 import { SIGN_IN } from '../../apollo/client/mutations';
-import { useMutation, useApolloClient } from '@apollo/client';
+import {useMutation, useApolloClient, useQuery} from '@apollo/client';
 import { getErrorMessage } from '../../lib/form';
 
 import AlertError from '../../components/alerts/error';
@@ -15,6 +15,7 @@ import FormContainer from '../../components/form/formContainer';
 export default function Login() {
   const client = useApolloClient();
   const [signIn] = useMutation(SIGN_IN);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msgError, setMsgError] = useState('');
@@ -25,15 +26,15 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      await client.resetStore();
       const { data } = await signIn({
         variables: {
           email: email.trim(),
           password: password.trim(),
         },
       });
+      await client.resetStore();
       if (data.signIn.user) {
-        await router.push('/market');
+        await router.replace('/market');
       }
     } catch (error) {
       setMsgError(getErrorMessage(error));
