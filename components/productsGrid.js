@@ -6,16 +6,21 @@ export default function ProductsGrid({ children }) {
         .products-grid {
           display: grid;
           grid-gap: 28px;
-          grid: auto-flow / 1fr 1fr 1fr;
+          grid-template-columns: repeat(4, 300px);
         }
-        @media (max-width: 1360px) {
+        @media (max-width: 1620px) {
           .products-grid {
-            grid: auto-flow / 1fr 1fr;
+            grid-template-columns: repeat(3, 300px);
           }
         }
-        @media (max-width: 700px) {
+        @media (max-width: 1280px) {
           .products-grid {
-            grid: auto-flow / 1fr;
+            grid-template-columns: repeat(2, 300px);
+          }
+        }
+        @media (max-width: 1000px) {
+          .products-grid {
+            grid-template-columns: repeat(3, 300px);
           }
         }
       `}</style>

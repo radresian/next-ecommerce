@@ -11,7 +11,6 @@ export default function ProductSection({ category }) {
         <PromoCard />
       </aside>
       <div className="main">
-        <HeaderBarProducts />
         <Products category={category} />
       </div>
 

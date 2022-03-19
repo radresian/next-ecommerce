@@ -118,7 +118,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 0 11vw;
+          padding: 0 40px;
         }
         #header-button {
           padding:10px;

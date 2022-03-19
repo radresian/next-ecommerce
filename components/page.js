@@ -15,7 +15,7 @@ export default function Page({ title, description, children }) {
           display: flex;
           align-items: center;
           flex-direction: column;
-          width: 80%;
+          width: 95%;
           max-width: 1700px;
         }
       `}</style>
