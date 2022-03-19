@@ -67,7 +67,7 @@ export default function ProductItem(props) {
       <div className="price-container">
         <div className="price">
           {auctionStarted ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
-          <p className="price-value1">{auctionStarted ? (props.web3 ? props.web3.utils.fromWei(tokenHighestBid) : 0) : price} ETH</p>
+          <p className="price-value1">{auctionStarted ? (props.web3 ? Number(props.web3.utils.fromWei(tokenHighestBid)).toFixed(2) : 0) : price} ETH</p>
         </div>
         {auctionStarted &&
           <div className="status">
