@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.string('name').notNullable();
     table.string('label').notNullable();
     table.string('md_icon').notNullable();
-    table.timestamp('created_at').defaultTo('now()').notNullable();
+    table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
   });
 };
 

@@ -88,7 +88,7 @@ export default function Home() {
 
             <div className="price-section">
               {!auctionStarted ? <p className="">Reserve Price</p> : <p className="">Current Bid</p> }
-              <p className="price-value">{ auctionStarted ? (web3 ? Number(web3.utils.fromWei(data.productsById[0].tokenHighestBid)).toFixed(2) : 0) : data.productsById[0].price} ETH</p>
+              <p className="price-value">{ auctionStarted ? Number(data.productsById[0].tokenHighestBid).toFixed(2) : data.productsById[0].price} TL</p>
             </div>
             {!auctionStarted ?
               <div className="auction-section">

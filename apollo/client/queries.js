@@ -65,8 +65,8 @@ export const PRODUCTS = gql`
       description
       img_url
       price
-      creator
-      user_id
+      creator_id
+      owner_id
       tokenId 
       tokenHighestBid
       auctionEndTime
@@ -83,8 +83,8 @@ export const PRODUCTS_BY_IDS = gql`
       description
       img_url
       price
-      creator
-      user_id
+      creator_id
+      owner_id
       tokenId
       tokenHighestBid
       auctionEndTime

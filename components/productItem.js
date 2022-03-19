@@ -5,8 +5,8 @@ import Image from 'next/image';
 export function useAuction(auctionEndTime) {
 
   const auctionStarted = Number(auctionEndTime) > 0;
-  const auctionEnded = Number(auctionEndTime) * 1000 < Date.now();
-  const auctionEndDate = new Date(Number(auctionEndTime)* 1000);
+  const auctionEnded = Number(auctionEndTime) < Date.now();
+  const auctionEndDate = new Date(Number(auctionEndTime));
   const [remaining, setRemaining] = useState();
 
   useEffect(()=>{
@@ -67,7 +67,7 @@ export default function ProductItem(props) {
       <div className="price-container">
         <div className="price">
           {auctionStarted ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
-          <p className="price-value1">{auctionStarted ? (props.web3 ? Number(props.web3.utils.fromWei(tokenHighestBid)).toFixed(2) : 0) : price} ETH</p>
+          <p className="price-value1">{auctionStarted ? (props.web3 ? Number(props.web3.utils.fromWei(tokenHighestBid)).toFixed(2) : Number(tokenHighestBid).toFixed()) : price} {props.web3 ? 'ETH' : 'TL'}</p>
         </div>
         {auctionStarted &&
           <div className="status">

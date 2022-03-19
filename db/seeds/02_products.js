@@ -14,8 +14,8 @@ exports.seed = function (knex) {
           price: 3,
           created_at: Date.now(),
           updated_at: Date.now(),
-          creator:'root',
-          user_id: 1,
+          creator_id: 1,
+          owner_id: 1,
         },
         {
           id: 2,
@@ -26,8 +26,8 @@ exports.seed = function (knex) {
           price: 2.5,
           created_at: Date.now(),
           updated_at: Date.now(),
-          creator:'root',
-          user_id: 1,
+          creator_id: 1,
+          owner_id: 1,
         },
         {
           id: 3,
@@ -38,8 +38,8 @@ exports.seed = function (knex) {
           price: 2,
           created_at: Date.now(),
           updated_at: Date.now(),
-          creator: 'root',
-          user_id: 1,
+          creator_id: 1,
+          owner_id: 1,
         },
         {
           id: 4,
@@ -50,8 +50,8 @@ exports.seed = function (knex) {
           price: 1.5,
           created_at: Date.now(),
           updated_at: Date.now(),
-          creator:'root',
-          user_id: 1,
+          creator_id: 1,
+          owner_id: 1,
         }
       ]);
     });

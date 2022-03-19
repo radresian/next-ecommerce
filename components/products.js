@@ -50,7 +50,6 @@ export default function Products({ category }) {
           <ProductItem
             key={product.id}
             product={product}
-            web3={web3}
           />
         ))}
       </ProductsGrid>
@@ -66,7 +65,6 @@ export default function Products({ category }) {
         <ProductItem
           key={product.id}
           product={product}
-          web3={web3}
         />
       ))}
     </ProductsGrid>

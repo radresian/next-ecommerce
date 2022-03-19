@@ -16,8 +16,8 @@ export const typeDefs = gql`
     price: String!
     createdAt: Int
     updatedAt: Int
-    creator: String!
-    user_id: ID!
+    creator_id: Int!
+    owner_id: Int!
     tokenId:  String!
     tokenHighestBid: String! 
     auctionEndTime: String!
