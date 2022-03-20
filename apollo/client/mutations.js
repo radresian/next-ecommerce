@@ -34,3 +34,15 @@ export const CREATE_PRODUCT = gql`
     }
   }
 `;
+
+export const CREATE_BID = gql`
+  mutation CreateBidMutation($product_id: Int!, $price: String!) {
+    createBidMut(product_id:$product_id, price: $price) {
+      bid {
+        created_at
+      }
+    }
+  }
+`;
+
+

@@ -18,7 +18,6 @@ exports.seed = async function (knex) {
           instagram: '',
           creator: true,
           detail: '{}',
-          createdAt: Date.now(),
         },
         {
           id: 2,
@@ -30,7 +29,6 @@ exports.seed = async function (knex) {
           instagram: '',
           creator: true,
           detail: '{}',
-          createdAt: Date.now(),
         },
         {
           id: 3,
@@ -42,7 +40,6 @@ exports.seed = async function (knex) {
           instagram: '',
           creator: true,
           detail: '{}',
-          createdAt: Date.now(),
         },
         {
           id: 4,
@@ -54,7 +51,6 @@ exports.seed = async function (knex) {
           instagram: '',
           creator: true,
           detail: '{}',
-          createdAt: Date.now(),
         }
       ]);
     });

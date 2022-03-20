@@ -5,12 +5,10 @@ exports.up = function (knex) {
     table.decimal('price').notNullable();
     table.boolean('minted').defaultTo(false).notNullable();
     table.boolean('returned').defaultTo(false).notNullable();
-    table.boolean('highest').defaultTo(true).notNullable();
-    table.boolean('first').defaultTo(true).notNullable();
-    table.timestamp('created_at').defaultTo(knex.fn.now()).notNullable();
+    table.timestamps(true,true)
   });
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('category');
+  return knex.schema.dropTable('bid');
 };

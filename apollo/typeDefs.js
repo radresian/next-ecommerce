@@ -1,12 +1,14 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
+  scalar Date
+
   type User {
     id: ID!
     name: String!
     email: String!
     wallet: String
-    createdAt: Int!
+    created_at: Date!
   }
   type Product {
     id: ID!
@@ -14,8 +16,8 @@ export const typeDefs = gql`
     description: String!
     img_url: String!
     price: String!
-    createdAt: Int
-    updatedAt: Int
+    created_at: Date!
+    updated_at: Date!
     creator_id: Int!
     owner_id: Int!
     tokenId:  String!
@@ -28,7 +30,16 @@ export const typeDefs = gql`
     name: String!
     label: String!
     md_icon: String!
-    createdAt: Int
+  }
+  type Bid {
+    product_id: Int!
+    buyer_id: Int!
+    price: String!
+    minted: Boolean!
+    returned: Boolean!
+    created_at: Date!
+    user_name: String
+    user_avatar: String
   }
   input SignUpInput {
     name: String!
@@ -62,6 +73,9 @@ export const typeDefs = gql`
   type ProductPayload {
     product: Product!
   }
+  type BidPayload {
+    bid: Bid!
+  }
   input Sort {
     field: String!
     order: String! = ASC
@@ -75,6 +89,7 @@ export const typeDefs = gql`
     productsById(id: [ID]): [Product!]
     product(id: ID!): Product
     categories: [Category]!
+    bidsOfProduct(product_id: Int!): [Bid]
   }
   type Mutation {
     signUp(input: SignUpInput!): SignUpPayload!
@@ -83,5 +98,6 @@ export const typeDefs = gql`
     createProduct(input: ProductInput!): ProductPayload
     deleteProduct(id: ID!): Boolean!
     updateProduct(id: ID!, input: UpdateProductInput!): ProductPayload
+    createBidMut(product_id: Int!, price: String!): BidPayload
   }
 `;

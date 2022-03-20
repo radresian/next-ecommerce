@@ -111,3 +111,18 @@ export const CATEGORIES = gql`
     }
   }
 `;
+
+export const BIDS_OF_PRODUCT = gql`
+  query BidsOfProduct($product_id: Int!) {
+    bidsOfProduct(product_id: $product_id) {
+      product_id
+      buyer_id
+      price
+      minted
+      returned
+      created_at
+      user_name
+      user_avatar
+    }
+  }
+`;

@@ -14,7 +14,8 @@ exports.up = function (knex) {
     table.string('description').nullable();
     table.binary('profilePhoto').nullable();
     table.binary('coverImage').nullable();
-    table.string('createdAt').notNullable();
+    table.timestamps(true,true)
+
   });
 };
 

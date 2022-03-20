@@ -9,10 +9,12 @@ import {
   UpdateProduct,
   findProductsById,
 } from '../lib/product';
+import { bidsOfProductWithUser, createBid } from '../lib/bid'
 import { setLoginSession, getLoginSession } from '../lib/auth';
 import { removeTokenCookie } from '../lib/auth-cookies';
-
+import dateScalar from './ScalarTypes'
 export const resolvers = {
+  Date: dateScalar,
   Query: {
     async viewer(_parent, _args, context, _info) {
       try {
@@ -61,6 +63,14 @@ export const resolvers = {
         return listCategories();
       } catch (error) {
         throw new Error('It is not possible list categories');
+      }
+    },
+    async bidsOfProduct(_parent, _args, _context, _info) {
+      try {
+        return bidsOfProductWithUser(_args.product_id);
+      } catch (error) {
+        console.log(error)
+        throw new Error('It is not possible list bids');
       }
     },
   },
@@ -132,6 +142,24 @@ export const resolvers = {
         const product = await UpdateProduct(args.id, args.input);
         return { product };
       } catch (error) {
+        throw new Error('it is not possible update the product');
+      }
+    },
+    async createBidMut(_parent, args, _context, _info) {
+      try {
+        const session = await getLoginSession(_context.req);
+
+        console.log({session})
+
+        if (!session)
+          throw new UserInputError('login required');
+
+        const created_at = await createBid(args.product_id, session.id, args.price);
+        console.log({ created_at })
+
+        return {bid: { created_at }};
+      } catch (error) {
+        console.log(error)
         throw new Error('it is not possible update the product');
       }
     },

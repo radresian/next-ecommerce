@@ -1,20 +1,22 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import {useMutation, useQuery} from '@apollo/client';
 import Image from 'next/image';
-import { PRODUCTS_BY_IDS, CART, WISHLIST } from '../../apollo/client/queries';
+import { PRODUCTS_BY_IDS, BIDS_OF_PRODUCT } from '../../apollo/client/queries';
 import Page from '../../components/page';
 import ErrorAlert from '../../components/alerts/error';
 import Input from '../../components/form/input';
 import BestDropsSale, { bestDropsSaleAddress } from '../../contracts/BestDropsSale';
 import useWeb3 from '../../lib/web3-browser-provider';
 import { useAuction } from '../../components/productItem';
+import {CREATE_BID} from '../../apollo/client/mutations';
 
 export default function Home() {
   const router = useRouter();
   const { id } = router.query;
   const [price, setPrice] = useState();
   const web3 = useWeb3();
+  const [createBid] = useMutation(CREATE_BID);
 
   const { data, loading, error, refetch } = useQuery(PRODUCTS_BY_IDS, {
     variables: {
@@ -22,6 +24,11 @@ export default function Home() {
     },
   });
 
+  const { data: bidsData, loading: bidsLoading, error: bidsError, refetch: bidsRefetch } = useQuery(BIDS_OF_PRODUCT, {
+    variables: {
+      product_id: Number(id),
+    },
+  });
   const [remaining, auctionStarted, auctionEnded, auctionEndDate] = useAuction(data ? data.productsById[0].auctionEndTime : 0);
 
   function maxLengthCheck(object){
@@ -35,6 +42,16 @@ export default function Home() {
   }
 
   function placeABid(){
+    createBid({
+      variables: {
+        product_id: Number(id),
+        price
+      },
+    }).then(data => {
+      console.log('bid creat date:' + data);
+      bidsRefetch();
+    });
+    /*
     window.ethereum.enable().then(()=>{
       web3.eth.getAccounts().then(accounts=>{
         console.log({accounts});
@@ -44,6 +61,7 @@ export default function Home() {
           refetch();
         }).catch(console.log);
       })});
+     */
   }
 
   if ((error || !data?.productsById.length) && !loading) {
@@ -128,18 +146,25 @@ export default function Home() {
           </div>
 
           <div className="bid-container">
-            <div className="bid-info">
-              <div className="bidder-avatar">
-                <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius:50}} />
-              </div>
-              <div className="bidder-and-date">
-                <div className="bidder"><span>@radresian</span></div>
-                <div className="bid-date"><span>Jul 21, 2021 at 11:54am</span></div>
-              </div>
-              <div className="bid-price">
-                <span>2 ETH</span>
-              </div>
-            </div>
+            { !bidsLoading && bidsData?.bidsOfProduct && bidsData?.bidsOfProduct.map((bid, index)=>
+                (
+                  <div className="bid-info" key={index}>
+                    <div className="bid-avatar-info">
+                      <div className="bidder-avatar">
+                        <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius: 50}}/>
+                      </div>
+                      <div className="bidder-and-date">
+                        <div className="bidder"><span>Bid placed by </span><span className="bidder-name-span">@{bid.user_name}</span></div>
+                        <div className="bid-date"><span>{new Date(bid.created_at).toLocaleString()}</span></div>
+                      </div>
+                    </div>
+                    <div className="bid-price">
+                      <span className="bid-price-span">{bid.price} TL</span>
+                    </div>
+                  </div>
+                )
+              )
+            }
           </div>
         </article>
       </div>
@@ -167,26 +192,40 @@ export default function Home() {
           .bid-price {
             margin-top: 15px
           }
+          .bid-price-span {
+            white-space: nowrap;
+          }
           .creator-div {
             display:flex;
             flex-direction:row;
             
           }
+          .bidder-name-span{
+            font-weight:bold
+          }
           .bidder-avatar {
             height: 50px;
             width: 50px;
+            margin-right:10px;
           }
           .bid-container {
             display:flex;
             width:100%;
             border-top: 1px solid;
             padding-top: 20px;
+            flex-direction: column;
           }
           .bid-info {
             display:flex;
             width:100%;
             flex-direction: row;
             justify-content: space-between;
+          }
+          .bid-avatar-info {
+            display:flex;
+            width:100%;
+            flex-direction: row;
+            justify-content: flex-start;
           }
           .nft-info-container {
             display: flex;
