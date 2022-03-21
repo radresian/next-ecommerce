@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-micro';
-import { createUser, findUser, findUserByWallet, validatePassword } from '../lib/user';
+import { createUser, findUser, findUserByWallet, validatePassword, updateUser } from '../lib/user';
 import { listCategories } from '../lib/category';
 import {
   listProducts,
@@ -48,6 +48,7 @@ export const resolvers = {
       try {
         return await findProductsById({ id: args.id });
       } catch (error) {
+        console.log({error})
         throw new Error('It is not possible list products');
       }
     },
@@ -103,6 +104,15 @@ export const resolvers = {
     async signOut(_parent, _args, context, _info) {
       removeTokenCookie(context.res);
       return true;
+    },
+    async updateProfile(_parent, args, _context, _info) {
+      const session = await getLoginSession(_context.req);
+
+      if (!session) {
+        throw new Error('user required to upadte profile');
+      }
+      const user = await updateUser(args.input, session.email);
+      return { user };
     },
     async createProduct(_parent, args, _context, _info) {
       const session = await getLoginSession(_context.req);

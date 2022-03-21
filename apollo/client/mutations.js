@@ -45,4 +45,12 @@ export const CREATE_BID = gql`
   }
 `;
 
-
+export const UPDATE_PROFILE = gql`
+  mutation UpdateProfileMutation($name: String!, $description: String!, $userName: String!, $email: String!, $wallet: String!, $twitter: String!, $instagram: String!, $profilePhoto: String!, $coverImage: String!) {
+    updateProfile(input: { name: $name, description: $description, userName: $userName, email: $email, wallet: $wallet, twitter: $twitter, instagram: $instagram, profilePhoto: $profilePhoto, coverImage: $coverImage }) {
+      user {
+        userName
+      }
+    }
+  }
+`;

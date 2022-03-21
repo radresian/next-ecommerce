@@ -8,6 +8,13 @@ export const typeDefs = gql`
     name: String!
     email: String!
     wallet: String
+    userName: String
+    twitter: String
+    instagram: String
+    creator: Boolean
+    description: String
+    profilePhoto: String
+    coverImage: String
     created_at: Date!
   }
   type Product {
@@ -24,6 +31,8 @@ export const typeDefs = gql`
     tokenHighestBid: String! 
     auctionEndTime: String!
     tokenHighestBidder: String!
+    creator_userName: String
+    creator_avatar: String
   }
   type Category {
     id: ID!
@@ -45,6 +54,17 @@ export const typeDefs = gql`
     name: String!
     email: String!
     password: String!
+  }
+  input ProfileInput {
+    name: String!
+    email: String!
+    wallet: String
+    userName: String
+    twitter: String
+    instagram: String
+    description: String
+    profilePhoto: String
+    coverImage: String
   }
   input SignInInput {
     email: String!
@@ -92,6 +112,7 @@ export const typeDefs = gql`
     bidsOfProduct(product_id: Int!): [Bid]
   }
   type Mutation {
+    updateProfile(input: ProfileInput!): SignUpPayload!
     signUp(input: SignUpInput!): SignUpPayload!
     signIn(input: SignInInput!): SignInPayload!
     signOut: Boolean!

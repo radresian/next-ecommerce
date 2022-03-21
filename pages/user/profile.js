@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Page from '../../components/page';
@@ -17,37 +17,96 @@ import {
   MdCloudUpload
 } from 'react-icons/md';
 import Image from 'next/dist/client/image';
+import {UPDATE_PROFILE} from '../../apollo/client/mutations';
 
 export default function Profile() {
   const { data, loading, error } = useQuery(VIEWER);
+  const [updateProfile] = useMutation(UPDATE_PROFILE);
+
   const viewer = data?.viewer;
   const router = useRouter();
 
   const [name, setName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [wallet, setWallet] = useState('');
+  const [instagram, setInstagram] = useState('');
+  const [description, setDescription] = useState('');
   const [password, setPassword] = useState('');
   const [confirm_password, setConfirm_password] = useState('');
   const [msgError, setMsgError] = useState('');
   const [msgSuccess, setMsgSuccess] = useState('');
-  const [file, setFile] = useState('/img/logo.png');
+  const [profilePhoto, setProfilePhoto] = useState('/img/logo.png');
+  const [coverImage, setCoverImage] = useState('/img/logo.png');
 
-  function handleFileChange(e){
+  useEffect(()=>{
+    if(data?.viewer){
+      setName(data.viewer.name || '');
+      setUserName(data.viewer.userName || '');
+      setEmail(data.viewer.email || '');
+      setWallet(data.viewer.wallet || '');
+      setTwitter(data.viewer.twitter || '');
+      setInstagram(data.viewer.instagram || '');
+      setDescription(data.viewer.description || '');
+      if(data.viewer.profilePhoto){
+        setProfilePhoto(data.viewer.profilePhoto);
+      }
+      if(data.viewer.coverImage){
+        setCoverImage(data.viewer.coverImage);
+      }
+    }
+  },[data]);
 
+  function handleProfilePhotoChange(e){
+    const selectedFile = e.target.files[0];
+    const data = new FormData();
+    data.append('file', selectedFile, selectedFile.name);
+    fetch('/api/create-file', {
+      method: 'POST',
+      body: data
+    }).then((res) => {
+      res.json().then(json=>{
+        console.log(json.path.replace('public',''));
+        setProfilePhoto(json.path.replace('public',''))
+      })
+    });
+  }
+
+  function handleCoverImageChange(e){
+    const selectedFile = e.target.files[0];
+    const data = new FormData();
+    data.append('file', selectedFile, selectedFile.name);
+    fetch('/api/create-file', {
+      method: 'POST',
+      body: data
+    }).then((res) => {
+      res.json().then(json=>{
+        console.log(json.path.replace('public',''));
+        setCoverImage(json.path.replace('public',''))
+      })
+    });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
-      const result = await signUp({
+      const result = await updateProfile({
         variables: {
           name: name.trim(),
           email: email.trim(),
-          password: password.trim(),
+          userName: userName.trim(),
+          wallet: wallet.trim(),
+          twitter: twitter.trim(),
+          instagram: instagram.trim(),
+          description: description.trim(),
+          profilePhoto: profilePhoto.trim(),
+          coverImage: coverImage.trim()
         },
       });
-
+      setMsgSuccess('Profile updated successfully');
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     } catch (error) {
       setMsgError(getErrorMessage(error));
     }
@@ -69,7 +128,7 @@ export default function Profile() {
             <div className='inputContainer'>
               <div>
                 <label className="custom-file-upload">
-                  <input type="file" name="file" onChange={handleFileChange} />
+                  <input type="file" name="file" onChange={handleProfilePhotoChange} />
                   <div className="icon">
                     <MdCloudUpload color="#000" size="22" />
                     <p className="icon-p"> Upload Profile Photo</p>
@@ -78,7 +137,7 @@ export default function Profile() {
                 <p>Your Profile Photo</p>
               </div>
               <div className="profile-img">
-                <Image src={file} layout='fill' objectFit='scale-down' />
+                <Image src={profilePhoto} layout='fill' objectFit='scale-down' />
               </div>
 
             </div>
@@ -88,7 +147,7 @@ export default function Profile() {
               type="text"
               name="name"
               placeholder="Name"
-              onChange={(value) => setName(value)}
+              onChange={(value) => setDe(value)}
               value={name}
             />
             <p className='input-description'>Your nickname</p>
@@ -96,8 +155,8 @@ export default function Profile() {
               type="text"
               name="userName"
               placeholder="Username"
-              onChange={(value) => setName(value)}
-              value={name}
+              onChange={(value) => setUserName(value)}
+              value={userName}
             />
             <p className='input-description'>Your email wont show other users</p>
             <Input
@@ -113,32 +172,39 @@ export default function Profile() {
               cols="50"
               name="description"
               placeholder="Short Bio"
-              onChange={(value) => setName(value)}
-              value={name}
+              onChange={(value) => setDescription(value)}
+              value={description}
             />
             <p className='input-description'>Verified twitter</p>
             <Input
               type="text"
               name="twitter"
               placeholder="twitter"
-              onChange={(value) => setName(value)}
-              value={name}
+              onChange={(value) => setTwitter(value)}
+              value={twitter}
             />
             <p className='input-description'>Verified instagram</p>
             <Input
               type="text"
               name="instagram"
               placeholder="instagram"
-              onChange={(value) => setName(value)}
-              value={name}
+              onChange={(value) => setInstagram(value)}
+              value={instagram}
             />
-
+            <p className='input-description'>Verified wallet</p>
+            <Input
+              type="text"
+              name="wallet"
+              placeholder="wallet"
+              onChange={(value) => setWallet(value)}
+              value={wallet}
+            />
 
 
             <div className='inputContainer inputContainerColumn'>
               <div>
                 <label className="custom-file-upload">
-                  <input type="file" name="file" onChange={handleFileChange} />
+                  <input type="file" name="file" onChange={handleCoverImageChange} />
                   <div className="icon">
                     <MdCloudUpload color="#000" size="22" />
                     <p className="icon-p"> Upload Cover Image</p>
@@ -147,7 +213,7 @@ export default function Profile() {
                 <p>Your Page's Cover Image</p>
               </div>
               <div className="cover-img">
-                <Image src={file} layout='fill' objectFit='scale-down' />
+                <Image src={coverImage} layout='fill' objectFit='scale-down' />
               </div>
 
             </div>

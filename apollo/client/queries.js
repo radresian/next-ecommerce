@@ -53,6 +53,13 @@ export const VIEWER = gql`
       wallet
       name
       email
+      userName
+      twitter
+      instagram
+      creator
+      description
+      profilePhoto
+      coverImage
     }
   }
 `;
@@ -71,6 +78,7 @@ export const PRODUCTS = gql`
       tokenHighestBid
       auctionEndTime
       tokenHighestBidder
+      creator_userName
     }
   }
 `;
@@ -89,6 +97,8 @@ export const PRODUCTS_BY_IDS = gql`
       tokenHighestBid
       auctionEndTime
       tokenHighestBidder
+      creator_userName
+      creator_avatar
     }
   }
 `;

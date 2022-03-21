@@ -92,8 +92,8 @@ export default function Home() {
           <div className="nft-info-container">
             <button className="creator">
               <div className="creator-div">
-                <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius:50}} />
-                <span style={{margin:15}}>@{data.productsById[0].creator}</span>
+                <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
+                <span style={{margin:15}}>@{data.productsById[0].creator_userName}</span>
               </div>
             </button>
             <h1 className="product-name">{data.productsById[0].name}</h1>
@@ -151,7 +151,7 @@ export default function Home() {
                   <div className="bid-info" key={index}>
                     <div className="bid-avatar-info">
                       <div className="bidder-avatar">
-                        <img src={data.productsById[0].img_url} width="50" height="50" style={{borderRadius: 50}}/>
+                        <img src={bid.user_avatar} width="50" height="50" style={{borderRadius: 50}}/>
                       </div>
                       <div className="bidder-and-date">
                         <div className="bidder"><span>Bid placed by </span><span className="bidder-name-span">@{bid.user_name}</span></div>

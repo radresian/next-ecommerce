@@ -37,7 +37,7 @@ export function useAuction(auctionEndTime) {
 }
 
 export default function ProductItem(props) {
-  const { id, name, img_url, price, creator, user_id, auctionEndTime, tokenHighestBid } = props.product;
+  const { id, name, img_url, price, creator_userName, user_id, auctionEndTime, tokenHighestBid } = props.product;
 
   const [remaining, auctionStarted, auctionEnded, auctionEndDate] = useAuction(auctionEndTime);
 
@@ -60,7 +60,7 @@ export default function ProductItem(props) {
         </Link>
 
         <Link href={`/creator/${user_id}`}>
-          <a className="creator">@{creator}</a>
+          <a className="creator">@{creator_userName}</a>
         </Link>
       </div>
 
