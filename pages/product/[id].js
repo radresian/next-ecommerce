@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import {useMutation, useQuery} from '@apollo/client';
 import Image from 'next/image';
-import { PRODUCTS_BY_IDS, BIDS_OF_PRODUCT } from '../../apollo/client/queries';
+import {PRODUCTS_BY_IDS, BIDS_OF_PRODUCT, VIEWER} from '../../apollo/client/queries';
 import Page from '../../components/page';
 import ErrorAlert from '../../components/alerts/error';
 import Input from '../../components/form/input';
@@ -17,6 +17,7 @@ export default function Home() {
   const [price, setPrice] = useState();
   const web3 = useWeb3();
   const [createBid] = useMutation(CREATE_BID);
+  const { data: viewerData, loading: loadingViewer, error: errorViewer } = useQuery(VIEWER);
 
   const { data, loading, error, refetch } = useQuery(PRODUCTS_BY_IDS, {
     variables: {
@@ -50,7 +51,9 @@ export default function Home() {
     }).then(data => {
       console.log('bid creat date:' + data);
       bidsRefetch();
-    });
+    }).catch(error=>{
+      alert(error);
+    })
     /*
     window.ethereum.enable().then(()=>{
       web3.eth.getAccounts().then(accounts=>{
@@ -128,22 +131,32 @@ export default function Home() {
             }
           </div>
 
-          <div className="place-bid-container">
-            <Input
-              width={'100%'}
-              marginBottom={'0px'}
-              type="number"
-              min={data.productsById[0].price}
-              max="999"
-              step="0.01"
-              name="price"
-              placeholder="Enter bid in ETH"
-              onInput={maxLengthCheck}
-              onChange={(value) => setPrice(value)}
-              value={price}
-            />
-            <button className="place-bid" onClick={placeABid}>Place A Bid</button>
-          </div>
+          {!auctionEnded && (
+            <div className="place-bid-container">
+              <Input
+                width={'100%'}
+                marginBottom={'0px'}
+                type="number"
+                min={data.productsById[0].price}
+                max="999"
+                step="0.01"
+                name="price"
+                placeholder="Enter bid in ETH"
+                onInput={maxLengthCheck}
+                onChange={(value) => setPrice(value)}
+                value={price}
+              />
+              <button className="place-bid" onClick={placeABid}>Place A Bid</button>
+            </div>
+            )
+          }
+
+          {auctionEnded && bidsData?.bidsOfProduct.length && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) &&(
+            <div className="place-bid-container">
+              <button className="place-bid" onClick={placeABid}>Claim NFT</button>
+            </div>
+            )
+          }
 
           <div className="bid-container">
             { !bidsLoading && bidsData?.bidsOfProduct && bidsData?.bidsOfProduct.map((bid, index)=>
@@ -159,7 +172,10 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="bid-price">
-                      <span className="bid-price-span">{bid.price} TL</span>
+                      {index>0 && Number(viewerData?.viewer?.id) === bid.buyer_id && (<button className="return-bid" onClick={()=>{}}>Return Money</button>)}
+                      <div className="bid-price-span-container">
+                        <span className="bid-price-span">{bid.price} TL</span>
+                      </div>
                     </div>
                   </div>
                 )
@@ -190,15 +206,20 @@ export default function Home() {
             margin-top: 8px;
           }
           .bid-price {
-            margin-top: 15px
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+          }
+          .bid-price-span-container {
+            margin-left: 8px;
           }
           .bid-price-span {
+            display: flex;
             white-space: nowrap;
           }
           .creator-div {
             display:flex;
             flex-direction:row;
-            
           }
           .bidder-name-span{
             font-weight:bold
@@ -220,6 +241,7 @@ export default function Home() {
             width:100%;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
           }
           .bid-avatar-info {
             display:flex;
@@ -262,6 +284,13 @@ export default function Home() {
             height: 45px;
             margin-top: 20px;
             margin-bottom: 20px;
+            font-size: 18px;
+            background-color: #021e66;
+            color: white;
+          }
+          .return-bid {
+            border-radius: 9999px;
+            width: 150px;
             font-size: 18px;
             background-color: #021e66;
             color: white;

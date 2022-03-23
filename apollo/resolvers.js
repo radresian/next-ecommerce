@@ -159,8 +159,6 @@ export const resolvers = {
       try {
         const session = await getLoginSession(_context.req);
 
-        console.log({session})
-
         if (!session)
           throw new UserInputError('login required');
 
@@ -170,7 +168,7 @@ export const resolvers = {
         return {bid: { created_at }};
       } catch (error) {
         console.log(error)
-        throw new Error('it is not possible update the product');
+        throw error;
       }
     },
   },
