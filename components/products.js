@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/client';
-import ProductItem from './productItem';
 import EmptySection from './emptySection';
 import { PRODUCTS, SORT_PRODUCT_SECTION } from '../apollo/client/queries';
 import ProductsGrid from './productsGrid';
+import ProductItem from './productItem';
 import offlineProducts from '../db/offlineData/products';
 import useWeb3 from '../lib/web3-browser-provider';
 

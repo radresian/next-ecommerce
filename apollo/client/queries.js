@@ -121,6 +121,26 @@ export const PRODUCTS_BY_IDS = gql`
   }
 `;
 
+export const PRODUCTS_BY_CREATOR_ID = gql`
+  query productsByCreatorId($id: ID!) {
+    productsByCreatorId(id: $id) {
+      id
+      name
+      description
+      img_url
+      price
+      creator_id
+      owner_id
+      tokenId
+      tokenHighestBid
+      auctionEndTime
+      tokenHighestBidder
+      creator_userName
+      creator_avatar
+    }
+  }
+`;
+
 export const PRODUCTS_BY_IDS_PRICE = gql`
   query productsByIds($id: [ID]!) {
     productsById(id: $id) {

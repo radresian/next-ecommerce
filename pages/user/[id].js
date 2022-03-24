@@ -1,7 +1,14 @@
 import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import {useQuery} from '@apollo/client';
-import {USER, VIEWER} from '../../apollo/client/queries';
+import {PRODUCTS_BY_CREATOR_ID, USER, VIEWER} from '../../apollo/client/queries';
+import ProductsGrid from '../../components/productsGrid';
+import ProductItem from '../../components/productItem';
+
+import {
+  FaTwitter,
+  FaInstagram
+} from 'react-icons/fa';
 
 export default function Profile() {
 
@@ -13,9 +20,15 @@ export default function Profile() {
       id:Number(id),
     },
   });
+  const { data: productsData, loading: productsLoading, error: productsError } = useQuery(PRODUCTS_BY_CREATOR_ID, {
+    variables: {
+      id:Number(id),
+    },
+  });
 
   const viewer = data?.viewer;
   const user =userData?.userById;
+  const products = productsData?.productsByCreatorId || [];
 
 
   return (
@@ -23,12 +36,41 @@ export default function Profile() {
       {user &&
       <div className="container">
 
-          <div className="profile-img">
-            <img src={user.profilePhoto || '/img/logo.png'} width="200" height="200" style={{borderRadius:200}} />
-          </div>
+        <div className="profile-img">
+          <img src={user.profilePhoto || '/img/logo.png'} width="200" height="200" style={{borderRadius:200}} />
+        </div>
         <div className="profile-content">
           <div className="user-info">
-            <h1 className="user-name">{user.userName}</h1>
+            <h1 className="user-name">@{user.userName}</h1>
+            <h2 className="name">{user.name}</h2>
+            <div className="twitter-container">
+              <span className="twitter">{user.twitter}</span>
+              <FaTwitter />
+            </div>
+            <div className="twitter-container">
+              <span className="twitter">{user.instagram}</span>
+              <FaInstagram />
+            </div>
+            <h2 className="bio">Bio</h2>
+
+
+            <div className="bio-divider">
+              <span className="description">{user.description}</span>
+            </div>
+
+          </div>
+          <div className="items">
+            <h2 className="name">Artworks</h2>
+            <div className="items-container">
+              <ProductsGrid>
+                {products.map((product) => (
+                  <ProductItem
+                    key={product.id}
+                    product={product}
+                  />
+                ))}
+              </ProductsGrid>
+            </div>
           </div>
 
         </div>
@@ -41,7 +83,27 @@ export default function Profile() {
         .container {
           width:100%
         }
+        h1 {
+          font-size: 30px;
+          margin-bottom: 24px;
+        }
+        h2 {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+        .items-container {
+          border-top: outset 2px;
+          flex:1;
+        }
+        .items {
+          display: flex;
+          flex:1;
+          flex-direction: column;
+          padding-top: 80px;
+          padding-left: 20px;
+        }
         .user-info{
+          width: 400px;
           padding-top: 80px;
           padding-left: 20px;
         }
@@ -49,9 +111,36 @@ export default function Profile() {
           width: 100%;
           align-items: center;
         }
+        .twitter {
+          margin-right: 8px;
+        }
+        .twitter-container {
+          display: inline-flex;
+          padding-left: 16px;
+          padding-right: 16px;
+          flex-direction: row;
+          align-items: center;
+          border-radius: 9999px;
+          height: 60px;
+          margin-bottom: 20px;
+          font-size: 16px;
+          background-color: white;
+          font-weight: bold;
+        }
+        .bio {
+          margin-top: 32px; 
+          font-weight: bold
+        }
+        .bio-divider {
+          margin-top: 16px; 
+          padding-top: 16px; 
+          border-top: outset 2px
+        }
         .profile-content {
           width:100%;
-          border-top: solid 2px;
+          border-top: outset 2px;
+          display: flex;
+          flex-direction: row;
         }
         .input-description {
           align-self: flex-start;

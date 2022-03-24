@@ -8,6 +8,7 @@ import {
   DeleteProduct,
   UpdateProduct,
   findProductsById,
+  findProductsByCreatorId,
 } from '../lib/product';
 import { bidsOfProductWithUser, createBid } from '../lib/bid'
 import { setLoginSession, getLoginSession } from '../lib/auth';
@@ -61,7 +62,14 @@ export const resolvers = {
         throw new Error('It is not possible list products');
       }
     },
-    async product(_parent, args, _context, _info) {
+    async productsByCreatorId(_parent, args, _context, _info) {
+      try {
+        return await findProductsByCreatorId({ id: args.id });
+      } catch (error) {
+        console.log({error})
+        throw new Error('It is not possible list products');
+      }
+    },    async product(_parent, args, _context, _info) {
       try {
         return findProduct({ id: args.id });
       } catch (error) {
