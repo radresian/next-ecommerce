@@ -64,6 +64,24 @@ export const VIEWER = gql`
   }
 `;
 
+export const USER = gql`
+  query UserQuery($id: Int!) {
+    userById(id: $id) {
+      id
+      wallet
+      name
+      email
+      userName
+      twitter
+      instagram
+      creator
+      description
+      profilePhoto
+      coverImage
+    }
+  }
+`;
+
 export const PRODUCTS = gql`
   query ProductsQuery($field: String!, $order: String!, $category: String) {
     products(sort: { field: $field, order: $order }, category: $category) {

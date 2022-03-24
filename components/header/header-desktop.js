@@ -41,7 +41,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
                 Create
               </button>
             </Link>
-              <Link href="/user/profile">
+              <Link href="/user/profile-edit">
                 <a className="nav-buttons-profile">
                   <FaUser color="#808080" />
                   <p>{viewer.name}</p>

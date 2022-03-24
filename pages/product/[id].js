@@ -10,8 +10,9 @@ import BestDropsSale, { bestDropsSaleAddress } from '../../contracts/BestDropsSa
 import useWeb3 from '../../lib/web3-browser-provider';
 import { useAuction } from '../../components/productItem';
 import {CREATE_BID} from '../../apollo/client/mutations';
+import Link from 'next/link';
 
-export default function Home() {
+export default function Product() {
   const router = useRouter();
   const { id } = router.query;
   const [price, setPrice] = useState();
@@ -93,12 +94,34 @@ export default function Home() {
         </article>
         <article>
           <div className="nft-info-container">
-            <button className="creator">
-              <div className="creator-div">
-                <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
-                <span style={{margin:15}}>@{data.productsById[0].creator_userName}</span>
+            <div className="creator-owner-container">
+              <div className="creator-owner">
+                <div>
+                  <span>Created By </span>
+                </div>
+                <Link href={`/user/${data.productsById[0].creator_id}`} >
+                  <button className="creator">
+                    <div className="creator-div">
+                      <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
+                      <span style={{margin:15}}>@{data.productsById[0].creator_userName}</span>
+                    </div>
+                  </button>
+                </Link>
               </div>
-            </button>
+              {(auctionEnded && auctionStarted) && (
+                <div className="creator-owner">
+                  <div>
+                    <span>Owned By </span>
+                  </div>
+                  <button className="creator">
+                    <div className="creator-div">
+                      <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
+                      <span style={{margin:15}}>@{bidsData?.bidsOfProduct[0].user_name}</span>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
             <h1 className="product-name">{data.productsById[0].name}</h1>
 
             <h3 className="product-description">
@@ -131,7 +154,7 @@ export default function Home() {
             }
           </div>
 
-          {!auctionEnded && (
+          {!(auctionEnded && auctionStarted) && (
             <div className="place-bid-container">
               <Input
                 width={'100%'}
@@ -197,6 +220,16 @@ export default function Home() {
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
+          }
+          .creator-owner-container {
+            display:flex;
+            flex-direction: row;
+          }
+          .creator-owner {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 16px;
           }
           .place-bid-container {
             width: 100%;

@@ -19,7 +19,7 @@ import {
 import Image from 'next/dist/client/image';
 import {UPDATE_PROFILE} from '../../apollo/client/mutations';
 
-export default function Profile() {
+export default function ProfileEdit() {
   const { data, loading, error } = useQuery(VIEWER);
   const [updateProfile] = useMutation(UPDATE_PROFILE);
 

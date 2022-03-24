@@ -28,6 +28,15 @@ export const resolvers = {
         );
       }
     },
+    async userById(_parent, _args, context, _info) {
+      try {
+          return findUser({id:_args.id});
+      } catch (error) {
+        throw new AuthenticationError(
+          'Authentication token is invalid, please log in'
+        );
+      }
+    },
     async products(_parent, args, _context, _info) {
       try {
         // Sort + Category
