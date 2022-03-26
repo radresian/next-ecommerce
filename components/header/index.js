@@ -47,7 +47,7 @@ export default function Header() {
           display: flex;
           flex-direction: column;
           margin-bottom: 30px;
-          background-color: #111f57;
+          background-color: #040277;
           box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
         }
         #mobile {

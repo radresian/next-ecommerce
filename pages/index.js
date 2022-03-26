@@ -3,6 +3,6 @@ import Landing from '../components/landing';
 export default function LandingPage() {
 
   return (
-    <Landing language={'EN'}></Landing>
+    <Landing language={'TR'}></Landing>
   );
 }

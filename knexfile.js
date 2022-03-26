@@ -1,5 +1,14 @@
 module.exports = {
   development: {
+    client: 'mysql',
+    connection: {
+      host: '127.0.0.1',
+      user: 'your_database_user',
+      password: 'your_database_password',
+      database: 'myapp_test',
+    }
+  },
+  development2: {
     client: 'sqlite3',
     connection: {
       filename: './db/db.sqlite',

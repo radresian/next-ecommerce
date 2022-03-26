@@ -44,7 +44,7 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
           </button>
           <a className='navbar-brand page-scroll' href='#header' style={{color:'white',marginTop:-25}}>
-            <Image src="/img/tst18.png" width="250" height="70" />
+            <Image src="/img/eNeF-Turk_1.png" width="250" height="70" />
           </a>
         </div>
 
@@ -70,17 +70,17 @@ export const Navigation = (props) => {
                 {props.data.howitworks}
               </a>
             </li>
-            <li>
+            <li style={{display:'none'}}>
               <a href='#tokenomics' className='page-scroll'>
                 {props.data.tekonomics}
               </a>
             </li>
-            <li>
+            <li style={{display:'none'}}>
               <a href='#roadmap' className='page-scroll'>
                 {props.data.roadmap}
               </a>
             </li>
-            <li>
+            <li style={{display:'none'}}>
               <a href='#team' className='page-scroll'>
                 {props.data.team}
               </a>

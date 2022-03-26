@@ -10,19 +10,24 @@
       "contact": "İletişim"
     },
     "Header": {
-      "title1": "Best Drops",
-      "title2": "of ",
-      "title3": "NFT",
-      "paragraph": "\"to be the Best Decentralized Autonomous NFT Market Organization.\""
+      "title1": "e",
+      "title2": "N",
+      "title3": "e",
+      "title4": "F",
+      "title5": "T",
+      "title6": "urk",
+      "paragraph": "\"Türkiye'nin ilk Özel, Doğrulanmış NFT pazar yeri.\"",
+      "learnMore": "Daha Fazlasını Öğren"
     },
     "About": {
-      "paragraph": "Non-Fungible Token(NFT) block-chain ağında sahiplenilebilen eşsiz bir dijital öğeyi temsil eder. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places.So still there is a room for new NFT markets. BestDrops targets to be the best Decentralized Autonomous NFT market organization as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application. Drops of artists is continuously rewarded with $BESD coin. There is also a $BEST coin lottery for buyers every week. BestDrops is designed to be a DAO which is governed by its community members who carry governance token $BESD. BestDrops takes a service fee for buyers. Service fees are distributed to DAO members proportional to $BEST coin owning and buyer fee also prevents the wash trades.",
+      "title": "eNeF-Turk Nedir",
+      "paragraph": "Non-Fungible Token(NFT) block-chain ağında sahiplenilebilen eşsiz bir dijital öğeyi temsil eder. NFT marketleri hızla büyüyor, türk sanatçılar ve sanat eserleri de bu pazarda yerini almaya başladı. Hergün yeni koleksyoncular ve yatırımcılar bu pazara giriyor fakat birçok sanatçı global NFT marketlerinde yetkili üretici olmak için onay bekliyorlar. eNeF-Turk tarafından onaylanmış sanatçılarımız yetkili NFT'lerini sergileyip satışa sunmak için burada kendilerine yer bulabilirler. Koleksyoncular ve yatırımcılar da Türk Lirası üzerinden buradaki NFT leri satın alabilecekler. eNeF-Turk NFT si satın alanların bir kripto cüzdanı olmasa bile koleksyoncuların satın aldığı NFT lerin hakları onlar için saklanır ve istedikleri zaman Ethereum cüzdanlarına aktarmalarına olanak sağlanır. Çeşitli sanat eserleri farklı yöntemlerle satışa sunulabilir, açık artırma, serbest fiyat teklifi ve hemen al fiyatı ile NFT ler satışa sunulabilir. Açık artırmayı kaybedenlerin ödemeleri anında iade edilir. İçerik üreticileri eNeF-Turk tarafından onaylanmış sanatçılardır.",
       "Why": [
       ],
       "Why2": [
       ]
     },
-    "Team": [
+    "Team_ex": [
       {
         "img": "img/team/hasanserdar.jpeg",
         "text": "16 years of Software Development and Management experience in Fintech. Expertize in stock exchange and virtual trading platforms.",
@@ -53,14 +58,21 @@
       }
     ],
     "Contact": {
-      "address": "4321 California St, San Francisco, CA 12345 ",
-      "phone": "+1 123 456 1234",
-      "email": "info@company.com",
-      "facebook": "fb.com",
-      "twitter": "twitter.com",
-      "youtube": "youtube.com"
+      "touchTitle": "İletişime Geç",
+      "touchText": "Litfen aşağıdaki formu doldurarak bize mail gönderin, en kısa sürede sizinle iletişime geçeceğiz.",
+      "send": "Mesajı Gönder",
+      "name": "İsim",
+      "mail": "Mail",
+      "message": "Mesaj",
+      "info": "İletişim Bilgileri",
+      "address": "İstanbul / Türkiye ",
+      "phone": "0532 200 00 00",
+      "email": "info@enefturk.com",
+      "facebook": "enefturk.fb.com",
+      "twitter": "enefturk@twitter.com",
+      "youtube": "enefturk.youtube.com"
     },
-    "Token": {
+    "Token_ex": {
       "items": [
         {
           "icon": "fa fa-btc",
@@ -95,41 +107,26 @@
       ]
     },
     "Services": {
-      "title": "Our Services",
+      "title": "Servislerimiz",
       "items": [
         {
-          "icon": "fa fa-btc",
-          "title": "$BESD Token",
-          "text": "BestDrops is introducing its Coin $BESD, a new cryptocurrency ERC-20 token that is used as an incentive to attract the best NFT creators"
-        },
-        {
-          "icon": "fa fa-comments-o",
-          "title": "DAO",
-          "text": "BestDrops is a Decentralized Autonomous Organization (DAO) which is governed by its community members. Those carrying $BESD coins have a voice on the platform's future"
-        },
-        {
           "icon": "fa fa-link",
-          "title": "NFT Contracts",
-          "text": "BestDrops uses its own ERC-721 and ERC-1155 smart contracts on Ethereum Network for NFT creation. Both single edition and multiple editions of NFTs are supported."
+          "title": "Ethereum NFT Contractları",
+          "text": "eNeF-Turk kendi ürettiği Ethereum ERC-721 ve ERC-1155 smart contract'larını kullanarak NFT'ler oluşturmanızı sağlar."
         },
         {
           "icon": "fa fa-magic",
-          "title": "NFT Create UI",
-          "text": "Famous NFT Artists are invited as creators and the platform gives a NFT drop user interface(UI) for these selected creators."
+          "title": "NFT Oluşturma Arayüzü",
+          "text": "eNeF-Turk yetki verdiği sanatçılara NFT üretme web arayüzü vasıtası ile NFT üretip satışa sunma imkanı sağlar. Satıştaki ve satın alınmış eserler eNeF-Turk web sitesinde üretici ve koleksiyoncuların profillerinde sergilenir."
         },
         {
           "icon": "fa fa-group",
-          "title": "NFT Auctions",
-          "text": "NFT collectors can buy new NFT drops by auctions or price offers using their Ethereum wallets by our auction and sale offer contracts."
-        },
-        {
-          "icon": "fa fa-plus-square-o",
-          "title": "Earn $BESD and $ETH",
-          "text": "BestDrop has staking programmes for $BESD and shares $ETH from service fees"
+          "title": "NFT Satışı ve Sergileme",
+          "text": "Kolleksyoncular eNeF-Turk web sitesi üzerinden satışa sunuulan NFT'lere fiyat teklifi vererek satın alabilir veya açık artırmaya katılabilirler. Kolleksiyoncular satın aldıkları NFT'leri eNeF-Turk üzerinde sergileyebilir ve ikincil NFT satış platformlarında satışa çıkartaiblirler."
         }
       ]
     },
-    "Funds": {
+    "Funds_ex": {
       "title": "How We Allocate $708,000 Fund Rised",
       "items": [
         {
@@ -150,7 +147,7 @@
         }
       ]
     },
-    "Tokenomics": {
+    "Tokenomics_ex": {
       "title": "Token Economics",
       "items": [
         {
@@ -183,7 +180,7 @@
         }
       ]
     },
-    "Roadmap": {
+    "Roadmap_ex": {
       "items": [
         {
           "title": "BestDrops Team Established",
@@ -230,64 +227,22 @@
     "Howitworks": {
       "groups": [
         {
-          "title": "How It Works for NFT Creators",
+          "title": "Nasıl çalışır",
           "items": [
             {
-              "text": "Authenticated Artists Drop digital artworks or valuable assets by BestDrop creator UI",
+              "text": "Yetkili sanatçılar eNeFTurk web arayüzü ile ürettikleri sanat eserlerini dijital bir formatta yükleyip satış fiyatını ve yöntemini belirlerler",
               "img_url": "/img/howitworks/drop2.svg"
             },
             {
-              "text": "Approved artworks or digital assets are become available through auction or through price offers",
+              "text": "Onaylanan sanat eserleri açık artırma, serbest fiyat teklifi veya hemen al fiyatı ile satışa sunulurlar",
               "img_url": "/img/howitworks/unpack2.svg"
             },
             {
-              "text": "Artwork or digital asset is minted as NFT for the winner of the auction",
+              "text": "Açık artırmayı kazanan veya sanatçının istediği fiyatı veren koleksiyoncu sanat eserinin NFT'sini oluşturma hakkını alır.",
               "img_url": "/img/howitworks/signed.svg"
             },
             {
-              "text": "Every week 100K $BESD is distributed to BestDrop NFT Creators. Distributed amount will be reduced by a time factor.",
-              "img_url": "/img/howitworks/profit.svg"
-            }
-          ]
-        },
-        {
-          "title": "How It Works For DAO members",
-          "items": [
-            {
-              "text": "Buy some $BESD from Uniswap",
-              "img_url": "/img/howitworks/swap.svg"
-            },
-            {
-              "text": "Lock your $BESD tokens with our smart contract and take our DAO tokens.",
-              "img_url": "/img/howitworks/block.svg"
-            },
-            {
-              "text": "Vote and make purposals on DAO community with your DAO tokens. Have rights to buy limited edition special NTFs.",
-              "img_url": "/img/howitworks/vote.svg"
-            },
-            {
-              "text": "Earn $BESD proportional to lock time and have your share from service fees as Ether.",
-              "img_url": "/img/howitworks/profit.svg"
-            }
-          ]
-        },
-        {
-          "title": "How It Works For NFT buyers",
-          "items": [
-            {
-              "text": "Make an offers for listed and auctioned NFTs by $ETH.",
-              "img_url": "/img/howitworks/swap.svg"
-            },
-            {
-              "text": "If you win the auction, you have the NFT.",
-              "img_url": "/img/howitworks/block.svg"
-            },
-            {
-              "text": "Your NFT is visible in your wallet, you can sell it here or any other NFT market place.",
-              "img_url": "/img/howitworks/vote.svg"
-            },
-            {
-              "text": "Win the auction or not you have the ticket for the weekly $BESD lottery now.",
+              "text": "NFT oluşturma hakkına sahip olan koleksiyoncu istediği zaman Ethereum cüzdanını entegre ederek NFT yi cüzdanına aktarır ",
               "img_url": "/img/howitworks/profit.svg"
             }
           ]
@@ -312,6 +267,7 @@
       "paragraph": "\"to be the Best Decentralized Autonomous NFT Market Organization.\""
     },
     "About": {
+      "title": "What is eNeF-Turk",
       "paragraph": "The Non-Fungible Token(NFT) represents a unique digital item which can be owned in a block-chain network. NFT market is growing so fast and celebrity tokens and artworks are very popular on the NFT market. Everyday many new collectors enter the market but many artists are waiting to be approved by the big market places.So still there is a room for new NFT markets. BestDrops targets to be the best Decentralized Autonomous NFT market organization as a self governed NFT community which incentivizes the artists to drop their best works to BestDrops Decentralized Application. Drops of artists is continuously rewarded with $BESD coin. There is also a $BEST coin lottery for buyers every week. BestDrops is designed to be a DAO which is governed by its community members who carry governance token $BESD. BestDrops takes a service fee for buyers. Service fees are distributed to DAO members proportional to $BEST coin owning and buyer fee also prevents the wash trades.",
       "Why": [
       ],

@@ -32,15 +32,15 @@ const App = (props) => {
   return (
     <div>
       <Navigation data={landingPageData.Navigation} setLanguage={setLanguage} language={language} />
-      <Header data={landingPageData.Header} />
+      <Header data={landingPageData.Header} language={language}/>
       <About data={landingPageData.About} />
       <Services data={landingPageData.Services} />
       <Howitworks data={landingPageData.Howitworks} />
-      <Tokenomics data={landingPageData.Tokenomics}  />
-      <Services data={landingPageData.Token} />
-      <Funds data={landingPageData.Funds} />
-      <Roadmap data={landingPageData.Roadmap} />
-      <Team data={landingPageData.Team} />
+      {landingPageData.Tokenomics && <Tokenomics data={landingPageData.Tokenomics}  />}
+      {landingPageData.Token && <Services data={landingPageData.Token} />}
+      {landingPageData.Funds && <Funds data={landingPageData.Funds} />}
+      {landingPageData.Roadmap && <Roadmap data={landingPageData.Roadmap} />}
+      {landingPageData.Team && <Team data={landingPageData.Team} />}
       <Contact data={landingPageData.Contact} />
     </div>
   )
