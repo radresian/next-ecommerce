@@ -8,13 +8,11 @@ RUN yarn install
 
 COPY .env.local ./
 
-COPY db ./db
+COPY db/offlineData ./db/offlineData
 
-COPY knexfile.js ./
+COPY db/config ./db/config
 
-RUN yarn knex:migrate
-
-RUN yarn knex:seed
+COPY db/connection.js ./db/connection.js
 
 COPY apollo ./apollo
 
@@ -28,10 +26,15 @@ COPY public ./public
 
 COPY utils ./utils
 
+COPY contracts ./contracts
+
 COPY next.config.js ./
 
 COPY Dockerfile ./
 
-CMD yarn dev
+RUN NODE_OPTIONS="--max-old-space-size=4096" yarn build
+
+CMD [ "sh", "-c", "NODE_ENV=production MYSQL_HOST=$MYSQL_HOST yarn start" ]
+
 
 

@@ -5,18 +5,10 @@ exports.up = function (knex) {
     table
       .integer('product_id')
       .notNullable()
-      .references('id')
-      .inTable('product')
-      .onUpdate('CASCADE')
-      .onDelete('CASCADE');
 
     table
       .integer('category_id')
       .notNullable()
-      .references('id')
-      .inTable('category')
-      .onUpdate('CASCADE')
-      .onDelete('CASCADE');
   });
 };
 
