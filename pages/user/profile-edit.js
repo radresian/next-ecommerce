@@ -137,7 +137,7 @@ export default function ProfileEdit() {
                 <p>Your Profile Photo</p>
               </div>
               <div className="profile-img">
-                <Image src={profilePhoto} layout='fill' objectFit='scale-down' />
+                <img className="image" src={profilePhoto}  />
               </div>
 
             </div>
@@ -213,7 +213,7 @@ export default function ProfileEdit() {
                 <p>Your Page's Cover Image</p>
               </div>
               <div className="cover-img">
-                <Image src={coverImage} layout='fill' objectFit='scale-down' />
+                <img className="image" src={coverImage} />
               </div>
 
             </div>
@@ -260,6 +260,9 @@ export default function ProfileEdit() {
           height: 200px;
           justify-content: center;
           display: flex;  
+        }
+        .image {
+          object-fit: scale-down 
         }
         .cover-img {
           position: relative;

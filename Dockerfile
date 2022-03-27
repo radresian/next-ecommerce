@@ -30,6 +30,8 @@ COPY contracts ./contracts
 
 COPY next.config.js ./
 
+COPY server.js ./
+
 COPY Dockerfile ./
 
 RUN NODE_OPTIONS="--max-old-space-size=4096" yarn build

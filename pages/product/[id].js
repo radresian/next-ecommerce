@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import {useMutation, useQuery} from '@apollo/client';
-import Image from 'next/image';
 import {PRODUCTS_BY_IDS, BIDS_OF_PRODUCT, VIEWER} from '../../apollo/client/queries';
 import Page from '../../components/page';
 import ErrorAlert from '../../components/alerts/error';
@@ -87,12 +86,10 @@ export default function Product() {
       <div className="product-detail-container">
         <article>
 
-          <div className="product-img">
-            <Image src={data.productsById[0].img_url} layout='fill' objectFit='scale-down' />
-          </div>
+        <img src={data.productsById[0].img_url} className="image" />
 
         </article>
-        <article>
+        <article className="info-article">
           <div className="nft-info-container">
             <div className="creator-owner-container">
               <div className="creator-owner">
@@ -113,12 +110,14 @@ export default function Product() {
                   <div>
                     <span>Owned By </span>
                   </div>
-                  <button className="creator">
-                    <div className="creator-div">
-                      <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
-                      <span style={{margin:15}}>@{bidsData?.bidsOfProduct[0].user_name}</span>
-                    </div>
-                  </button>
+                  <Link href={`/user/${bidsData?.bidsOfProduct[0].buyer_id}`} >
+                    <button className="creator">
+                      <div className="creator-div">
+                        <img src={data.productsById[0].creator_avatar} width="50" height="50" style={{borderRadius:50}} />
+                        <span style={{margin:15}}>@{bidsData?.bidsOfProduct[0].user_name}</span>
+                      </div>
+                    </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -209,17 +208,26 @@ export default function Product() {
       </div>
 
       <style jsx>{`
+          .product-detail-container {
+            display:flex;
+            flex-direction: row;
+          }
           article {
             display: flex;
+            flex: 1;
             align-items: center;
             flex-direction: column;
             box-sizing: border-box;
-            height: auto;
-            width: 100%;
             padding: 24px;
             background: white;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
+          }
+          .info-article {
+            flex: 1;
+          }
+          .image {
+            max-width: 100%
           }
           .creator-owner-container {
             display:flex;
@@ -230,6 +238,7 @@ export default function Product() {
             flex-direction: column;
             align-items: center;
             margin-right: 16px;
+            cursor: pointer;
           }
           .place-bid-container {
             width: 100%;
@@ -310,6 +319,7 @@ export default function Product() {
             font-size: 16px;
             background-color: white;
             font-weight: bold;
+            cursor: pointer;
           }
           .place-bid {
             border-radius: 9999px;
@@ -328,11 +338,6 @@ export default function Product() {
             background-color: #021e66;
             color: white;
           }
-          .product-detail-container {
-            display:flex;
-            flex-direction: row;
-            width: 100%;
-          }
           .top-buttons {
             margin-bottom: 24px;
             align-self: flex-end;
@@ -343,14 +348,6 @@ export default function Product() {
           }
           .top-buttons .add-wishlist:focus {
             outline: none;
-          }
-          .product-img {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            margin-bottom: 28px;
-            justify-content: center;
-            display: flex;  
           }
           .product-name {
             width: 80%;
@@ -391,10 +388,9 @@ export default function Product() {
             outline: none;
           }
           @media (max-width: 1000px) {
-            .product-img {
-              width: 225px;
-              height: 180px;
-              margin-bottom: 28px;
+            .product-detail-container {
+              display:flex;
+              flex-direction: column;
             }
             .product-name {
               width: 80%;

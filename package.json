@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "knex:rollback": "knex migrate:rollback",
     "knex:migrate": "knex migrate:latest",
     "knex:seed": "knex seed:run",
+    "knex:rollback:prod": "NODE_ENV=devProd knex migrate:rollback",
+    "knex:migrate:prod": "NODE_ENV=devProd knex migrate:latest",
+    "knex:seed:prod": "NODE_ENV=devProd knex seed:run",
+    "deploy": "./build-scripts/build-deploy-aws.sh",
     "ipfs": "node ipfs-test.js"
   },
   "dependencies": {
@@ -23,6 +27,7 @@
     "bootstrap": "^5.0.0-beta3",
     "cookie": "^0.4.1",
     "emailjs-com": "^2.6.4",
+    "express": "^4.17.1",
     "formidable": "^1.2.2",
     "graphql": "^15.3.0",
     "graphql-tools": "^6.0.12",
