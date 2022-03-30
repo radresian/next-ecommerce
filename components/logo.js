@@ -6,7 +6,7 @@ export default function Logo() {
     <>
       <Link href="/market">
         <a className="logo">
-          <Image src="/img/eNeF-Turk_1.png" width="230" height="60" />
+          <Image src="/img/logo1.png" width="72" height="60" />
         </a>
       </Link>
       <style jsx>{`

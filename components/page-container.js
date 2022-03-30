@@ -4,17 +4,17 @@ export default function PageContainer({ title, description, children }) {
   return (
     <div className="container">
       <Head>
-        <title>{title || 'BestDrops - Autonomous NFT Market'}</title>
+        <title>{title || 'eNeF-Turk | Yetkili NFT Pazar Yeri'}</title>
         {description !== false && (
           <meta
             name="description"
             content={
               description ||
-              'to be the Best Decentralized Autonomous NFT Market Organization.'
+              'Türkiye\'nin ilk Özel, Doğrulanmış NFT pazar yeri.'
             }
           />
         )}
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="img/logo1.png" />
       </Head>
 
       <main>{children}</main>
