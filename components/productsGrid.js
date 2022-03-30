@@ -6,31 +6,26 @@ export default function ProductsGrid({ children }) {
         .products-grid {
           display: grid;
           grid-gap: 28px;
-          grid-template-columns: repeat(4, 300px);
+          grid-template-columns: 1fr 1fr 1fr 1fr;
         }
         @media (max-width: 1620px) {
           .products-grid {
-            grid-template-columns: repeat(3, 300px);
+            grid-template-columns: 1fr 1fr 1fr 1fr;
           }
         }
-        @media (max-width: 1280px) {
+        @media (max-width: 1220px) {
           .products-grid {
-            grid-template-columns: repeat(2, 300px);
+            grid-template-columns: 1fr 1fr 1fr;
           }
         }
         @media (max-width: 1000px) {
           .products-grid {
-            grid-template-columns: repeat(3, 300px);
-          }
-        }
-        @media (max-width: 900px) {
-          .products-grid {
-            grid-template-columns: repeat(2, 300px);
+            grid-template-columns: 1fr 1fr;
           }
         }
         @media (max-width: 600px) {
           .products-grid {
-            grid-template-columns: repeat(1, 300px);
+            grid-template-columns: 1fr;
           }
         }
       `}</style>

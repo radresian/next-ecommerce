@@ -7,8 +7,8 @@ export default function ProductSection({ category }) {
   return (
     <section id="product">
       <aside>
-        <AsideCategories category={category} />
-        <PromoCard />
+        {false && <AsideCategories category={category} />}
+        {false && <PromoCard />}
       </aside>
       <div className="main">
         <Products category={category} />

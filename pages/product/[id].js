@@ -94,7 +94,7 @@ export default function Product() {
             <div className="creator-owner-container">
               <div className="creator-owner">
                 <div>
-                  <span>Created By </span>
+                  <span>Sanatçı</span>
                 </div>
                 <Link href={`/user/${data.productsById[0].creator_id}`} >
                   <button className="creator">
@@ -108,7 +108,7 @@ export default function Product() {
               {(auctionEnded && auctionStarted) && (
                 <div className="creator-owner">
                   <div>
-                    <span>Owned By </span>
+                    <span>Satın Alan</span>
                   </div>
                   <Link href={`/user/${bidsData?.bidsOfProduct[0].buyer_id}`} >
                     <button className="creator">
@@ -130,7 +130,7 @@ export default function Product() {
           <div className="price-contianer">
 
             <div className="price-section">
-              {!auctionStarted ? <p className="">Reserve Price</p> : <p className="">Current Bid</p> }
+              {!auctionStarted ? <p className="">Reserve Price</p> : <p className="">Mevcut Teklif</p> }
               <p className="price-value">{ auctionStarted ? Number(data.productsById[0].tokenHighestBid).toFixed(2) : data.productsById[0].price} TL</p>
             </div>
             {!auctionStarted ?
@@ -140,10 +140,10 @@ export default function Product() {
               </div>
               :
               <div className="status">
-                {<p className="price-header">Ending In</p>}
+                {<p className="price-header">Durum</p>}
                 {(() => {
                   if (auctionEnded) {
-                    return <p className="price-value1">Auction Ended</p>;
+                    return <p className="price-value1">Satıldı</p>;
                   } else if (auctionEndDate > Date.now()) {
                     return <p className="price-value1">{remaining}</p>;
                   }
@@ -189,7 +189,7 @@ export default function Product() {
                         <img src={bid.user_avatar} width="50" height="50" style={{borderRadius: 50}}/>
                       </div>
                       <div className="bidder-and-date">
-                        <div className="bidder"><span>Bid placed by </span><span className="bidder-name-span">@{bid.user_name}</span></div>
+                        <div className="bidder"><span>Teklif veren </span><span className="bidder-name-span">@{bid.user_name}</span></div>
                         <div className="bid-date"><span>{new Date(bid.created_at).toLocaleString()}</span></div>
                       </div>
                     </div>

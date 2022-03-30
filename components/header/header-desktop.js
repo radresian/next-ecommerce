@@ -21,7 +21,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           <a
             href='/'
           >
-            About
+            eNeF-Turk Hakkında
           </a>
           {false && (<button id='header-button'
             className='btn-custom'
@@ -38,7 +38,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
               <button id='header-button-create'
                  className='btn-custom'
               >
-                Create
+                NFT Yap
               </button>
             </Link>
               <Link href="/user/profile-edit">
@@ -58,7 +58,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
               <Link href="/user/login">
                 <a className="nav-buttons-signin">
                   <FaUser color="#808080" />
-                  <p>Sign In</p>
+                  <p>Giriş</p>
                 </a>
               </Link>
             )
@@ -119,7 +119,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 0 50px;
+          padding: 0 70px;
         }
         #header-button {
           padding:10px;

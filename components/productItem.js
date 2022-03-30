@@ -69,15 +69,15 @@ export default function ProductItem(props) {
 
         <div className="price-container">
           <div className="price">
-            {auctionStarted ? <p className="price-header">Current Bid</p>: <p className="price-header">Reserve Price</p>}
+            {auctionStarted ? <p className="price-header">Mevcut Teklif</p>: <p className="price-header">Fiyat</p>}
             <p className="price-value1">{auctionStarted ? (props.web3 ? Number(props.web3.utils.fromWei(tokenHighestBid)).toFixed(2) : Number(tokenHighestBid).toFixed()) : price} {props.web3 ? 'ETH' : 'TL'}</p>
           </div>
           {auctionStarted &&
             <div className="status">
-              { <p className="price-header">Ending In</p> }
+              { <p className="price-header">Durum</p> }
               { (() => {
                 if (auctionEnded){
-                  return <p className="price-value1">Auction Ended</p>;
+                  return <p className="price-value1">Satıldı</p>;
                 }else if (auctionEndDate > Date.now()){
                   return <p className="price-value1">{remaining}</p>;
                 }

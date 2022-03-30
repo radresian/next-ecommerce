@@ -19,16 +19,13 @@ export default function Fotter() {
 
         <div className="footer-nav">
           <Link href="/">
-            <a>Shop</a>
+            <a>Market</a>
           </Link>
           <Link href="/">
-            <a>Journal</a>
+            <a>Hakkımızda</a>
           </Link>
           <Link href="/">
-            <a>About</a>
-          </Link>
-          <Link href="/">
-            <a>Contacts</a>
+            <a>İletişim</a>
           </Link>
         </div>
 
@@ -57,12 +54,12 @@ export default function Fotter() {
       </div>
       <div className="footer footer-bottom">
         <div className="texts">
-          <p>© 2021. BestDrops</p>
-          <p>Privacy Policy</p>
-          <p>Terms of Use</p>
+          <p>© 2022. eNeF-Turk</p>
+          <p>Gzililik Hakları</p>
+          <p>Kullanım Koşulları</p>
         </div>
         <div className="payment-info">
-          <p className="text">Accepted payment methods</p>
+          <p className="text">Kabul Edilen Ödeme Şekilleri</p>
           <div className="payment-methods">
             <div>
               <FaCcVisa color="#424242" size="32px" />
