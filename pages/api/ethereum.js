@@ -4,7 +4,7 @@ import web3 from '../../lib/web3-provider'
 
 export default async (req, res) => {
 
-  const wallet = await web3.eth.personal.ecRecover('Please sign this message to connect BestDrops',req.query.signature);
+  const wallet = await web3.eth.personal.ecRecover('Please sign this message to connect eNeF-Turk',req.query.signature);
   //const wallet = req.query.address.toLowerCase();
 
 

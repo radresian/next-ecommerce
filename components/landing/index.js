@@ -50,7 +50,7 @@ const Page = props => {
         />
         <title>eNeF-Turk | Yetkili NFT Pazar Yeri</title>
         <meta name="description" content=""/>
-        <meta name="author" content="@Issaafalkattan"/>
+        <meta name="author" content="@"/>
       </Head>
     <App language={props.language}></App>
     </>

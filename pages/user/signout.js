@@ -22,7 +22,7 @@ function SignOut() {
     });
   }, [signOut, router, client]);
 
-  return <p>Signing out...</p>;
+  return <p>Çıkış Yapılıyor...</p>;
 }
 
 export default SignOut;

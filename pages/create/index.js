@@ -112,7 +112,7 @@ export default function Create() {
       {viewer ?
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">Create NFT</h3>
+          <h3 className="formTitle">NFT Yap</h3>
 
           {msgError && <AlertError message={msgError} />}
           {msgSuccess && <AlertSuccess message={msgSuccess} />}
@@ -127,14 +127,14 @@ export default function Create() {
               <input type="file" name="file" onChange={handleFileChange} />
               <div className="icon">
                 <MdCloudUpload color="#000" size="22" />
-                <p className="icon-p"> Upload File</p>
+                <p className="icon-p"> Dosya Yükle</p>
               </div>
             </label>
             <div className='inputContainer'>
               <Input
                 type="input"
                 name="name"
-                placeholder="Name"
+                placeholder="NFT adı"
                 onChange={(value) => setName(value)}
                 value={name}
               />
@@ -143,13 +143,13 @@ export default function Create() {
               <Input
                 type="input"
                 name="description"
-                placeholder="Description"
+                placeholder="Açıklama"
                 onChange={(value) => setDesc(value)}
                 value={desc}
               />
             </div>
             <div className='inputContainer'>
-              <Select styles={customStyles} placeholder='Select Category...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(val)=>{setCategory(val)}}>
+              <Select styles={customStyles} placeholder='Kategori Seç...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(val)=>{setCategory(val)}}>
               </Select>
             </div>
             <div className='inputContainer'>
@@ -159,16 +159,16 @@ export default function Create() {
                 max="999"
                 step="0.01"
                 name="price"
-                placeholder="Reserve Price in ETH"
+                placeholder="Liste Fiyatı"
                 onInput={maxLengthCheck}
                 onChange={(value) => setPrice(value)}
                 value={price}
               />
             </div>
             <div className='reserve-price-text'>
-              <span>24 hours auction will begin when any offer comes above this reserve price, if not specified first offer starts the auction.</span>
+              <span>Liste fiyatının üstünde bir fiyat teklifi gelince 24 saatlik bir açık artırma başlayacaktır.</span>
             </div>
-            <Button type="submit" title="Create" />
+            <Button type="submit" title="NFT Oluştur" />
           </InputContainer>
         </form>
 

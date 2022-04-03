@@ -48,7 +48,7 @@ export default function SignUp() {
   }
 
   return (
-    <Page title="BestDrops - Sign Up">
+    <Page title="eNeF-Turk Kullanıcı Kayıt">
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">sign up</h3>

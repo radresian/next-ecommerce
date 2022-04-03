@@ -21,7 +21,7 @@ export default function Login() {
   }
 
   return (
-    <Page title="BestDrops - Reset Password">
+    <Page title="eNeF-Turk Şifre Sıfırla">
       <FormContainer>
         <form onSubmit={handleSubmit}>
           <h3 className="formTitle">Reset Password</h3>

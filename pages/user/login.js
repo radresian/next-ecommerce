@@ -45,7 +45,7 @@ export default function Login() {
     <Page>
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">login</h3>
+          <h3 className="formTitle">Giriş</h3>
 
           {msgError && <AlertError message={msgError} />}
 
@@ -60,20 +60,20 @@ export default function Login() {
             <Input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Şifre"
               onChange={(value) => setPassword(value)}
               value={password}
             />
 
-            <Button type="submit" title="Login" />
+            <Button type="submit" title="Giriş" />
           </InputContainer>
         </form>
 
         <Link href="/user/signup">
-          <a className="switchForm">I do not have a account</a>
+          <a className="switchForm">Yeni Kullanıcı Oluştur</a>
         </Link>
         <Link href="/user/resetpassword">
-          <a className="switchForm">I forgot my password</a>
+          <a className="switchForm">Şifremi Unuttum</a>
         </Link>
       </FormContainer>
 

@@ -69,20 +69,20 @@ export default function Product() {
 
   if ((error || !data?.productsById.length) && !loading) {
     return (
-      <Page title="BestDrops - Products">
+      <Page title="eNeF-Turk NFT">
         <ErrorAlert message="This product is not found!"></ErrorAlert>
       </Page>
     );
   } else if (loading) {
     return (
-      <Page title="BestDrops - Products">
+      <Page title="eNeF-Turk NFT">
         <p>Loading...</p>
       </Page>
     );
   }
 
   return (
-    <Page title="BestDrops - Products">
+    <Page title="eNeF-Turk NFT">
       <div className="product-detail-container">
         <article>
 
@@ -130,13 +130,12 @@ export default function Product() {
           <div className="price-contianer">
 
             <div className="price-section">
-              {!auctionStarted ? <p className="">Reserve Price</p> : <p className="">Mevcut Teklif</p> }
+              {!auctionStarted ? <p className="">Liste Fiyatı</p> : <p className="">Mevcut Teklif</p> }
               <p className="price-value">{ auctionStarted ? Number(data.productsById[0].tokenHighestBid).toFixed(2) : data.productsById[0].price} TL</p>
             </div>
             {!auctionStarted ?
               <div className="auction-section">
-                <p>Once a bid has been placed and the reserve price has been met, a 24 hour auction for this artwork
-                  will begin.</p>
+                <p>Liste fiyatının üstünde bir fiyat teklifi gelince 24 saatlik bir açık artırma başlayacaktır.</p>
               </div>
               :
               <div className="status">
@@ -163,19 +162,19 @@ export default function Product() {
                 max="999"
                 step="0.01"
                 name="price"
-                placeholder="Enter bid in ETH"
+                placeholder="Fiyat Teklifini Girin"
                 onInput={maxLengthCheck}
                 onChange={(value) => setPrice(value)}
                 value={price}
               />
-              <button className="place-bid" onClick={placeABid}>Place A Bid</button>
+              <button className="place-bid" onClick={placeABid}>Fiyat Teklifi Ver</button>
             </div>
             )
           }
 
           {auctionEnded && bidsData?.bidsOfProduct.length && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) &&(
             <div className="place-bid-container">
-              <button className="place-bid" onClick={placeABid}>Claim NFT</button>
+              <button className="place-bid" onClick={placeABid}>NFT'yi al</button>
             </div>
             )
           }
@@ -194,7 +193,7 @@ export default function Product() {
                       </div>
                     </div>
                     <div className="bid-price">
-                      {index>0 && Number(viewerData?.viewer?.id) === bid.buyer_id && (<button className="return-bid" onClick={()=>{}}>Return Money</button>)}
+                      {index>0 && Number(viewerData?.viewer?.id) === bid.buyer_id && (<button className="return-bid" onClick={()=>{}}>İade Al</button>)}
                       <div className="bid-price-span-container">
                         <span className="bid-price-span">{bid.price} TL</span>
                       </div>

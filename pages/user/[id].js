@@ -32,7 +32,7 @@ export default function Profile() {
 
 
   return (
-    <Page title="BestDrops - User Profile">
+    <Page title="eNeF-Turk Kullanıcı Profili">
       {user &&
       <div className="container">
 
@@ -51,7 +51,7 @@ export default function Profile() {
               <span className="twitter">{user.instagram}</span>
               <FaInstagram />
             </div>
-            <h2 className="bio">Bio</h2>
+            <h2 className="bio">Sanatçı Hakkında</h2>
 
 
             <div className="bio-divider">
@@ -60,7 +60,7 @@ export default function Profile() {
 
           </div>
           <div className="items">
-            <h2 className="name">Artworks</h2>
+            <h2 className="name">Sanat Eserleri</h2>
             <div className="items-container">
               <ProductsGrid>
                 {products.map((product) => (

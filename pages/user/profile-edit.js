@@ -115,11 +115,11 @@ export default function ProfileEdit() {
   //https://twitter.com/intent/tweet?text=I%E2%80%99m%20on%20@withFND%20%F0%9F%8C%90%0A%0A0x2E20e921d16Cd31dfEeA9beFDAb9A5480634CaB9%0A%0Ahttps://foundation.app/0x2E20e921d16Cd31dfEeA9beFDAb9A5480634CaB9
 
   return (
-    <Page title="BestDrops - User Profile">
+    <Page title="eNeF-Turk Profil Düzenle">
       {viewer ?
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">Update Profile</h3>
+          <h3 className="formTitle">Profil Düzenle</h3>
 
           {msgError && <AlertError message={msgError} />}
           {msgSuccess && <AlertSuccess message={msgSuccess} />}
@@ -131,10 +131,10 @@ export default function ProfileEdit() {
                   <input type="file" name="file" onChange={handleProfilePhotoChange} />
                   <div className="icon">
                     <MdCloudUpload color="#000" size="22" />
-                    <p className="icon-p"> Upload Profile Photo</p>
+                    <p className="icon-p"> Profil Fotoğrafı Yükle</p>
                   </div>
                 </label>
-                <p>Your Profile Photo</p>
+                <p>Profil Fotoğrafınız</p>
               </div>
               <div className="profile-img">
                 <img className="image" src={profilePhoto}  />
@@ -142,23 +142,23 @@ export default function ProfileEdit() {
 
             </div>
 
-            <p className='input-description'>Your name and surname</p>
+            <p className='input-description'>Adınız ve Soyadınız</p>
             <Input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Adınız ve Soyadınız"
               onChange={(value) => setDe(value)}
               value={name}
             />
-            <p className='input-description'>Your nickname</p>
+            <p className='input-description'>Kullanıcı Adınız</p>
             <Input
               type="text"
               name="userName"
-              placeholder="Username"
+              placeholder="Kullanıcı Adınız"
               onChange={(value) => setUserName(value)}
               value={userName}
             />
-            <p className='input-description'>Your email wont show other users</p>
+            <p className='input-description'>Emailiniz diğer kullanıcılara gösterilmez</p>
             <Input
               type="email"
               name="email"
@@ -166,16 +166,16 @@ export default function ProfileEdit() {
               onChange={(value) => setEmail(value)}
               value={email}
             />
-            <p className='input-description'>Your Brief Description of your self</p>
+            <p className='input-description'>Kendiniz hakkında</p>
             <TextArea
               rows="10"
               cols="50"
               name="description"
-              placeholder="Short Bio"
+              placeholder="Kısa Biografi"
               onChange={(value) => setDescription(value)}
               value={description}
             />
-            <p className='input-description'>Verified twitter</p>
+            <p className='input-description'>Twitter</p>
             <Input
               type="text"
               name="twitter"
@@ -183,7 +183,7 @@ export default function ProfileEdit() {
               onChange={(value) => setTwitter(value)}
               value={twitter}
             />
-            <p className='input-description'>Verified instagram</p>
+            <p className='input-description'>Instagram</p>
             <Input
               type="text"
               name="instagram"
@@ -191,7 +191,7 @@ export default function ProfileEdit() {
               onChange={(value) => setInstagram(value)}
               value={instagram}
             />
-            <p className='input-description'>Verified wallet</p>
+            <p className='input-description'>Ethereum Cüzdanı</p>
             <Input
               type="text"
               name="wallet"
@@ -207,21 +207,21 @@ export default function ProfileEdit() {
                   <input type="file" name="file" onChange={handleCoverImageChange} />
                   <div className="icon">
                     <MdCloudUpload color="#000" size="22" />
-                    <p className="icon-p"> Upload Cover Image</p>
+                    <p className="icon-p"> Kapak Fotoğrafı Yükle</p>
                   </div>
                 </label>
-                <p>Your Page's Cover Image</p>
+                <p>Profil Sayfanızın Kapak Fotoğrafı</p>
               </div>
               <div className="cover-img">
                 <img className="image" src={coverImage} />
               </div>
 
             </div>
-            <Button type="submit" title="Update Profile" />
+            <Button type="submit" title="Profili Düzenlee" />
           </InputContainer>
         </form>
 
-      </FormContainer> : <p>Please Login</p>
+      </FormContainer> : <p>Lütfen Giriş Yapın</p>
       }
 
       <style jsx>{`
