@@ -3,7 +3,7 @@ import PageContainer from './page-container';
 import Header from './header';
 import Footer from './footer';
 
-export default function Page({ title, description, children }) {
+export default function Page({ title, description, children, showHeaderMovie = false }) {
   useEffect(() => {
     if(window){
       const SmoothScroll = require('smooth-scroll');
@@ -16,7 +16,7 @@ export default function Page({ title, description, children }) {
 
   return (
     <PageContainer title={title} description={description}>
-      <Header />
+      <Header showHeaderMovie={showHeaderMovie} />
 
       <div className="content" id="content">{children}</div>
 
@@ -27,7 +27,7 @@ export default function Page({ title, description, children }) {
           align-items: center;
           flex-direction: column;
           width: 100%;
-          background: azure;
+          background: #fafafa;
           padding-top: 50px;
         }
         @media (max-width: 1256px) {

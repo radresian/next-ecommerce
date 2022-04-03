@@ -26,7 +26,7 @@ export default function SignUp() {
     e.preventDefault();
 
     if (password != confirm_password) {
-      setMsgError('The passwords do not match');
+      setMsgError('Şifre tekrarı uyumsuz');
       setPassword('');
       setConfirm_password('');
       return;
@@ -51,14 +51,14 @@ export default function SignUp() {
     <Page title="eNeF-Turk Kullanıcı Kayıt">
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">sign up</h3>
+          <h3 className="formTitle">Kayıt Ol</h3>
 
           {msgError && <AlertError message={msgError} />}
           <InputContainer>
             <Input
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="İsim"
               onChange={(value) => setName(value)}
               value={name}
             />
@@ -72,24 +72,24 @@ export default function SignUp() {
             <Input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Şifre"
               onChange={(value) => setPassword(value)}
               value={password}
             />
             <Input
               type="password"
               name="confirm_password"
-              placeholder="Repeat Password"
+              placeholder="Şifre Tekrar"
               onChange={(value) => setConfirm_password(value)}
               value={confirm_password}
             />
 
-            <Button type="submit" title="Sign Up" />
+            <Button type="submit" title="Kayıt Ol" />
           </InputContainer>
         </form>
 
         <Link href="/user/login">
-          <a className="switchForm">I already have a account</a>
+          <a className="switchForm">Zaten Bir Kullanıcım Var</a>
         </Link>
       </FormContainer>
 

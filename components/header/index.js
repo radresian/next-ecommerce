@@ -6,7 +6,7 @@ import HeaderDesktop from './header-desktop';
 import {useCallback} from 'react';
 import Web3 from 'web3';
 
-export default function Header() {
+export default function Header({showHeaderMovie}) {
   const { data, loading, error, refetch } = useQuery(VIEWER);
   const viewer = data?.viewer;
   const connectWallet = useCallback(()=>{
@@ -39,25 +39,27 @@ export default function Header() {
 
       <nav id="desktop">
         <HeaderDesktop viewer={viewer} connectWallet={connectWallet} />
-        <div className="header-text-container">
-          <h1>Türkiye'de Bir İlk, Türk Sanatçılarının NFT lerini Türk Lirası ile Satın Alın</h1>
-          <h2>eNeF-Turk ile bir crypto cüzdanınız olmasa bile sergilenen sanat eserlerinin NFT haklarını kredi kartınız ile hemen satın alabilirsiniz.</h2>
-          <a
-             href='#content'
-              id='header-text-button'
-                  className='header-text-button'
-          >
-            Hemen NFT lere Göz At
-          </a>
-        </div>
-        <div className="wrap">
-          <video loop autoPlay muted>
-              <source
-                src="//videos.ctfassets.net/hrltx12pl8hq/19HiBJyxSSZJvV5J5e2BT1/0576316c49ca1903bf25ea34818d7250/VHP_3-24.mp4"
-                type="video/mp4" />
-          </video>
-        </div>
-
+        {showHeaderMovie && (
+          <>
+            <div className="header-text-container">
+              <h1>Türkiye'de Bir İlk, Türk Sanatçılarının NFT lerini Türk Lirası ile Satın Alın</h1>
+              <h2>eNeF-Turk ile bir crypto cüzdanınız olmasa bile sergilenen sanat eserlerinin NFT haklarını kredi kartınız ile hemen satın alabilirsiniz.</h2>
+              <a
+                 href='#content'
+                  id='header-text-button'
+                      className='header-text-button'
+              >
+                Hemen NFT lere Göz At
+              </a>
+            </div>
+            <div className="wrap">
+              <video loop autoPlay muted>
+                  <source
+                    src="//videos.ctfassets.net/hrltx12pl8hq/19HiBJyxSSZJvV5J5e2BT1/0576316c49ca1903bf25ea34818d7250/VHP_3-24.mp4"
+                    type="video/mp4" />
+              </video>
+            </div>
+          </> )}
       </nav>
 
       <style jsx>{`
