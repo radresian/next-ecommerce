@@ -34,7 +34,7 @@ COPY server.js ./
 
 COPY Dockerfile ./
 
-RUN NODE_OPTIONS="--max-old-space-size=4096" yarn build
+RUN NODE_OPTIONS="--max-old-space-size=4196" yarn build
 
 CMD [ "sh", "-c", "NODE_ENV=production MYSQL_HOST=$MYSQL_HOST yarn start" ]
 
