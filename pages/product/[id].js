@@ -43,17 +43,22 @@ export default function Product() {
   }
 
   function placeABid(){
-    createBid({
-      variables: {
-        product_id: Number(id),
-        price
-      },
-    }).then(data => {
-      console.log('bid creat date:' + data);
-      bidsRefetch();
-    }).catch(error=>{
-      alert(error);
-    })
+    if(data.productsById[0].sellType === 'auction') {
+      createBid({
+        variables: {
+          product_id: Number(id),
+          price
+        },
+      }).then(data => {
+        console.log('bid creat date:' + data);
+        bidsRefetch();
+      }).catch(error => {
+        alert(error);
+      })
+    }else {
+      alert('Satış Sistemi Hazır Değil, Çok Yakında...')
+    }
+
     /*
     window.ethereum.enable().then(()=>{
       web3.eth.getAccounts().then(accounts=>{
@@ -133,18 +138,22 @@ export default function Product() {
               {!auctionStarted ? <p className="">Liste Fiyatı</p> : <p className="">Mevcut Teklif</p> }
               <p className="price-value">{ auctionStarted ? Number(data.productsById[0].tokenHighestBid).toFixed(2) : data.productsById[0].price} TL</p>
             </div>
-            {!auctionStarted ?
+            {!auctionStarted && data.productsById[0].sellType === 'auction' ?
               <div className="auction-section">
                 <p>Liste fiyatının üstünde bir fiyat teklifi gelince 24 saatlik bir açık artırma başlayacaktır.</p>
               </div>
               :
               <div className="status">
-                {<p className="price-header">Durum</p>}
+                <p className="price-header">Durum</p>
                 {(() => {
-                  if (auctionEnded) {
-                    return <p className="price-value1">Satıldı</p>;
-                  } else if (auctionEndDate > Date.now()) {
-                    return <p className="price-value1">{remaining}</p>;
+                  if(data.productsById[0].sellType === 'auction'){
+                    if (auctionEnded) {
+                      return <p className="price-value1">Satıldı</p>;
+                    } else if (auctionEndDate > Date.now()) {
+                      return <p className="price-value1">{remaining}</p>;
+                    }
+                  }else {
+                    return <p className="price-value1">Satılıyor</p>;
                   }
                 })()
                 }
@@ -154,6 +163,7 @@ export default function Product() {
 
           {!(auctionEnded && auctionStarted) && (
             <div className="place-bid-container">
+              {data.productsById[0].sellType === 'auction' &&
               <Input
                 width={'100%'}
                 marginBottom={'0px'}
@@ -166,13 +176,14 @@ export default function Product() {
                 onInput={maxLengthCheck}
                 onChange={(value) => setPrice(value)}
                 value={price}
-              />
-              <button className="place-bid" onClick={placeABid}>Fiyat Teklifi Ver</button>
+              />}
+
+              <button className="place-bid" onClick={placeABid}>{data.productsById[0].sellType === 'auction' ? "Fiyat Teklifi Ver" : "NFT Satın Al"}</button>
             </div>
             )
           }
 
-          {auctionEnded && bidsData?.bidsOfProduct.length && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) &&(
+          {auctionEnded && bidsData?.bidsOfProduct.length>0 && bidsData?.bidsOfProduct[0].buyer_id != bidsData?.bidsOfProduct[0].creator_id && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) && (
             <div className="place-bid-container">
               <button className="place-bid" onClick={placeABid}>NFT'yi al</button>
             </div>
@@ -227,6 +238,10 @@ export default function Product() {
           }
           .image {
             max-width: 100%
+          }
+          .price-value1 {
+            margin-top: 10px;
+            font-weight: bold;
           }
           .creator-owner-container {
             display:flex;

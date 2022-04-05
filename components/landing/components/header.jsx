@@ -7,13 +7,13 @@ export const Header = (props) => {
             <div className='row'>
               { props.language==='TR' ?
                 <div className='col-md-8 col-md-offset-2 intro-text'>
-                  <h1>
+                  <h1 style={{fontFamily: 'Orbitron, sans-serif'}}>
                     {props.data ? props.data.title1 : 'Loading'}
-                    <span>{props.data ? props.data.title2 : 'Loading'}</span>
+                    {props.data ? props.data.title2 : 'Loading'}
                     {props.data ? props.data.title3 : 'Loading'}
-                    <span>{props.data ? props.data.title4 : 'Loading'}</span>
+                    {props.data ? props.data.title4 : 'Loading'}
                     {'-'}
-                    <span>{props.data ? props.data.title5 : 'Loading'}</span>
+                    {props.data ? props.data.title5 : 'Loading'}
                     {props.data ? props.data.title6 : 'Loading'}
                   </h1>
 

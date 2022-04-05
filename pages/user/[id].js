@@ -128,12 +128,12 @@ export default function Profile() {
           font-weight: bold;
         }
         .bio {
-          margin-top: 32px; 
+          margin-top: 32px;
           font-weight: bold
         }
         .bio-divider {
-          margin-top: 16px; 
-          padding-top: 16px; 
+          margin-top: 16px;
+          padding-top: 16px;
           border-top: outset 2px
         }
         .profile-content {
@@ -141,6 +141,11 @@ export default function Profile() {
           border-top: outset 2px;
           display: flex;
           flex-direction: row;
+        }
+        @media (max-width: 900px) {
+          .profile-content {
+            flex-direction: column;
+          }
         }
         .input-description {
           align-self: flex-start;
@@ -170,14 +175,14 @@ export default function Profile() {
         .profile-img {
           position: relative;
           top: 55px;
-          left: 20px; 
+          left: 20px;
         }
         .cover-img {
           position: relative;
           width: 100%;
           height: 400px;
           justify-content: center;
-          display: flex;  
+          display: flex;
         }
         .icon {
           display:flex;

@@ -4,6 +4,7 @@ exports.seed = function (knex) {
     .del()
     .then(function () {
       // Inserts seed entries
+      /*
       return knex('bid').insert([
         {
           product_id: 1,
@@ -21,5 +22,6 @@ exports.seed = function (knex) {
           price: 650,
         },
       ]);
+      */
     });
 };

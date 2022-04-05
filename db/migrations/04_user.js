@@ -12,8 +12,8 @@ exports.up = function (knex) {
     table.boolean('creator').defaultTo(true).notNullable();
     table.string('detail').nullable();
     table.string('description').nullable();
-    table.binary('profilePhoto').nullable();
-    table.binary('coverImage').nullable();
+    table.string('profilePhoto').nullable();
+    table.string('coverImage').nullable();
     table.timestamps(true,true)
 
   });

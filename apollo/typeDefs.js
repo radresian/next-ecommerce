@@ -23,12 +23,13 @@ export const typeDefs = gql`
     description: String!
     img_url: String!
     price: String!
+    sellType: String!
     created_at: Date!
     updated_at: Date!
     creator_id: Int!
     owner_id: Int!
     tokenId:  String!
-    tokenHighestBid: String! 
+    tokenHighestBid: String!
     auctionEndTime: String!
     tokenHighestBidder: String!
     creator_userName: String

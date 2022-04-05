@@ -15,7 +15,7 @@ export default function Header({showHeaderMovie}) {
       window.ethereum.enable().then(()=>{
         web3.eth.getAccounts().then(accounts=>{
           console.log({accounts});
-          web3.eth.personal.sign('Please sign this message to connect BestDrops', accounts[0],function (err, signature) {
+          web3.eth.personal.sign('Please sign this message to connect eNeF-Turk', accounts[0],function (err, signature) {
             fetch('/api/ethereum?signature='+signature+'&address='+accounts[0]).then(data=>{
               data.text().then((text)=>{
                 if(text==='ok'){
@@ -106,7 +106,6 @@ export default function Header({showHeaderMovie}) {
           z-index: 2;
         }
         .wrap {
-          background: yellow;
           width: 100%;
           height: 23vw;
           font-size: 0;
