@@ -119,6 +119,8 @@ export const PRODUCTS_BY_IDS = gql`
       tokenHighestBidder
       creator_userName
       creator_avatar
+      category_id
+      category_name
     }
   }
 `;

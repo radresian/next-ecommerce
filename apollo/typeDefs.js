@@ -34,6 +34,8 @@ export const typeDefs = gql`
     tokenHighestBidder: String!
     creator_userName: String
     creator_avatar: String
+    category_id: String
+    category_name: String
   }
   type Category {
     id: ID!
@@ -72,11 +74,13 @@ export const typeDefs = gql`
     password: String!
   }
   input ProductInput {
+    id: ID
     name: String!
     description: String!
     img_url: String!
     price: String!
     category_id: Int!
+    sellType: String!
   }
   input UpdateProductInput {
     name: String!

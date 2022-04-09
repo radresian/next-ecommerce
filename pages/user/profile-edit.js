@@ -217,7 +217,7 @@ export default function ProfileEdit() {
               </div>
 
             </div>
-            <Button type="submit" title="Profili Düzenlee" />
+            <Button type="submit" title="Profili Düzenle" />
           </InputContainer>
         </form>
 
@@ -259,17 +259,17 @@ export default function ProfileEdit() {
           width: 40%;
           height: 200px;
           justify-content: center;
-          display: flex;  
+          display: flex;
         }
         .image {
-          object-fit: scale-down 
+          object-fit: scale-down
         }
         .cover-img {
           position: relative;
           width: 100%;
           height: 400px;
           justify-content: center;
-          display: flex;  
+          display: flex;
         }
         .icon {
           display:flex;

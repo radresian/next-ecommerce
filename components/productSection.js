@@ -30,6 +30,11 @@ export default function ProductSection({ category }) {
             padding-left: 0;
           }
         }
+        @media (min-width: 1256px) {
+          #product {
+            margin-top: 50px;
+          }
+        }
       `}</style>
     </section>
   );

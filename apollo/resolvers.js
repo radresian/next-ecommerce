@@ -9,6 +9,7 @@ import {
   UpdateProduct,
   findProductsById,
   findProductsByCreatorId,
+  checkProduct
 } from '../lib/product';
 import { bidsOfProductWithUser, createBid } from '../lib/bid'
 import { setLoginSession, getLoginSession } from '../lib/auth';
@@ -138,20 +139,23 @@ export const resolvers = {
         throw new Error('user required to create product');
       }
 
-      const user = await findUserByWallet({ wallet: session.wallet });
-
-      console.log({user})
+      const user = await findUser({ email: session.email });
 
       if (!user || !user.creator) {
         throw new Error('this user is not allowed to create product');
       }
 
-      args.input.userId=user.id;
-      args.input.creator=user.name || user.wallet;
-      try {
-        const product = await CreateProduct(args.input);
+      const foundProduct = await checkProduct(args.input.id, user);
 
-        return { product };
+      args.input.userId=user.id;
+      try {
+        if(foundProduct){
+          const product = await UpdateProduct(args.input);
+          return { product };
+        }else {
+          const product = await CreateProduct(args.input);
+          return { product };
+        }
       } catch (error) {
         throw new Error('It is not possible create a new product');
       }

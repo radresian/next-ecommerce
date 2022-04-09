@@ -14,6 +14,7 @@ exports.seed = function (knex) {
           price: 3000,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 2,
@@ -24,6 +25,7 @@ exports.seed = function (knex) {
           price: 2500,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 3,
@@ -34,6 +36,7 @@ exports.seed = function (knex) {
           price: 2500,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 4,
@@ -44,16 +47,18 @@ exports.seed = function (knex) {
           price: 4000,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 5,
-          name: 'eNeF-Turk Logo',
-          description: 'eNeF-Turk Logo NFT. Uygulama logosunun temsili sahipligini siz alin.',
-          img_url: '/img/logo.png',
+          name: 'eNeF-Turk Teknoloji',
+          description: 'eNeF-Turk Teknoloji alt yapisi.',
+          img_url: '/img/nft-2.jpeg',
           sellType: 'fixed',
           price: 3500,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 6,
@@ -64,6 +69,7 @@ exports.seed = function (knex) {
           price: 2000,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 7,
@@ -74,6 +80,7 @@ exports.seed = function (knex) {
           price: 2500,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         },
         {
           id: 8,
@@ -84,6 +91,7 @@ exports.seed = function (knex) {
           price: 2000,
           creator_id: 1,
           owner_id: 1,
+          category_id: 1,
         }
       ]);
     });

@@ -35,6 +35,9 @@ export default function Profile() {
     <Page title="eNeF-Turk Kullanıcı Profili">
       {user &&
       <div className="container">
+        <div className="cover-img">
+          <img src={user.coverImage || '/img/chain2.jpeg'} style={{objectFit: 'cover', width: '100%'}} />
+        </div>
 
         <div className="profile-img">
           <img src={user.profilePhoto || '/img/logo.png'} width="200" height="200" style={{borderRadius:200}} />
@@ -178,9 +181,10 @@ export default function Profile() {
           left: 20px;
         }
         .cover-img {
-          position: relative;
+          position: absolute;
+          top: 62px;
           width: 100%;
-          height: 400px;
+          height: 233px;
           justify-content: center;
           display: flex;
         }

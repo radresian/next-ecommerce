@@ -28,13 +28,9 @@ export default function Page({ title, description, children, showHeaderMovie = f
           flex-direction: column;
           width: 100%;
           background: #fafafa;
-          padding-top: 50px;
+          padding-top: 0;
         }
-        @media (max-width: 1256px) {
-          .content {
-            padding-top: 0;
-          }
-        }
+
       `}</style>
     </PageContainer>
   );

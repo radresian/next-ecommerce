@@ -20,7 +20,7 @@ import Datetime from 'react-datetime';
 import {
   MdCloudUpload
 } from 'react-icons/md';
-import {CATEGORIES, VIEWER} from '../../apollo/client/queries';
+import {CATEGORIES, PRODUCTS_BY_IDS, VIEWER} from '../../apollo/client/queries';
 
 const customStyles = {
   container: (provided, state) => ({
@@ -41,24 +41,40 @@ const saleOptions = [
   { value: 'auction', label: 'Auction' }
 ]
 
-export default function Create() {
+export default function Create({id=0}) {
   const [createProduct] = useMutation(CREATE_PRODUCT);
   let { data: cData, loading: cLoading, error: cError } = useQuery(CATEGORIES);
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [price, setPrice] = useState('');
-  const [priceType, setPriceType] = useState('');
-  const [category, setCategory] = useState(1);
+  const [priceType, setPriceType] = useState('fixed');
+  const [category, setCategory] = useState({});
   const [file, setFile] = useState(null);
   const [msgError, setMsgError] = useState('');
   const [msgSuccess, setMsgSuccess] = useState('');
   const [auctionStart, setStartChange] = useState(null);
   const [auctionEnd, setEndChange] = useState(null);
 
+  const { data: productsByIdData } = useQuery(PRODUCTS_BY_IDS, {
+    variables: {
+      id,
+    },
+  });
 
   const { data, loading, error } = useQuery(VIEWER);
   const viewer = data?.viewer;
+  const product = productsByIdData?.productsById[0];
 
+  useEffect(()=>{
+    if(product){
+      setName(product.name);
+      setDesc(product.description);
+      setPriceType(product.sellType);
+      setPrice(product.price);
+      setCategory({value: product.category_id, label:product.category_label});
+      setFile(product.img_url);
+    }
+  },[product]);
   const router = useRouter();
 
   async function handleSubmit(e) {
@@ -68,15 +84,18 @@ export default function Create() {
     try {
       const result = await createProduct({
         variables: {
+          id,
           name: name.trim(),
           description: desc.trim(),
           price,
+          sellType: priceType,
           file,
           category_id: Number(category.value)
         }
       });
       setMsgSuccess('NFT sale created successfully');
       console.log({result});
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     } catch (error) {
       setMsgError(getErrorMessage(error));
     }
@@ -109,10 +128,10 @@ export default function Create() {
 
   return !loading && !cLoading && (
     <Page>
-      {viewer ?
+      {viewer && (!id || viewer.id == product?.creator_id) ?
       <FormContainer>
         <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">NFT Yap</h3>
+          <h3 className="formTitle">{product ? 'NFT Düzenle' : 'NFT Yap'}</h3>
 
           {msgError && <AlertError message={msgError} />}
           {msgSuccess && <AlertSuccess message={msgSuccess} />}
@@ -149,15 +168,15 @@ export default function Create() {
               />
             </div>
             <div className='inputContainer'>
-              <Select styles={customStyles} placeholder='Kategori Seç...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(val)=>{setCategory(val)}}>
+              <Select styles={customStyles} placeholder='Kategori Seç...' options={cData.categories.map(category=>({value:category.id, label:category.label}))} value={category} onChange={(selected)=>{setCategory(selected)}}>
               </Select>
             </div>
             <div className='inputContainer'>
               <Input
                 type="number"
-                min="0.01"
-                max="999"
-                step="0.01"
+                min="0"
+                max="99999999"
+                step="1"
                 name="price"
                 placeholder="Liste Fiyatı"
                 onInput={maxLengthCheck}
@@ -168,7 +187,7 @@ export default function Create() {
             <div className='reserve-price-text'>
               <span>Liste fiyatının üstünde bir fiyat teklifi gelince 24 saatlik bir açık artırma başlayacaktır.</span>
             </div>
-            <Button type="submit" title="NFT Oluştur" />
+            <Button type="submit" title={id ? 'NFT Düzenle' : 'NFT Oluştur'} />
           </InputContainer>
         </form>
 
@@ -214,7 +233,7 @@ export default function Create() {
           width: 100%;
           height: 500px;
           justify-content: center;
-          display: flex;  
+          display: flex;
         }
         form .formTitle {
           text-align: center;
@@ -230,7 +249,7 @@ export default function Create() {
           margin-top: 12px;
           font-weight: 500;
         }
-        
+
         @media (min-width: 500px) {
           .dateConntainer {
             display:flex;

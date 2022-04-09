@@ -42,6 +42,10 @@ export default function Product() {
     }
   }
 
+  function editProduct(){
+    router.replace('/edit-product/'+id)
+  }
+
   function placeABid(){
     if(data.productsById[0].sellType === 'auction') {
       createBid({
@@ -169,15 +173,18 @@ export default function Product() {
                 marginBottom={'0px'}
                 type="number"
                 min={data.productsById[0].price}
-                max="999"
-                step="0.01"
+                max="99999999"
+                step="1"
                 name="price"
                 placeholder="Fiyat Teklifini Girin"
                 onInput={maxLengthCheck}
                 onChange={(value) => setPrice(value)}
                 value={price}
               />}
-
+              { data.productsById[0].creator_id === Number(viewerData?.viewer?.id) &&
+                <button className="edit-product place-bid" onClick={editProduct}>Ürünü
+                  Düzenle</button>
+              }
               <button className="place-bid" onClick={placeABid}>{data.productsById[0].sellType === 'auction' ? "Fiyat Teklifi Ver" : "NFT Satın Al"}</button>
             </div>
             )
@@ -189,6 +196,7 @@ export default function Product() {
             </div>
             )
           }
+
 
           <div className="bid-container">
             { !bidsLoading && bidsData?.bidsOfProduct && bidsData?.bidsOfProduct.map((bid, index)=>
@@ -344,6 +352,9 @@ export default function Product() {
             font-size: 18px;
             background-color: #021e66;
             color: white;
+          }
+          .edit-product{
+            background-color: #22ab42;
           }
           .return-bid {
             border-radius: 9999px;

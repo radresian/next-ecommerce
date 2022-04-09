@@ -21,7 +21,7 @@ export default function HeaderMobile({ viewer }) {
         .header-mobile {
           display: flex;
           align-items: center;
-          padding: 18px 48px;
+          padding-left: 48px;
         }
       `}</style>
     </div>

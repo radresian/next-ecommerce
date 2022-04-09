@@ -25,8 +25,8 @@ export const SIGN_UP = gql`
 `;
 
 export const CREATE_PRODUCT = gql`
-  mutation CreateProductMutation($name: String!, $description: String!, $price: String!, $file: String!, $category_id: Int!) {
-    createProduct(input: { name: $name, description: $description, price: $price, img_url: $file, category_id: $category_id }) {
+  mutation CreateProductMutation($id: ID, $name: String!, $description: String!, $price: String!, $file: String!, $category_id: Int!, $sellType: String!) {
+    createProduct(input: {id:$id, name: $name, description: $description, price: $price, img_url: $file, category_id: $category_id, sellType: $sellType }) {
       product {
         id
         name
