@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import {useQuery} from '@apollo/client';
-import {PRODUCTS_BY_CREATOR_ID, USER, VIEWER} from '../../apollo/client/queries';
+import {USERS} from '../../apollo/client/queries';
 import ProductsGrid from '../../components/productsGrid';
 import ProductItem from '../../components/productItem';
 
@@ -10,66 +10,36 @@ import {
   FaInstagram
 } from 'react-icons/fa';
 
-export default function Profile() {
-
+export default function Users() {
   const router = useRouter();
-  const { id } = router.query;
-  const { data, loading, error } = useQuery(VIEWER);
-  const { data: userData, loading: userLoading, error: userError } = useQuery(USER, {
+  const { data, loading, error } = useQuery(USERS, {
     variables: {
-      id:Number(id),
-    },
-  });
-  const { data: productsData, loading: productsLoading, error: productsError } = useQuery(PRODUCTS_BY_CREATOR_ID, {
-    variables: {
-      id:Number(id),
+      creator:true,
     },
   });
 
-  const viewer = data?.viewer;
-  const user =userData?.userById;
-  const products = productsData?.productsByCreatorId || [];
+  const users = data?.users || [];
 
 
   return (
-    <Page title="eNeF-Turk Kullanıcı Profili">
-      {user &&
+    <Page title="eNeF-Turk Sanatçılar">
       <div className="container">
         <div className="cover-img">
-          <img src={user.coverImage || '/img/chain2.jpeg'} style={{objectFit: 'cover', width: '100%'}} />
+          <img src={'/img/chain2.jpeg'} style={{objectFit: 'cover', width: '100%'}} />
         </div>
 
         <div className="profile-img">
-          <img src={user.profilePhoto || '/img/logo.png'} width="200" height="200" style={{borderRadius:200}} />
+          <img src={'/img/logo.png'} width="200" height="200" style={{borderRadius:200}} />
         </div>
         <div className="profile-content">
-          <div className="user-info">
-            <h1 className="user-name">@{user.userName}</h1>
-            <h2 className="name">{user.name}</h2>
-            <div className="twitter-container">
-              <span className="twitter">{user.twitter}</span>
-              <FaTwitter />
-            </div>
-            <div className="twitter-container">
-              <span className="twitter">{user.instagram}</span>
-              <FaInstagram />
-            </div>
-            <h2 className="bio">Sanatçı Hakkında</h2>
-
-
-            <div className="bio-divider">
-              <span className="description">{user.description}</span>
-            </div>
-
-          </div>
           <div className="items">
-            <h2 className="name">Sanat Eserleri</h2>
+            <h2 className="name">Sanatçılar</h2>
             <div className="items-container">
               <ProductsGrid>
-                {products.map((product) => (
+                {users.map((user) => (
                   <ProductItem
-                    key={product.id}
-                    product={product}
+                    key={user.id}
+                    product={{creator_id:user.id, twitter:user.twitter, instagram:user.instagram, name:user.name, creator_userName: user.userName, img_url:user.coverImage || user.profilePhoto, isProfile : true}}
                   />
                 ))}
               </ProductsGrid>
@@ -80,7 +50,6 @@ export default function Profile() {
 
 
         </div>
-      }
 
       <style jsx>{`
         .container {

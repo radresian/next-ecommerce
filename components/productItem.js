@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link';
+import {FaInstagram, FaTwitter} from "react-icons/fa";
 
 export function useAuction(auctionEndTime) {
 
@@ -36,7 +37,7 @@ export function useAuction(auctionEndTime) {
 }
 
 export default function ProductItem(props) {
-  const { id, name, img_url, price, creator_userName, user_id, auctionEndTime, tokenHighestBid } = props.product;
+  const { id, name, img_url, price, creator_userName, creator_id, auctionEndTime, tokenHighestBid, isProfile = false, twitter, instagram } = props.product;
 
   const [remaining, auctionStarted, auctionEnded, auctionEndDate] = useAuction(auctionEndTime);
 
@@ -50,7 +51,7 @@ export default function ProductItem(props) {
       <div className="product-img">
         <div className="image-aligner"></div>
         <div className="image-container">
-          <Link href={`/product/${id}`} >
+          <Link href={id ? `/product/${id}` : `/user/${creator_id}`} >
             <img src={img_url} className="image" />
           </Link>
         </div>
@@ -58,20 +59,31 @@ export default function ProductItem(props) {
 
       <div className="image-bottom">
         <div className='info-container'>
-          <Link href={`/product/${id}`}>
+          <Link href={id ? `/product/${id}` : `/user/${creator_id}`}>
             <a className="product-name">{name}</a>
           </Link>
 
-          <Link href={`/creator/${user_id}`}>
+          <Link href={`/user/${creator_id}`}>
             <a className="creator">@{creator_userName}</a>
           </Link>
         </div>
 
         <div className="price-container">
-          <div className="price">
+          { isProfile ?
+            <div className="social">
+              <div className="twitter-container">
+                <span className="twitter">{twitter}</span>
+                <FaTwitter />
+              </div>
+              <div className="twitter-container">
+                <span className="twitter">{instagram}</span>
+                <FaInstagram />
+              </div>
+            </div> :
+            <div className="price">
             {auctionStarted ? <p className="price-header">Mevcut Teklif</p>: <p className="price-header">Fiyat</p>}
             <p className="price-value1">{auctionStarted ? (props.web3 ? Number(props.web3.utils.fromWei(tokenHighestBid)).toFixed(2) : Number(tokenHighestBid).toFixed()) : price} {props.web3 ? 'ETH' : 'TL'}</p>
-          </div>
+          </div> }
           {auctionStarted &&
             <div className="status">
               { <p className="price-header">Durum</p> }
@@ -99,6 +111,23 @@ export default function ProductItem(props) {
           cursor: pointer;
           border-radius: 20px;
         }
+        .social {
+          display: flex;
+        }
+        .twitter {
+          margin-right: 8px;
+        }
+        .twitter-container {
+          display: inline-flex;
+          padding-left: 16px;
+          padding-right: 16px;
+          flex-direction: row;
+          align-items: center;
+          border-radius: 9999px;
+          height: 60px;
+          font-size: 16px;
+          font-weight: bold;
+        }
         .image {
           display: block;
           object-fit: cover;
@@ -121,7 +150,7 @@ export default function ProductItem(props) {
         .image-bottom {
           display:flex;
           flex-direction: column;
-          height:140px;    
+          height:140px;
           width:100%;
         }
         .info-container {
@@ -142,7 +171,7 @@ export default function ProductItem(props) {
           justify-content: space-around;
           border-bottom-left-radius: 20px;
           border-bottom-right-radius: 20px;
-          height:800px;    
+          height:800px;
         }
         .top-buttons {
           margin-bottom: 24px;

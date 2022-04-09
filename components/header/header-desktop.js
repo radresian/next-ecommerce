@@ -19,6 +19,11 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
 
         <div className="nav-buttons">
           <a
+            href='/user/users'
+          >
+            Sanatçılar
+          </a>
+          <a
             href='/'
           >
             eNeF-Turk Hakkında
@@ -159,7 +164,7 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
           font-weight: 500;
           font-size: 14px;
           text-decoration: none;
-          color: #808080;
+          color: white;
         }
         .nav-buttons .items-total {
           font-size: 12px;

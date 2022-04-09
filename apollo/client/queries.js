@@ -82,6 +82,23 @@ export const USER = gql`
   }
 `;
 
+export const USERS = gql`
+  query UserSQuery($creator: Boolean) {
+    users(creator: $creator) {
+      id
+      wallet
+      name
+      userName
+      twitter
+      instagram
+      creator
+      description
+      profilePhoto
+      coverImage
+    }
+  }
+`;
+
 export const PRODUCTS = gql`
   query ProductsQuery($field: String!, $order: String!, $category: String) {
     products(sort: { field: $field, order: $order }, category: $category) {

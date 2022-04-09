@@ -108,7 +108,7 @@ export const typeDefs = gql`
 
   type Query {
     user(id: ID!): User!
-    users: [User]!
+    users(creator: Boolean): [User]!
     viewer: User
     userById(id: Int!): User
     products(sort: [Sort!], category: String): [Product]!
