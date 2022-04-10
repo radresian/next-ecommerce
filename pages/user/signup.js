@@ -58,7 +58,7 @@ export default function SignUp() {
             <Input
               type="text"
               name="name"
-              placeholder="İsim"
+              placeholder="Nick (Takma Ad)"
               onChange={(value) => setName(value)}
               value={name}
             />
