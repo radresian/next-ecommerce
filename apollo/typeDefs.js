@@ -122,6 +122,7 @@ export const typeDefs = gql`
     updateProfile(input: ProfileInput!): SignUpPayload!
     signUp(input: SignUpInput!): SignUpPayload!
     signIn(input: SignInInput!): SignInPayload!
+    activateUser(confirmationToken: String!): SignUpPayload!
     signOut: Boolean!
     createProduct(input: ProductInput!): ProductPayload
     deleteProduct(id: ID!): Boolean!

@@ -6,7 +6,6 @@ exports.seed = function (knex) {
       // Inserts seed entries
       return knex('product').insert([
         {
-          id: 1,
           name: 'eNeF-Turk ilk',
           description: 'eNeF-Turk uygulama satisa sunulan ilk NFT\'si.',
           img_url: '/img/chain2.jpeg',
@@ -17,7 +16,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 2,
           name: 'eNeF-Turk Hakkimizda',
           description: 'eNeF-Turk uygulamasinin hakkimizda sayfasini temsil eden NFT',
           img_url: '/img/nft_1320x742.jpeg',
@@ -28,7 +26,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 3,
           name: 'eNeF-Turk NFT Cesitleri',
           description: 'eNeF-Turk uygulamasinin cesitliligini temsil eden NFT',
           img_url: '/img/nft-01.png',
@@ -39,7 +36,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 4,
           name: 'eNeF-Turk Global',
           description: 'eNeF-Turk uygulamasini global olarak temsil eden NFT',
           img_url: '/img/about-chain.jpeg',
@@ -50,7 +46,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 5,
           name: 'eNeF-Turk Teknoloji',
           description: 'eNeF-Turk Teknoloji alt yapisi.',
           img_url: '/img/nft-2.jpeg',
@@ -61,7 +56,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 6,
           name: 'eNeF-Turk NFT Dunyasina Giris',
           description: 'eNeF-Turk uygulamasi ile NFT dunyasina girisin temsili.',
           img_url: '/img/enter-NFT.jpeg',
@@ -72,7 +66,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 7,
           name: 'eNeF-Turk Dijital Altin',
           description: 'eNeF-Turk uygulamasi ile alacaginiz NFT ler yeni dunyanin dijital altini.',
           img_url: '/img/NFT-gold.png',
@@ -83,7 +76,6 @@ exports.seed = function (knex) {
           category_id: 1,
         },
         {
-          id: 8,
           name: 'eNeF-Turk ile acik artirma',
           description: 'eNeF-Turk uygulamasi ile sanatcilarimiza acik artirma ile satis imkani.',
           img_url: '/img/auction.jpeg',

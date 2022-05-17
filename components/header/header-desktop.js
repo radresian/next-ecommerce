@@ -39,17 +39,19 @@ export default function HeaderDesktop({ viewer, connectWallet }) {
 
           {viewer ? (
             <>
-            <Link href="/create">
-              <button id='header-button-create'
-                 className='btn-custom'
-              >
-                NFT Yap
-              </button>
-            </Link>
+              {viewer.creator &&
+                <Link href="/create">
+                  <button id='header-button-create'
+                     className='btn-custom'
+                  >
+                    NFT Yap
+                  </button>
+                </Link>
+              }
               <Link href="/user/profile-edit">
                 <a className="nav-buttons-profile">
                   <FaUser color="#808080" />
-                  <p>{viewer.name}</p>
+                  <p>{viewer.userName}</p>
                 </a>
               </Link>
               <Link href="/user/signout">

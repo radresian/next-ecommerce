@@ -12,6 +12,18 @@ export const SIGN_IN = gql`
   }
 `;
 
+export const ACTIVATE = gql`
+  mutation ActivateMutation($confirmationToken: String!) {
+    activateUser(confirmationToken: $confirmationToken) {
+      user {
+        id
+        name
+        email
+      }
+    }
+  }
+`;
+
 export const SIGN_UP = gql`
   mutation SignUpMutation($name: String!, $email: String!, $password: String!) {
     signUp(input: { name: $name, email: $email, password: $password }) {

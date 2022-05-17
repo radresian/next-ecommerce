@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   knex.schema.dropTable('user');
   return knex.schema.createTable('user', function (table) {
-    table.string('id').primary();
+    table.increments('id').primary();
     table.string('name').nullable();
     table.string('userName').nullable();
     table.string('password').nullable();
@@ -10,6 +10,7 @@ exports.up = function (knex) {
     table.string('twitter').unique().nullable();
     table.string('instagram').nullable();
     table.boolean('creator').defaultTo(true).notNullable();
+    table.boolean('active').defaultTo(false).notNullable();
     table.string('detail').nullable();
     table.string('description').nullable();
     table.string('profilePhoto').nullable();

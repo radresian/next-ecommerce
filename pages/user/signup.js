@@ -21,6 +21,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [confirm_password, setConfirm_password] = useState('');
   const [msgError, setMsgError] = useState('');
+  const [registerSuccess, setRegisterSuccess] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -40,8 +41,7 @@ export default function SignUp() {
           password: password.trim(),
         },
       });
-
-      router.push('/user/login');
+      setRegisterSuccess(true);
     } catch (error) {
       setMsgError(getErrorMessage(error));
     }
@@ -49,50 +49,63 @@ export default function SignUp() {
 
   return (
     <Page title="eNeF-Turk Kullanıcı Kayıt">
-      <FormContainer>
-        <form onSubmit={handleSubmit}>
-          <h3 className="formTitle">Kayıt Ol</h3>
+      {registerSuccess ?
+        <FormContainer>
+          <form>
+            <h3 className="formTitle">Kayıt Başarılı</h3>
+            <span>
+              Emailinize gelen aktivasyon maili ile kullanıcınızı aktive ettikten sonra {' '}
+              <Link href="/user/login">
+                <a className="switchForm">Giriş</a>
+              </Link> Yapabilirsiniz
+            </span>
+          </form>
+        </FormContainer>
+        :
+        <FormContainer>
+          <form onSubmit={handleSubmit}>
+            <h3 className="formTitle">Kayıt Ol</h3>
 
-          {msgError && <AlertError message={msgError} />}
-          <InputContainer>
-            <Input
-              type="text"
-              name="name"
-              placeholder="Nick (Takma Ad)"
-              onChange={(value) => setName(value)}
-              value={name}
-            />
-            <Input
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={(value) => setEmail(value)}
-              value={email}
-            />
-            <Input
-              type="password"
-              name="password"
-              placeholder="Şifre"
-              onChange={(value) => setPassword(value)}
-              value={password}
-            />
-            <Input
-              type="password"
-              name="confirm_password"
-              placeholder="Şifre Tekrar"
-              onChange={(value) => setConfirm_password(value)}
-              value={confirm_password}
-            />
+            {msgError && <AlertError message={msgError}/>}
+            <InputContainer>
+              <Input
+                type="text"
+                name="name"
+                placeholder="Nick (Takma Ad)"
+                onChange={(value) => setName(value)}
+                value={name}
+              />
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(value) => setEmail(value)}
+                value={email}
+              />
+              <Input
+                type="password"
+                name="password"
+                placeholder="Şifre"
+                onChange={(value) => setPassword(value)}
+                value={password}
+              />
+              <Input
+                type="password"
+                name="confirm_password"
+                placeholder="Şifre Tekrar"
+                onChange={(value) => setConfirm_password(value)}
+                value={confirm_password}
+              />
 
-            <Button type="submit" title="Kayıt Ol" />
-          </InputContainer>
-        </form>
+              <Button type="submit" title="Kayıt Ol"/>
+            </InputContainer>
+          </form>
 
-        <Link href="/user/login">
-          <a className="switchForm">Zaten Bir Kullanıcım Var</a>
-        </Link>
-      </FormContainer>
-
+          <Link href="/user/login">
+            <a className="switchForm">Zaten Bir Kullanıcım Var</a>
+          </Link>
+        </FormContainer>
+      }
       <style jsx>{`
         form {
           width: 100%;

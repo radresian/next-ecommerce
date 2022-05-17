@@ -1,5 +1,5 @@
 import { AuthenticationError, UserInputError } from 'apollo-server-micro';
-import { createUser, findUser, findUsers, validatePassword, updateUser } from '../lib/user';
+import { createUser, findUser, findUsers, validatePassword, updateUser, activateUser } from '../lib/user';
 import { listCategories } from '../lib/category';
 import {
   listProducts,
@@ -112,6 +112,14 @@ export const resolvers = {
       const user = await createUser(args.input);
       return { user };
     },
+    async activateUser(_parent, args, _context, _info) {
+      const user = await activateUser(args.confirmationToken);
+      if(user){
+        return { user };
+      }else {
+        throw new Error('Activation Error')
+      }
+    },
     async signIn(_parent, args, context, _info) {
       const user = await findUser({ email: args.input.email });
 
@@ -120,7 +128,9 @@ export const resolvers = {
           id: user.id,
           email: user.email,
         };
-
+        if(!user.active){
+          throw new Error('User Not Active');
+        }
         await setLoginSession(context.res, session);
 
         return { user };

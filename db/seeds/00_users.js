@@ -9,7 +9,6 @@ exports.seed = async function (knex) {
       // Inserts seed entries
       return knex('user').insert([
         {
-          id: 1,
           name: 'eNeF-Turk',
           userName: 'eNeF-Turk',
           email: 'admin@enefturk.com',
@@ -21,7 +20,7 @@ exports.seed = async function (knex) {
           detail: '{}',
           description: 'eNeF-Turk uygulama resmi yöneticisi',
           profilePhoto: '/img/logo.png',
-          coverImage: '/img/logo.jpeg'
+          coverImage: '/img/nft.webp'
         }
       ]);
     });
