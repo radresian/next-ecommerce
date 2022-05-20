@@ -14,7 +14,7 @@ import Link from 'next/link';
 export default function Product() {
   const router = useRouter();
   const { id } = router.query;
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState('0');
   const web3 = useWeb3();
   const [createBid] = useMutation(CREATE_BID);
   const { data: viewerData, loading: loadingViewer, error: errorViewer } = useQuery(VIEWER);
@@ -47,7 +47,7 @@ export default function Product() {
   }
 
   function placeABid(){
-    if(data.productsById[0].sellType === 'auction') {
+    if(true || data.productsById[0].sellType === 'auction') {
       createBid({
         variables: {
           product_id: Number(id),
@@ -157,7 +157,11 @@ export default function Product() {
                       return <p className="price-value1">{remaining}</p>;
                     }
                   }else {
-                    return <p className="price-value1">Satılıyor</p>;
+                    if(auctionEnded){
+                      return <p className="price-value1">Satıldı</p>;
+                    }else {
+                      return <p className="price-value1">Satılıyor</p>;
+                    }
                   }
                 })()
                 }
@@ -185,12 +189,12 @@ export default function Product() {
                 <button className="edit-product place-bid" onClick={editProduct}>Ürünü
                   Düzenle</button>
               }
-              <button className="place-bid" onClick={placeABid}>{data.productsById[0].sellType === 'auction' ? "Fiyat Teklifi Ver" : "NFT Satın Al"}</button>
+              <button className="place-bid" onClick={placeABid}>{data.productsById[0].sellType === 'auction' ? 'Fiyat Teklifi Ver' : 'NFT Satın Al'}</button>
             </div>
             )
           }
 
-          {auctionEnded && bidsData?.bidsOfProduct.length>0 && bidsData?.bidsOfProduct[0].buyer_id != bidsData?.bidsOfProduct[0].creator_id && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) && (
+          {data.productsById[0].sellType === 'auction' && auctionEnded && bidsData?.bidsOfProduct.length>0 && bidsData?.bidsOfProduct[0].buyer_id != bidsData?.bidsOfProduct[0].creator_id && bidsData?.bidsOfProduct[0].buyer_id === Number(viewerData?.viewer?.id) && (
             <div className="place-bid-container">
               <button className="place-bid" onClick={placeABid}>NFT'yi al</button>
             </div>
