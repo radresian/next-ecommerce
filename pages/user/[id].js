@@ -1,7 +1,12 @@
 import { useRouter } from 'next/router';
 import Page from '../../components/page';
 import {useQuery} from '@apollo/client';
-import {PRODUCTS_BY_CREATOR_ID, USER, VIEWER} from '../../apollo/client/queries';
+import {
+  PRODUCTS_BY_BUYER_ID,
+  PRODUCTS_BY_CREATOR_ID,
+  USER,
+  VIEWER
+} from '../../apollo/client/queries';
 import ProductsGrid from '../../components/productsGrid';
 import ProductItem from '../../components/productItem';
 
@@ -26,9 +31,16 @@ export default function Profile() {
     },
   });
 
+  const { data: boughtProductsData, loading: boughtProductsLoading, error: boughtProductsError } = useQuery(PRODUCTS_BY_BUYER_ID, {
+    variables: {
+      id:Number(id),
+    },
+  });
+
   const viewer = data?.viewer;
   const user =userData?.userById;
   const products = productsData?.productsByCreatorId || [];
+  const boughtProducts = boughtProductsData?.productsByBuyerId || [];
 
 
   return (
@@ -54,7 +66,7 @@ export default function Profile() {
               <span className="twitter">{user.instagram}</span>
               <FaInstagram />
             </div>
-            <h2 className="bio">Sanatçı Hakkında</h2>
+            <h2 className="bio">{user.creator ? 'Sanatçı' : 'Kullanıcı'} Hakkında</h2>
 
 
             <div className="bio-divider">
@@ -63,17 +75,36 @@ export default function Profile() {
 
           </div>
           <div className="items">
-            <h2 className="name">Sanat Eserleri</h2>
-            <div className="items-container">
-              <ProductsGrid>
-                {products.map((product) => (
-                  <ProductItem
-                    key={product.id}
-                    product={product}
-                  />
-                ))}
-              </ProductsGrid>
-            </div>
+            {products.length>0 &&
+              <>
+                <h2 className="name">Sanat Eserleri</h2>
+                <div className="items-container">
+                  <ProductsGrid>
+                    {products.map((product) => (
+                      <ProductItem
+                        key={product.id}
+                        product={product}
+                      />
+                    ))}
+                  </ProductsGrid>
+                </div>
+              </>
+            }
+            {boughtProducts.length>0 &&
+              <>
+                <h2 className="name">Satın Alınanlar</h2>
+                <div className="items-container">
+                  <ProductsGrid>
+                    {boughtProducts.map((product) => (
+                      <ProductItem
+                        key={product.id}
+                        product={product}
+                      />
+                    ))}
+                  </ProductsGrid>
+                </div>
+              </>
+            }
           </div>
 
         </div>

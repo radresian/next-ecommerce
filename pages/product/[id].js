@@ -55,6 +55,7 @@ export default function Product() {
         },
       }).then(data => {
         console.log('bid creat date:' + data);
+        refetch();
         bidsRefetch();
       }).catch(error => {
         alert(error);
@@ -135,6 +136,20 @@ export default function Product() {
             <h3 className="product-description">
               {data.productsById[0].description}
             </h3>
+            {(auctionEnded && auctionStarted) && (
+              <div className="links">
+                <Link href={'https://rinkeby.etherscan.io/address/0xeeee65a6f4f27ef32a8ac50163584919f18e8592'} passHref>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <span style={{margin:15, fontWeight:'bold', cursor: 'pointer'}}>Etherscan</span>
+                  </a>
+                </Link>
+                <Link href={'https://testnets.opensea.io/assets/rinkeby/0xeeee65a6f4f27ef32a8ac50163584919f18e8592/'+id} passHref>
+                  <a target="_blank" rel="noopener noreferrer">
+                    <span style={{margin:15, fontWeight:'bold', cursor: 'pointer'}}>Opensea</span>
+                  </a>
+                </Link>
+              </div>
+            )}
           </div>
           <div className="price-contianer">
 
@@ -157,7 +172,7 @@ export default function Product() {
                       return <p className="price-value1">{remaining}</p>;
                     }
                   }else {
-                    if(auctionEnded){
+                    if(auctionStarted && auctionEnded){
                       return <p className="price-value1">Satıldı</p>;
                     }else {
                       return <p className="price-value1">Satılıyor</p>;
@@ -258,6 +273,10 @@ export default function Product() {
           .creator-owner-container {
             display:flex;
             flex-direction: row;
+          }
+          .links {
+            margin-top: 16px;
+            margin-bottom: 16px;
           }
           .creator-owner {
             display:flex;

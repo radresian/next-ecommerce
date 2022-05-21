@@ -114,6 +114,7 @@ export const typeDefs = gql`
     products(sort: [Sort!], category: String): [Product]!
     productsById(id: [ID]): [Product!]
     productsByCreatorId(id: ID): [Product!]
+    productsByBuyerId(id: ID): [Product!]
     product(id: ID!): Product
     categories: [Category]!
     bidsOfProduct(product_id: Int!): [Bid]

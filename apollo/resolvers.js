@@ -9,6 +9,7 @@ import {
   UpdateProduct,
   findProductsById,
   findProductsByCreatorId,
+  findProductsByBuyerId,
   checkProduct
 } from '../lib/product';
 import { bidsOfProductWithUser, createBid } from '../lib/bid'
@@ -79,7 +80,16 @@ export const resolvers = {
         console.log({error})
         throw new Error('It is not possible list products');
       }
-    },    async product(_parent, args, _context, _info) {
+    },
+    async productsByBuyerId(_parent, args, _context, _info) {
+      try {
+        return await findProductsByBuyerId({ id: args.id });
+      } catch (error) {
+        console.log({error})
+        throw new Error('It is not possible list products');
+      }
+    },
+    async product(_parent, args, _context, _info) {
       try {
         return findProduct({ id: args.id });
       } catch (error) {
