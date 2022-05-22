@@ -39,7 +39,7 @@ export default function Users() {
                 {users.map((user) => (
                   <ProductItem
                     key={user.id}
-                    product={{creator_id:user.id, twitter:user.twitter, instagram:user.instagram, name:user.name, creator_userName: user.userName, img_url:user.coverImage || user.profilePhoto, isProfile : true}}
+                    product={{creator_id:user.id, twitter:user.twitter, instagram:user.instagram, name:user.name, creator_userName: user.userName, img_url:user.profilePhoto || user.coverImage, isProfile : true}}
                   />
                 ))}
               </ProductsGrid>

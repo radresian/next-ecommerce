@@ -139,7 +139,7 @@ export default function Create({id=0}) {
           <InputContainer>
             {file &&
             <div className="product-img">
-              <Image src={file} layout='fill' objectFit='scale-down' />
+              <img src={file} style={{objectFit: 'cover', width: '100%'}} />
             </div>
             }
             <label className="custom-file-upload">

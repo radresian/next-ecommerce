@@ -90,7 +90,7 @@ export default function Profile() {
                 </div>
               </>
             }
-            {boughtProducts.length>0 &&
+            {!user.creator &&
               <>
                 <h2 className="name">Satın Alınanlar</h2>
                 <div className="items-container">
